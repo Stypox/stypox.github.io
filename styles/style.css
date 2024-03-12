@@ -1,0 +1,333 @@
+/* Theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1B1C18;
+        --on-background: #E3E3DB;
+        --surface: #212617;
+        --on-surface: #E3E3DB;
+        --primary: #84DD00;
+        --on-primary: #1D3700;
+        --secondary: #2C5000;
+        --on-secondary: #9CFB29;
+        --monochrome-icon-invert: 1;
+    }
+}
+@media not (prefers-color-scheme: dark) {
+    :root {
+        --background: #FDFCF5;
+        --on-background: #1B1C18;
+        --surface: #F3F4E8;
+        --on-surface: #1B1C18;
+        --primary: #3C6A00;
+        --on-primary: #FFFFFF;
+        --secondary: #DBE7C8;
+        --on-secondary: #151E0B;
+        --monochrome-icon-invert: 0;
+    }
+}
+
+/* Responsive UI */
+@media (min-width: 800px) {
+    :root {
+        --margin-big: 24px;
+        --margin-medium: 16px;
+    }
+    .home_page {
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        column-gap: var(--margin-big);
+    }
+    .home_page_header {
+        margin: auto;
+        height: fit-content;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+    .home_page_content {
+        height: fit-content;
+    }
+}
+@media not (min-width: 800px) {
+    :root {
+        --margin-big: 16px;
+        --margin-medium: 12px;
+    }
+    .home_page_header {
+        text-align: center;
+    }
+    .header_links {
+        margin: auto;
+    }
+    .home_page_content {
+        margin-top: var(--margin-big);
+    }
+    .header_chip_list {
+        align-items: center;
+        justify-content: center;
+    }
+}
+.home_page_header {
+    background: var(--surface);
+    color: var(--on-surface);
+    border-radius: var(--margin-big);
+    padding: var(--margin-big);
+}
+
+/* Handles switching between pages based on # target */
+.target_page,
+.target_page:target ~ .default_page {
+    display: none;
+}
+.default_page,
+.target_page:target {
+    display: block;
+}
+
+/* Remove useless margins and paddings */
+body {
+    margin: 0;
+}
+div {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
+    padding: 0;
+    border-collapse: collapse;
+}
+
+/* Language chips */
+.chip_list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    column-gap: 6px;
+}
+.chip {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    border-radius: 8px;
+    padding: 4px;
+    text-decoration: none;
+}
+a.chip {
+    /* Always on top, to allow nested links */
+    z-index: 999;
+}
+a.chip:hover {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+.chip::before {
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    content: "";
+    position: absolute;
+}
+.chip::after {
+    padding-left: 24px;
+    font-size: small;
+}
+.chip_cpp::before { background-image: url("../images/cpp.svg"); }
+.chip_cpp::after { content: "C++"; }
+.chip_rust::before { background-image: url("../images/rust.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_rust::after { content: "Rust"; }
+.chip_kotlin::before { background-image: url("../images/kotlin.svg"); transform: scale(0.8); }
+.chip_kotlin::after { content: "Kotlin"; }
+.chip_java::before { background-image: url("../images/java.svg"); }
+.chip_java::after { content: "Java"; }
+.chip_dart::before { background-image: url("../images/dart.svg"); }
+.chip_dart::after { content: "Dart"; }
+.chip_python::before { background-image: url("../images/python.svg"); transform: scale(0.9); }
+.chip_python::after { content: "Python"; }
+.chip_c_sharp::before { background-image: url("../images/c_sharp.svg"); }
+.chip_c_sharp::after { content: "C#"; }
+.chip_android::before { background-image: url("../images/android.svg"); }
+.chip_android::after { content: "Android"; }
+.chip_compose::before { background-image: url("../images/compose.svg"); }
+.chip_compose::after { content: "Compose"; }
+.chip_flutter::before { background-image: url("../images/flutter.svg"); }
+.chip_flutter::after { content: "Flutter"; }
+.chip_app_stores::before { background-image: url("../images/fdroid.svg"); }
+.chip_app_stores::after { content: "App stores"; }
+.chip_ml::before { background-image: url("../images/tensorflow.svg"); }
+.chip_ml::after { content: "ML frameworks"; }
+.chip_linux::before { background-image: url("../images/linux.svg"); }
+.chip_linux::after { content: "Linux"; }
+.chip_git::before { background-image: url("../images/git.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_git::after { content: "Git"; }
+.chip_docker::before { background-image: url("../images/docker.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_docker::after { content: "Docker"; }
+.chip_foss::before { background-image: url("../images/gnu.svg"); }
+.chip_foss::after { content: "Free Software"; }
+.chip_nlp::after { padding-left: 0; content: "NLP"; }
+.chip_llm::after { padding-left: 0; content: "LLM"; }
+.chip_cybersecurity::after { padding-left: 0; content: "Cybersecurity"; }
+
+/* General elements */
+html {
+    background: var(--background);
+    color: var(--on-background);
+    font-family: "Roboto";
+    padding: var(--margin-big);
+}
+.box {
+    background: var(--surface);
+    color: var(--on-surface);
+    border-radius: var(--margin-big);
+    padding: var(--margin-big);
+}
+
+/* Header elements */
+.header_logo {
+    clip-path: circle();
+    max-width: min(170px, 100%);
+}
+.header_name {
+    margin-top: 8px;
+    font-size: 2.4em;
+}
+.header_nickname {
+    margin-top: 4px;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.header_links {
+    margin-top: 16px;
+    border-collapse: separate;
+    border-spacing: 0px 4px;
+}
+.header_link_image_td {
+    text-align: end;
+    width: 1.7em;
+}
+.header_link_image {
+    width: 100%;
+    filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert));
+}
+.header_link_text_td {
+    text-align: start;
+    padding-left: 8px;
+    font-size: 1em;
+    padding-bottom: 0.3em;
+}
+.header_chip_list_title {
+    margin-top: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.header_chip_list {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Content elements */
+.section_title {
+    font-size: xx-large;
+}
+.section_project_list {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+    align-items: stretch;
+    column-gap: 12px;
+    /* not using row-gap because .project_box_placeholder should not count as a real row*/
+    margin-bottom: -12px;
+}
+.project_box {
+    width: 320px;
+    flex-grow: 1;
+    background: var(--surface);
+    color: var(--on-surface);
+    margin-bottom: 12px;
+    border-radius: var(--margin-medium);
+    padding: var(--margin-medium);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.project_box_placeholder {
+    /* an invisible project box to make sure all project boxes have
+    the same size (otherwise with flex-grow: 1 items on the last row
+    may get more stretched if the row is not filled) */
+    width: 320px;
+    flex-grow: 1;
+    padding-left: var(--margin-medium);
+    padding-right: var(--margin-medium);
+}
+.project_box_link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    border-radius: var(--margin-medium);
+}
+.project_box_title {
+    font-size: large;
+    font-weight: bolder;
+}
+.project_box_description {
+    font-size: small;
+    margin-top: 4px;
+    margin-bottom: 9px;
+}
+.project_box_chip_list {
+    margin-top: auto;
+}
+.project_box_image_wrapper {
+    min-height: 64px;
+}
+.project_box_image_wrapper > .project_box_title,
+.project_box_image_wrapper > .project_box_description {
+    margin-right: 72px;
+}
+.project_box_image {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 64px;
+    height: 64px;
+}
+
+/* Fonts, obtained with https://gwfh.mranftl.com */
+/* roboto-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-v30-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/roboto-v30-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('../fonts/roboto-v30-latin-regular.woff') format('woff'), /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+         url('../fonts/roboto-v30-latin-regular.ttf') format('truetype'), /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+         url('../fonts/roboto-v30-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-italic - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/roboto-v30-latin-italic.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/roboto-v30-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/roboto-v30-latin-italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+         url('../fonts/roboto-v30-latin-italic.woff') format('woff'), /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+         url('../fonts/roboto-v30-latin-italic.ttf') format('truetype'), /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+         url('../fonts/roboto-v30-latin-italic.svg#Roboto') format('svg'); /* Legacy iOS */
+}
