@@ -10,7 +10,7 @@ SECTION_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 # row may get more stretched if the row is not filled), use a lot
 # to make sure this works well even on giant screens.
 SECTION_PROJECT_LIST = ("""<div class="section">
-    <p class="section_title">{title}</p>
+    <p class="section_title" id="{id}">{title}</p>
     <div class="section_project_list">
         {items}""" + """
         <div class="project_box_placeholder"></div>""" * 10 + """
@@ -126,19 +126,19 @@ def generate_chips_section(chips, section):
     return SECTION_CHIP_LIST.format(title=section["title"],
         items=generate_chips(chips, section["items"]))
 
-def generate_projects_section(chips, objects, section):
+def generate_projects_section(chips, objects, section_id, section):
     items = []
     for object_id in section["items"]:
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj))
-    return SECTION_PROJECT_LIST.format(title=section["title"],
-        items="\n".join(items))
+    return SECTION_PROJECT_LIST.format(id=section_id,
+        title=section["title"], items="\n".join(items))
 
 def generate_sections(chips, objects, sections):
     results = []
     for (section_id, section) in sections.items():
         if section["type"] == "projects":
-            results.append(generate_projects_section(chips, objects, section))
+            results.append(generate_projects_section(chips, objects, section_id, section))
         elif section["type"] == "chips":
             results.append(generate_chips_section(chips, section))
         else:
