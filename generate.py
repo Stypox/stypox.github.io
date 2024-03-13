@@ -60,6 +60,10 @@ def read_yaml_file(filename):
     with open(filename, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
+def pairwise_disjoint(*sets) -> bool:
+    union = set().union(*sets)
+    return len(union) == sum(map(len, sets))
+
 def extract_image_args(image_args_str):
     image_args = image_args_str.split(" ")
     src = image_args[0]
@@ -168,12 +172,7 @@ def main():
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
 
-    assert chips.keys().isdisjoint(objects.keys())
-    assert chips.keys().isdisjoint(header.keys())
-    assert chips.keys().isdisjoint(content.keys())
-    assert objects.keys().isdisjoint(header.keys())
-    assert objects.keys().isdisjoint(content.keys())
-    assert header.keys().isdisjoint(content.keys())
+    assert pairwise_disjoint(chips, objects, header, content)
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(template.format(
