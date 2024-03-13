@@ -49,8 +49,8 @@ flutter:
   image: flutter.svg
 
 app_stores:
-  short: App stores
-  title: App stores
+  short: Store
+  title: Published on an app store
   image: fdroid.svg
 
 ml:

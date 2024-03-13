@@ -1,10 +1,26 @@
 dicio:
   type: project
   title: Dicio assistant
-  description: A free and open source voice assistant for Android, available on F-Droid and Play Store
-  chips: [android, kotlin, java, foss, nlp]
+  description: A libre voice assistant for Android, available on F-Droid and Play Store
+  chips: [kotlin, android, app_stores, foss, nlp]
   link: https://github.com/Stypox/dicio-android
   image: dicio.png
+
+newpipe:
+  type: project
+  title: NewPipe
+  description: A libre streaming app for Android, supporting YouTube and more services
+  chips: [java, android, app_stores, foss]
+  link: https://newpipe.net
+  image: newpipe.svg
+
+tridenta:
+  type: project
+  title: Tridenta
+  description: Android app for Trentino public transport with stops, lines, trips and delays
+  chips: [kotlin, android, compose, app_stores]
+  link: https://github.com/Stypox/tridenta
+  image: tridenta.png
 
 curriculust:
   type: project
