@@ -1,0 +1,34 @@
+name: Generate, minify and deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install requirements.txt
+        runs: python -m pip install -r requirements.txt
+
+      - name: Generate
+        run: python generate.py
+
+      - name: Minify
+        run: |
+          echo "Before minify:"
+          ls -lah index.html styles/style.css
+          python minify.py
+          echo "After minify:"
+          ls -lah index.html styles/style.css
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
