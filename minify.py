@@ -25,9 +25,7 @@ def replace_classes(capt):
     return "class=\"" + " ".join(capt) + "\""
 html = re.sub(r'class=(?:([^ >"]+)|"([^"]+)")', replace_classes, html)
 
-css = re.sub(r'\/\*.*\*\/', "", css)
 css = minify_html.minify(f"<style>{css}</style>", minify_css=True)[7:-8]
-css = re.sub(r'\n *', "", css)
 html = minify_html.minify(html,  minify_css=True, do_not_minify_doctype=True)
 
 with open("styles/style.css", "w", encoding="utf-8") as f:
