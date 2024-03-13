@@ -10,7 +10,7 @@
   <style>
 .chip_cpp::before { background-image: url("images/cpp.svg"); }
 .chip_cpp::after { content: "C++"; }
-.chip_rust::before { background-image: url("images/rust.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_rust::before { background-image: url("images/rust.svg"); filter: var(--monochrome-filter); }
 .chip_rust::after { content: "Rust"; }
 .chip_kotlin::before { background-image: url("images/kotlin.svg"); transform: scale(0.8); }
 .chip_kotlin::after { content: "Kotlin"; }
@@ -34,9 +34,9 @@
 .chip_ml::after { content: "ML frameworks"; }
 .chip_linux::before { background-image: url("images/linux.svg"); }
 .chip_linux::after { content: "Linux"; }
-.chip_git::before { background-image: url("images/git.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_git::before { background-image: url("images/git.svg"); filter: var(--monochrome-filter); }
 .chip_git::after { content: "Git"; }
-.chip_docker::before { background-image: url("images/docker.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_docker::before { background-image: url("images/docker.svg"); filter: var(--monochrome-filter); }
 .chip_docker::after { content: "Docker"; }
 .chip_foss::before { background-image: url("images/gnu.svg"); }
 .chip_foss::after { content: "FOSS"; }

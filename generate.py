@@ -105,7 +105,7 @@ def generate_chips_style(chips):
     for (chip_id, chip) in chips.items():
         if "image" in chip:
             src, monochrome, scale = extract_image_args(chip["image"])
-            monochrome = " filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert));" if monochrome else ""
+            monochrome = " filter: var(--monochrome-filter);" if monochrome else ""
             scale = "" if scale is None else f" transform: scale({scale});"
             styles.append(f""".chip_{chip_id}::before {{ background-image: url("images/{src}");{monochrome}{scale} }}""")
             styles.append(f""".chip_{chip_id}::after {{ content: "{chip['short']}"; }}""")
