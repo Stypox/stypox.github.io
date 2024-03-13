@@ -16,7 +16,7 @@ kotlin:
 java:
   short: Java
   title: Java
-  image: java.svg
+  image: java.svg 1.07
 
 dart:
   short: Dart
