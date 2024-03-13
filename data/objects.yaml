@@ -3,6 +3,7 @@ dicio:
   title: Dicio assistant
   description: A libre voice assistant for Android, available on F-Droid and Play Store
   chips: [kotlin, android, app_stores, foss, nlp]
+  hidden_chips: [java]
   link: https://github.com/Stypox/dicio-android
   image: dicio.png
 
@@ -11,6 +12,7 @@ newpipe:
   title: NewPipe
   description: A libre streaming app for Android, supporting YouTube and more services
   chips: [java, android, app_stores, foss]
+  hidden_chips: [kotlin]
   link: https://newpipe.net
   image: newpipe.svg
 
@@ -19,6 +21,7 @@ tridenta:
   title: Tridenta
   description: Android app for Trentino public transport with stops, lines, trips and delays
   chips: [kotlin, android, compose, app_stores]
+  hidden_chips: [java, foss]
   link: https://github.com/Stypox/tridenta
   image: tridenta.png
 
@@ -27,5 +30,6 @@ curriculust:
   title: Curriculust
   description: A program that allows writing a CV in YAML and turning that into LaTeX and PDF
   chips: [rust]
+  hidden_chips: [foss]
   link: https://github.com/Stypox/curriculust
 

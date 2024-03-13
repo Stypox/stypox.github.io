@@ -122,19 +122,21 @@ def generate_chips(chips, chip_ids):
             print("Unknown chip id", chip_id)
     return "\n".join(results)
 
-def generate_project_box(chips, project):
+def generate_project_box(chips, project, include_hidden_chips):
     link = PROJECT_BOX_LINK.format(link=project["link"]) if "link" in project else ""
+    chips_to_show = project["chips"] + project.get("hidden_chips", []) if include_hidden_chips else project["chips"]
+
     if "image" in project:
         return PROJECT_BOX_WITH_IMAGE.format(link=link,
             image=generate_img("project_box_image", project["image"]), title=project["title"],
-            description=project["description"], chips=generate_chips(chips, project["chips"]))
+            description=project["description"], chips=generate_chips(chips, chips_to_show))
     else:
         return PROJECT_BOX.format(link=link, title=project["title"],
-            description=project["description"], chips=generate_chips(chips, project["chips"]))
+            description=project["description"], chips=generate_chips(chips, chips_to_show))
 
-def generate_object(chips, object_id, obj):
+def generate_object(chips, object_id, obj, include_hidden_chips):
     if obj["type"] == "project":
-        return generate_project_box(chips, obj)
+        return generate_project_box(chips, obj, include_hidden_chips)
     else:
         print("Unknown object type", obj["type"], "for object", object_id)
 
@@ -146,7 +148,7 @@ def generate_projects_section(chips, objects, section_id, section):
     items = []
     for object_id in section["items"]:
         obj = objects[object_id]
-        items.append(generate_object(chips, object_id, obj))
+        items.append(generate_object(chips, object_id, obj, False))
     return SECTION_PROJECT_LIST.format(id=section_id,
         title=section["title"], items="\n".join(items))
 
@@ -165,8 +167,8 @@ def generate_sections(chips, objects, sections):
 def generate_chip_page_content(chips, objects, chip_id):
     items = []
     for (object_id, obj) in objects.items():
-        if chip_id in obj["chips"]:
-            items.append(generate_object(chips, object_id, obj))
+        if chip_id in obj["chips"] or chip_id in obj["hidden_chips"]:
+            items.append(generate_object(chips, object_id, obj, True))
     return SECTION_MIXED_LIST.format(items="\n".join(items))
 
 def generate_home_page_target_pages(chips, objects):
