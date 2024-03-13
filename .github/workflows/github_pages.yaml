@@ -28,13 +28,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install requirements.txt
-        runs: python -m pip install -r requirements.txt
+        run: python -m pip install -r requirements.txt
 
       - name: Generate
-        runs: python generate.py
+        run: python generate.py
 
       - name: Minify
-        runs: |
+        run: |
           echo "Before minify:"
           ls -lah index.html styles/style.css
           python minify.py
@@ -42,7 +42,7 @@ jobs:
           ls -lah index.html styles/style.css
 
       - name: Move files to correct folder
-        runs: |
+        run: |
           mkdir _site
           mv favicon.ico index.html fonts/ images/ _site/
           mkdir _site/styles
