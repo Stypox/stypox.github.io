@@ -1,4 +1,5 @@
 import re
+import minify_html
 
 def gen_name(i):
     return (chr(ord('A') + i // 52)) + (chr(ord('a') + i % 26) if i % 52 < 26 else chr(ord('A') + i % 26))
@@ -23,6 +24,11 @@ def replace_classes(capt):
     capt = [classes[c] for c in capt]
     return "class=\"" + " ".join(capt) + "\""
 html = re.sub(r'class=(?:([^ >"]+)|"([^"]+)")', replace_classes, html)
+
+css = re.sub(r'\/\*.*\*\/', "", css)
+css = minify_html.minify(f"<style>{css}</style>", minify_css=True)[7:-8]
+css = re.sub(r'\n *', "", css)
+html = minify_html.minify(html,  minify_css=True, do_not_minify_doctype=True)
 
 with open("styles/style.css", "w", encoding="utf-8") as f:
     f.write(css)
