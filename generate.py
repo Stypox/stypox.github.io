@@ -61,6 +61,12 @@ def read_yaml_file(filename):
     with open(filename, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
+def format_file(fin, fout, function):
+    with open(fin, encoding="utf-8") as f:
+        template = f.read()
+    with open(fout, "w", encoding="utf-8") as f:
+        f.write(function(template))
+
 def pairwise_disjoint(*sets) -> bool:
     union = set().union(*sets)
     return len(union) == sum(map(len, sets))
@@ -111,7 +117,7 @@ def generate_chips_style(chips):
             styles.append(f""".chip_{chip_id}::after {{ content: "{chip['short']}"; }}""")
         else:
             styles.append(f""".chip_{chip_id}::after {{ padding-left: 0; content: "{chip['short']}"; }}""")
-    return "<style>\n" + "\n".join(styles) + "\n</style>"
+    return "\n" + "\n".join(styles)
 
 def generate_chips(chips, chip_ids):
     results = []
@@ -183,8 +189,6 @@ def generate_home_page_target_pages(chips, objects):
     return "\n".join(results)
 
 def main():
-    with open("data/template.html", encoding="utf-8") as f:
-        template = f.read()
     chips = read_yaml_file("data/chips.yaml")
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
@@ -192,13 +196,14 @@ def main():
 
     assert pairwise_disjoint(chips, objects, header, content)
 
-    with open("index.html", "w", encoding="utf-8") as f:
-        f.write(template.format(
-            chips_style=generate_chips_style(chips),
-            home_page_target_pages=generate_home_page_target_pages(chips, objects),
-            home_page_header=generate_sections(chips, objects, header),
-            home_page_content=generate_sections(chips, objects, content),
-        ))
+    format_file("data/template.html", "index.html", lambda template: template.format(
+        home_page_target_pages=generate_home_page_target_pages(chips, objects),
+        home_page_header=generate_sections(chips, objects, header),
+        home_page_content=generate_sections(chips, objects, content),
+    ))
+
+    format_file("styles/style_template.css", "styles/style.css", lambda template: (
+        template + generate_chips_style(chips)))
 
 if __name__ == "__main__":
     main()
