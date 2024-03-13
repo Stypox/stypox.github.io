@@ -1,14 +1,20 @@
-/* Theme */
+/* Theme (hover colors are obtained by adding +-15/255 to Val when in HSV) */
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #1B1C18;
         --on-background: #E3E3DB;
         --surface: #212617;
+        --surface-hover: #2e3520;
         --on-surface: #E3E3DB;
+        --on-surface-hover: #f2f2e9;
         --primary: #84DD00;
+        --primary-hover: #8eec00;
         --on-primary: #1D3700;
+        --on-primary-hover: #254600;
         --secondary: #2C5000;
+        --secondary-hover: #345f00;
         --on-secondary: #9CFB29;
+        --on-secondary-hover: #9fff2a;
         --monochrome-icon-invert: 1;
     }
 }
@@ -17,11 +23,17 @@
         --background: #FDFCF5;
         --on-background: #1B1C18;
         --surface: #F3F4E8;
+        --surface-hover: #ecede1;
         --on-surface: #1B1C18;
+        --on-surface-hover: #0d0d0b;
         --primary: #3C6A00;
+        --primary-hover: #345b00;
         --on-primary: #FFFFFF;
+        --on-primary-hover: #f0f0f0;
         --secondary: #DBE7C8;
+        --secondary-hover: #cdd8bb;
         --on-secondary: #151E0B;
+        --on-secondary-hover: #0b0f05;
         --monochrome-icon-invert: 0;
     }
 }
@@ -124,8 +136,8 @@ a.chip {
     z-index: 999;
 }
 a.chip:hover {
-    background-color: var(--primary);
-    color: var(--on-primary);
+    background-color: var(--secondary-hover);
+    color: var(--on-secondary-hover);
 }
 .chip::before {
     background-size: 20px 20px;
@@ -228,6 +240,10 @@ img.monochrome {
     display: flex;
     flex-direction: column;
 }
+.project_box:hover {
+    background: var(--surface-hover);
+    color: var(--on-surface-hover);
+}
 .project_box_placeholder {
     /* an invisible project box to make sure all project boxes have
     the same size (otherwise with flex-grow: 1 items on the last row
@@ -290,7 +306,7 @@ img.monochrome {
     padding: 8px;
 }
 .toolbar_back_button:hover {
-    background-color: var(--primary);
+    background-color: var(--secondary-hover);
 }
 .toolbar_back_button::before {
     background-image: url("../images/back.svg");
