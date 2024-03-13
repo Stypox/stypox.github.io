@@ -1,4 +1,5 @@
 import yaml
+import os
 
 SECTION_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 <div class="chip_list header_chip_list">
@@ -67,6 +68,8 @@ def pairwise_disjoint(*sets) -> bool:
 def extract_image_args(image_args_str):
     image_args = image_args_str.split(" ")
     src = image_args[0]
+    if not os.path.exists("images/" + src):
+        print("Image does not exist:" + src)
     image_args = image_args[1:]
 
     try:
