@@ -31,10 +31,10 @@ jobs:
         runs: python -m pip install -r requirements.txt
 
       - name: Generate
-        run: python generate.py
+        runs: python generate.py
 
       - name: Minify
-        run: |
+        runs: |
           echo "Before minify:"
           ls -lah index.html styles/style.css
           python minify.py
@@ -42,7 +42,7 @@ jobs:
           ls -lah index.html styles/style.css
 
       - name: Move files to correct folder
-        run: |
+        runs: |
           mkdir _site
           mv favicon.ico index.html fonts/ images/ _site/
           mkdir _site/styles
