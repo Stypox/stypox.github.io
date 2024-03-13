@@ -190,6 +190,9 @@ html {
     border-radius: var(--margin-big);
     padding: var(--margin-big);
 }
+img.monochrome {
+    filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert));
+}
 
 /* Header elements */
 .header_logo {

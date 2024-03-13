@@ -29,7 +29,7 @@ PROJECT_BOX = """<div class="project_box">
 PROJECT_BOX_WITH_IMAGE = """<div class="project_box">
     {link}
     <div class="project_box_image_wrapper">
-        <img class="project_box_image" src="{image}">
+        {image}
         <p class="project_box_title">{title}</p>
         <p class="project_box_description">{description}</p>
     </div>
@@ -51,8 +51,6 @@ HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
     {content}
 </div>"""
 
-TOOLBAR_IMAGE = """<img class="toolbar_image" src="{image}" />"""
-
 SECTION_MIXED_LIST = """<div class="section_project_list">
     {items}""" + """
     <div class="project_box_placeholder"></div>""" * 10 + """
@@ -61,6 +59,39 @@ SECTION_MIXED_LIST = """<div class="section_project_list">
 def read_yaml_file(filename):
     with open(filename, encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+def extract_image_args(image_args_str):
+    image_args = image_args_str.split(" ")
+    src = image_args[0]
+    image_args = image_args[1:]
+
+    try:
+        image_args.remove("monochrome")
+        monochrome = True
+    except ValueError:
+        monochrome = False
+
+    scale = None
+    if len(image_args) > 1:
+        print("Invalid image arguments:", image_args_str)
+    elif len(image_args) == 1:
+        try:
+            scale = float(image_args[0])
+        except ValueError:
+            print("Invalid scale in image arguments:", image_args_str)
+
+    return src, monochrome, scale
+
+def generate_img(klass, image_args_str):
+    src, monochrome, scale = extract_image_args(image_args_str)
+    monochrome = " monochrome" if monochrome else ""
+    style = "" if scale is None else f"""style="scale: {scale};" """
+    return f"""<img class="{klass}{monochrome}" src="images/{src}" {style}/>"""
+
+def generate_img_opt(klass, image_args_str):
+    if image_args_str is None:
+        return ""
+    return generate_img(klass, image_args_str)
 
 def generate_chips(chips, chip_ids):
     results = []
@@ -75,7 +106,7 @@ def generate_project_box(chips, project):
     link = PROJECT_BOX_LINK.format(link=project["link"]) if "link" in project else ""
     if "image" in project:
         return PROJECT_BOX_WITH_IMAGE.format(link=link,
-            image="images/" + project["image"], title=project["title"],
+            image=generate_img("project_box_image", project["image"]), title=project["title"],
             description=project["description"], chips=generate_chips(chips, project["chips"]))
     else:
         return PROJECT_BOX.format(link=link, title=project["title"],
@@ -124,7 +155,7 @@ def generate_home_page_target_pages(chips, objects):
         results.append(HOME_PAGE_TARGET_PAGE.format(
             id=chip_id,
             title=chip["title"],
-            image=TOOLBAR_IMAGE.format(image="images/" + chip["image"]) if "image" in chip else "",
+            image=generate_img_opt("toolbar_image", chip.get("image")),
             content=generate_chip_page_content(chips, objects, chip_id)
         ))
     return "\n".join(results)
