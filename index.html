@@ -7,6 +7,44 @@
   <link rel="icon" href="favicon.ico" type="image/ico">
   <title>Fabio Giovanazzi @Stypox</title>
   <link rel="stylesheet" href="styles/style.css">
+  <style>
+.chip_cpp::before { background-image: url("images/cpp.svg"); }
+.chip_cpp::after { content: "C++"; }
+.chip_rust::before { background-image: url("images/rust.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_rust::after { content: "Rust"; }
+.chip_kotlin::before { background-image: url("images/kotlin.svg"); transform: scale(0.8); }
+.chip_kotlin::after { content: "Kotlin"; }
+.chip_java::before { background-image: url("images/java.svg"); }
+.chip_java::after { content: "Java"; }
+.chip_dart::before { background-image: url("images/dart.svg"); }
+.chip_dart::after { content: "Dart"; }
+.chip_python::before { background-image: url("images/python.svg"); transform: scale(0.9); }
+.chip_python::after { content: "Python"; }
+.chip_c_sharp::before { background-image: url("images/c_sharp.svg"); }
+.chip_c_sharp::after { content: "C#"; }
+.chip_android::before { background-image: url("images/android.svg"); }
+.chip_android::after { content: "Android"; }
+.chip_compose::before { background-image: url("images/compose.svg"); }
+.chip_compose::after { content: "Compose"; }
+.chip_flutter::before { background-image: url("images/flutter.svg"); }
+.chip_flutter::after { content: "Flutter"; }
+.chip_app_stores::before { background-image: url("images/fdroid.svg"); }
+.chip_app_stores::after { content: "App stores"; }
+.chip_ml::before { background-image: url("images/tensorflow.svg"); }
+.chip_ml::after { content: "ML frameworks"; }
+.chip_linux::before { background-image: url("images/linux.svg"); }
+.chip_linux::after { content: "Linux"; }
+.chip_git::before { background-image: url("images/git.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_git::after { content: "Git"; }
+.chip_docker::before { background-image: url("images/docker.svg"); filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert)); }
+.chip_docker::after { content: "Docker"; }
+.chip_foss::before { background-image: url("images/gnu.svg"); }
+.chip_foss::after { content: "Free Software"; }
+.chip_cybersecurity::after { padding-left: 0; content: "Cybersecurity"; }
+.chip_cp::after { padding-left: 0; content: "Competitive Programming"; }
+.chip_nlp::after { padding-left: 0; content: "NLP"; }
+.chip_llm::after { padding-left: 0; content: "LLM"; }
+</style>
 </head>
 <body>
   <div class="target_page" id="a">1</div>
@@ -92,7 +130,7 @@
     <div class="toolbar">
         <a class="toolbar_back_button" href="#"></a>
         <p class="toolbar_title">Rust</p>
-        <img class="toolbar_image" src="images/rust.svg" />
+        <img class="toolbar_image monochrome" src="images/rust.svg" />
     </div>
     <div class="section_project_list">
     <div class="project_box">
@@ -119,7 +157,7 @@
     <div class="toolbar">
         <a class="toolbar_back_button" href="#"></a>
         <p class="toolbar_title">Kotlin</p>
-        <img class="toolbar_image" src="images/kotlin.svg" />
+        <img class="toolbar_image" src="images/kotlin.svg" style="scale: 0.8;" />
     </div>
     <div class="section_project_list">
     <div class="project_box">
@@ -192,7 +230,7 @@
     <div class="toolbar">
         <a class="toolbar_back_button" href="#"></a>
         <p class="toolbar_title">Python</p>
-        <img class="toolbar_image" src="images/python.svg" />
+        <img class="toolbar_image" src="images/python.svg" style="scale: 0.9;" />
     </div>
     <div class="section_project_list">
     
@@ -365,7 +403,7 @@
     <div class="toolbar">
         <a class="toolbar_back_button" href="#"></a>
         <p class="toolbar_title">Git and collaboration tools</p>
-        <img class="toolbar_image" src="images/git.svg" />
+        <img class="toolbar_image monochrome" src="images/git.svg" />
     </div>
     <div class="section_project_list">
     
@@ -385,7 +423,7 @@
     <div class="toolbar">
         <a class="toolbar_back_button" href="#"></a>
         <p class="toolbar_title">Docker</p>
-        <img class="toolbar_image" src="images/docker.svg" />
+        <img class="toolbar_image monochrome" src="images/docker.svg" />
     </div>
     <div class="section_project_list">
     

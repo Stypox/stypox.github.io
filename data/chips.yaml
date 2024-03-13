@@ -6,12 +6,12 @@ cpp:
 rust:
   short: Rust
   title: Rust
-  image: rust.svg
+  image: rust.svg monochrome
 
 kotlin:
   short: Kotlin
   title: Kotlin
-  image: kotlin.svg
+  image: kotlin.svg 0.8
 
 java:
   short: Java
@@ -26,7 +26,7 @@ dart:
 python:
   short: Python
   title: Python
-  image: python.svg
+  image: python.svg 0.9
 
 c_sharp:
   short: C#
@@ -66,12 +66,12 @@ linux:
 git:
   short: Git
   title: Git and collaboration tools
-  image: git.svg
+  image: git.svg monochrome
 
 docker:
   short: Docker
   title: Docker
-  image: docker.svg
+  image: docker.svg monochrome
 
 foss:
   short: Free Software

@@ -100,6 +100,19 @@ def generate_img_opt(klass, image_args_str):
         return ""
     return generate_img(klass, image_args_str)
 
+def generate_chips_style(chips):
+    styles = []
+    for (chip_id, chip) in chips.items():
+        if "image" in chip:
+            src, monochrome, scale = extract_image_args(chip["image"])
+            monochrome = " filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert));" if monochrome else ""
+            scale = "" if scale is None else f" transform: scale({scale});"
+            styles.append(f""".chip_{chip_id}::before {{ background-image: url("images/{src}");{monochrome}{scale} }}""")
+            styles.append(f""".chip_{chip_id}::after {{ content: "{chip['short']}"; }}""")
+        else:
+            styles.append(f""".chip_{chip_id}::after {{ padding-left: 0; content: "{chip['short']}"; }}""")
+    return "<style>\n" + "\n".join(styles) + "\n</style>"
+
 def generate_chips(chips, chip_ids):
     results = []
     for chip_id in chip_ids:
@@ -179,6 +192,7 @@ def main():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(template.format(
+            chips_style=generate_chips_style(chips),
             home_page_target_pages=generate_home_page_target_pages(chips, objects),
             home_page_header=generate_sections(chips, objects, header),
             home_page_content=generate_sections(chips, objects, content),
