@@ -1,0 +1,14 @@
+languages:
+  type: chips
+  title: Languages
+  items: [rust, cpp, kotlin, java, python, dart, c_sharp]
+
+technologies:
+  type: chips
+  title: Technologies
+  items: [android, compose, flutter, app_stores, ml, linux, git, docker]
+
+interests:
+  type: chips
+  title: Interests
+  items: [foss, cybersecurity, cp, llm, nlp]

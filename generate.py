@@ -1,5 +1,10 @@
 import yaml
 
+SECTION_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
+<div class="chip_list header_chip_list">
+    {items}
+</div>"""
+
 # Some invisible project boxes to make sure all project boxes have
 # the same size (otherwise with `flex-grow: 1` items on the last
 # row may get more stretched if the row is not filled), use a lot
@@ -60,6 +65,10 @@ def generate_object(object_id, obj):
     else:
         print("Unknown object type", obj["type"], "for object", object_id)
 
+def generate_chips_section(section):
+    return SECTION_CHIP_LIST.format(title=section["title"],
+        items=generate_chips(section["items"]))
+
 def generate_projects_section(objects, section):
     items = []
     for object_id in section["items"]:
@@ -73,6 +82,8 @@ def generate_sections(objects, sections):
     for (section_id, section) in sections.items():
         if section["type"] == "projects":
             results.append(generate_projects_section(objects, section))
+        elif section["type"] == "chips":
+            results.append(generate_chips_section(section))
         else:
             print("Unknown section type", section["type"], "for section", section_id)
 
@@ -82,10 +93,14 @@ def main():
     with open("data/template.html", encoding="utf-8") as f:
         template = f.read()
     objects = read_yaml_file("data/objects.yaml")
+    header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
 
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(template.format(home_page_content=generate_sections(objects, content)))
+        f.write(template.format(
+            home_page_header=generate_sections(objects, header),
+            home_page_content=generate_sections(objects, content),
+        ))
 
 if __name__ == "__main__":
     main()
