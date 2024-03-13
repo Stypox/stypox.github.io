@@ -138,6 +138,7 @@ a.chip:hover {
 .chip::after {
     padding-left: 24px;
     font-size: small;
+    font-weight: 300;
 }
 .chip_cpp::before { background-image: url("../images/cpp.svg"); }
 .chip_cpp::after { content: "C++"; }
@@ -171,9 +172,10 @@ a.chip:hover {
 .chip_docker::after { content: "Docker"; }
 .chip_foss::before { background-image: url("../images/gnu.svg"); }
 .chip_foss::after { content: "Free Software"; }
+.chip_cybersecurity::after { padding-left: 0; content: "Cybersecurity"; }
+.chip_cp::after { padding-left: 0; content: "Competitive Programming"; }
 .chip_nlp::after { padding-left: 0; content: "NLP"; }
 .chip_llm::after { padding-left: 0; content: "LLM"; }
-.chip_cybersecurity::after { padding-left: 0; content: "Cybersecurity"; }
 
 /* General elements */
 html {
@@ -193,6 +195,7 @@ html {
 .header_logo {
     clip-path: circle();
     max-width: min(170px, 100%);
+    aspect-ratio: 1/1;
 }
 .header_name {
     margin-top: 8px;
