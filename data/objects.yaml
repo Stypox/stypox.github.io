@@ -1,0 +1,15 @@
+dicio:
+  type: project
+  title: Dicio assistant
+  description: A free and open source voice assistant for Android, available on F-Droid and Play Store
+  chips: [android, kotlin, foss, nlp]
+  link: https://github.com/Stypox/dicio-android
+  image: dicio.png
+
+curriculust:
+  type: project
+  title: Curriculust
+  description: A program that allows writing a CV in YAML and turning that into LaTeX and PDF
+  chips: [rust]
+  link: https://github.com/Stypox/curriculust
+

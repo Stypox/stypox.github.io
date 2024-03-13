@@ -1,0 +1,4 @@
+projects:
+  type: projects
+  title: Projects
+  items: [dicio, curriculust]
