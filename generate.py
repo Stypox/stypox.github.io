@@ -113,7 +113,7 @@ def generate_chips_style(chips):
             src, monochrome, scale = extract_image_args(chip["image"])
             monochrome = " filter: var(--monochrome-filter);" if monochrome else ""
             scale = "" if scale is None else f" transform: scale({scale});"
-            styles.append(f""".chip_{chip_id}::before {{ background-image: url("images/{src}");{monochrome}{scale} }}""")
+            styles.append(f""".chip_{chip_id}::before {{ background-image: url("../images/{src}");{monochrome}{scale} }}""")
             styles.append(f""".chip_{chip_id}::after {{ content: "{chip['short']}"; }}""")
         else:
             styles.append(f""".chip_{chip_id}::after {{ padding-left: 0; content: "{chip['short']}"; }}""")
