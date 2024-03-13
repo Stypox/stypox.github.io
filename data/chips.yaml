@@ -74,7 +74,7 @@ docker:
   image: docker.svg monochrome
 
 foss:
-  short: Free Software
+  short: FOSS
   title: Free and Open Source Software
   image: gnu.svg
 

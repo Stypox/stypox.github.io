@@ -2,7 +2,7 @@ dicio:
   type: project
   title: Dicio assistant
   description: A free and open source voice assistant for Android, available on F-Droid and Play Store
-  chips: [android, kotlin, foss, nlp]
+  chips: [android, kotlin, java, foss, nlp]
   link: https://github.com/Stypox/dicio-android
   image: dicio.png
 
