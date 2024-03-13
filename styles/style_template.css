@@ -160,12 +160,6 @@ html {
     font-family: "Roboto";
     padding: var(--margin-big);
 }
-.box {
-    background: var(--surface);
-    color: var(--on-surface);
-    border-radius: var(--margin-big);
-    padding: var(--margin-big);
-}
 img.monochrome {
     filter: var(--monochrome-filter);
 }
