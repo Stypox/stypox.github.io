@@ -42,64 +42,113 @@ PROJECT_BOX_LINK = """<a class="project_box_link" href="{link}"></a>"""
 
 CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
 
+HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
+    <div class="toolbar">
+        <a class="toolbar_back_button" href="#"></a>
+        <p class="toolbar_title">{title}</p>
+        {image}
+    </div>
+    {content}
+</div>"""
+
+TOOLBAR_IMAGE = """<img class="toolbar_image" src="{image}" />"""
+
+SECTION_MIXED_LIST = """<div class="section_project_list">
+    {items}""" + """
+    <div class="project_box_placeholder"></div>""" * 10 + """
+</div>"""
+
 def read_yaml_file(filename):
     with open(filename, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
-def generate_chips(chip_ids):
-    return "\n".join([CHIP.format(chip_id=chip_id) for chip_id in chip_ids])
+def generate_chips(chips, chip_ids):
+    results = []
+    for chip_id in chip_ids:
+        if chip_id in chips:
+            results.append(CHIP.format(chip_id=chip_id))
+        else:
+            print("Unknown chip id", chip_id)
+    return "\n".join(results)
 
-def generate_project_box(project):
+def generate_project_box(chips, project):
     link = PROJECT_BOX_LINK.format(link=project["link"]) if "link" in project else ""
     if "image" in project:
         return PROJECT_BOX_WITH_IMAGE.format(link=link,
             image="images/" + project["image"], title=project["title"],
-            description=project["description"], chips=generate_chips(project["chips"]))
+            description=project["description"], chips=generate_chips(chips, project["chips"]))
     else:
         return PROJECT_BOX.format(link=link, title=project["title"],
-            description=project["description"], chips=generate_chips(project["chips"]))
+            description=project["description"], chips=generate_chips(chips, project["chips"]))
 
-def generate_object(object_id, obj):
+def generate_object(chips, object_id, obj):
     if obj["type"] == "project":
-        return generate_project_box(obj)
+        return generate_project_box(chips, obj)
     else:
         print("Unknown object type", obj["type"], "for object", object_id)
 
-def generate_chips_section(section):
+def generate_chips_section(chips, section):
     return SECTION_CHIP_LIST.format(title=section["title"],
-        items=generate_chips(section["items"]))
+        items=generate_chips(chips, section["items"]))
 
-def generate_projects_section(objects, section):
+def generate_projects_section(chips, objects, section):
     items = []
     for object_id in section["items"]:
         obj = objects[object_id]
-        items.append(generate_object(object_id, obj))
+        items.append(generate_object(chips, object_id, obj))
     return SECTION_PROJECT_LIST.format(title=section["title"],
         items="\n".join(items))
 
-def generate_sections(objects, sections):
+def generate_sections(chips, objects, sections):
     results = []
     for (section_id, section) in sections.items():
         if section["type"] == "projects":
-            results.append(generate_projects_section(objects, section))
+            results.append(generate_projects_section(chips, objects, section))
         elif section["type"] == "chips":
-            results.append(generate_chips_section(section))
+            results.append(generate_chips_section(chips, section))
         else:
             print("Unknown section type", section["type"], "for section", section_id)
 
     return "\n".join(results)
 
+def generate_chip_page_content(chips, objects, chip_id):
+    items = []
+    for (object_id, obj) in objects.items():
+        if chip_id in obj["chips"]:
+            items.append(generate_object(chips, object_id, obj))
+    return SECTION_MIXED_LIST.format(items="\n".join(items))
+
+def generate_home_page_target_pages(chips, objects):
+    results = []
+    for (chip_id, chip) in chips.items():
+        results.append(HOME_PAGE_TARGET_PAGE.format(
+            id=chip_id,
+            title=chip["title"],
+            image=TOOLBAR_IMAGE.format(image="images/" + chip["image"]) if "image" in chip else "",
+            content=generate_chip_page_content(chips, objects, chip_id)
+        ))
+    return "\n".join(results)
+
 def main():
     with open("data/template.html", encoding="utf-8") as f:
         template = f.read()
+    chips = read_yaml_file("data/chips.yaml")
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
 
+    assert chips.keys().isdisjoint(objects.keys())
+    assert chips.keys().isdisjoint(header.keys())
+    assert chips.keys().isdisjoint(content.keys())
+    assert objects.keys().isdisjoint(header.keys())
+    assert objects.keys().isdisjoint(content.keys())
+    assert header.keys().isdisjoint(content.keys())
+
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(template.format(
-            home_page_header=generate_sections(objects, header),
-            home_page_content=generate_sections(objects, content),
+            home_page_target_pages=generate_home_page_target_pages(chips, objects),
+            home_page_header=generate_sections(chips, objects, header),
+            home_page_content=generate_sections(chips, objects, content),
         ))
 
 if __name__ == "__main__":

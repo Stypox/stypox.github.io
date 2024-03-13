@@ -1,0 +1,95 @@
+cpp:
+  short: C++
+  title: C++
+  image: cpp.svg
+
+rust:
+  short: Rust
+  title: Rust
+  image: rust.svg
+
+kotlin:
+  short: Kotlin
+  title: Kotlin
+  image: kotlin.svg
+
+java:
+  short: Java
+  title: Java
+  image: java.svg
+
+dart:
+  short: Dart
+  title: Dart
+  image: dart.svg
+
+python:
+  short: Python
+  title: Python
+  image: python.svg
+
+c_sharp:
+  short: C#
+  title: C#
+  image: c_sharp.svg
+
+android:
+  short: Android
+  title: Android
+  image: android.svg
+
+compose:
+  short: Compose
+  title: Jetpack Compose
+  image: compose.svg
+
+flutter:
+  short: Flutter
+  title: Flutter
+  image: flutter.svg
+
+app_stores:
+  short: App stores
+  title: App stores
+  image: fdroid.svg
+
+ml:
+  short: ML frameworks
+  title: Machine Learning frameworks
+  image: tensorflow.svg
+
+linux:
+  short: Linux
+  title: Linux
+  image: linux.svg
+
+git:
+  short: Git
+  title: Git and collaboration tools
+  image: git.svg
+
+docker:
+  short: Docker
+  title: Docker
+  image: docker.svg
+
+foss:
+  short: Free Software
+  title: Free and Open Source Software
+  image: gnu.svg
+
+cybersecurity:
+  short: Cybersecurity
+  title: Cybersecurity
+
+cp:
+  short: Competitive Programming
+  title: Competitive Programming
+
+nlp:
+  short: NLP
+  title: Natural Language Processing
+
+llm:
+  short: LLM
+  title: Large Language Model

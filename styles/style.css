@@ -306,6 +306,44 @@ html {
     height: 64px;
 }
 
+/* Toolbar */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 8px;
+}
+.toolbar_back_button {
+    display: block;
+    background-color: var(--secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--margin-medium);
+    padding: 8px;
+}
+.toolbar_back_button:hover {
+    background-color: var(--primary);
+}
+.toolbar_back_button::before {
+    background-image: url("../images/back.svg");
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%) invert(var(--monochrome-icon-invert));
+    width: 32px;
+    height: 32px;
+    content: "";
+    position: absolute;
+}
+.toolbar_title {
+    font-size: xx-large;
+}
+.toolbar_image {
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+}
+
 /* Fonts, obtained with https://gwfh.mranftl.com */
 /* roboto-regular - latin */
 @font-face {
