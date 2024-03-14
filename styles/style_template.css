@@ -187,16 +187,13 @@ img.monochrome {
         align-items: center;
     }
     .header_image {
-        float: left;
         max-width: 64px;
         margin-right: 12px;
     }
     .header_name {
-        margin-top: max(0, calc(5px + 1lh - 100%));
         font-size: 1.7em;
     }
     .header_nickname {
-        margin-top: 2px;
         font-size: 1.0em;
     }
 }
