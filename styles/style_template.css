@@ -303,12 +303,12 @@ img.monochrome {
 /* Toolbar */
 .toolbar {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    column-gap: 16px;
-    row-gap: 8px;
+    position: relative;
 }
 .toolbar_back_button {
+    position: absolute;
+    left: 0;
+    top: 0;
     display: block;
     background-color: var(--secondary);
     width: 32px;
@@ -333,9 +333,26 @@ img.monochrome {
     font-size: xx-large;
 }
 .toolbar_image {
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 48px;
     height: 48px;
-    margin-left: auto;
+}
+@media (min-width: 525px) {
+    .toolbar_title {
+        margin-top: calc(24px - 0.5lh);
+        margin-left: 64px;
+        margin-right: 64px;
+    }
+}
+@media not (min-width: 525px) {
+    /* On smaller screens put the title on a separate line */
+    .toolbar_title {
+        text-align: center;
+        width: 100%;
+        margin-top: 64px;
+    }
 }
 
 /* Fonts, obtained with https://gwfh.mranftl.com */
