@@ -65,18 +65,8 @@
         --margin-big: 16px;
         --margin-medium: 12px;
     }
-    .home_page_header {
-        text-align: center;
-    }
-    .header_links {
-        margin: auto;
-    }
     .home_page_content {
         margin-top: var(--margin-big);
-    }
-    .header_chip_list {
-        align-items: center;
-        justify-content: center;
     }
 }
 .home_page_header {
@@ -186,23 +176,25 @@ img.monochrome {
     font-weight: 400;
 }
 .header_links {
-    margin-top: 16px;
+    margin-top: 24px;
+    margin-bottom: 8px;
     border-collapse: separate;
-    border-spacing: 0px 4px;
+    border-spacing: 0px 0px;
 }
 .header_link_image_td {
     text-align: end;
-    width: 1.7em;
+    width: 1.5em;
 }
 .header_link_image {
     width: 100%;
+    aspect-ratio: 1/1;
     filter: var(--monochrome-filter);
 }
 .header_link_text_td {
     text-align: start;
     padding-left: 8px;
-    font-size: 1em;
-    padding-bottom: 0.3em;
+    font-size: 0.9em;
+    padding-bottom: 0.2em;
 }
 .header_chip_list_title {
     margin-top: 12px;
