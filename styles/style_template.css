@@ -39,7 +39,7 @@
 }
 
 /* Responsive UI */
-@media (min-width: 800px) {
+@media (min-width: 650px) {
     :root {
         --margin-big: 24px;
         --margin-medium: 16px;
@@ -60,7 +60,7 @@
         height: fit-content;
     }
 }
-@media not (min-width: 800px) {
+@media not (min-width: 650px) {
     :root {
         --margin-big: 16px;
         --margin-medium: 12px;
@@ -85,7 +85,7 @@
 .target_page:target {
     display: block;
 }
-@media not (min-width: 800px) {
+@media not (min-width: 650px) {
     /* Do not show header on mobile when targeting another page */
     .home_page_header:has(~ :target) {
         display: none;
@@ -168,7 +168,7 @@ img.monochrome {
 .header_nickname {
     font-weight: 300;
 }
-@media (min-width: 800px) {
+@media (min-width: 650px) {
     .header_image {
         max-width: min(170px, 100%);
     }
@@ -181,7 +181,7 @@ img.monochrome {
         font-size: 1.2em;
     }
 }
-@media not (min-width: 800px) {
+@media not (min-width: 650px) {
     .header_image_name_nickname {
         display: flex;
         align-items: center;
