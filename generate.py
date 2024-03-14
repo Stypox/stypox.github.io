@@ -173,7 +173,7 @@ def generate_sections(chips, objects, sections):
 def generate_chip_page_content(chips, objects, chip_id):
     items = []
     for (object_id, obj) in objects.items():
-        if chip_id in obj["chips"] or chip_id in obj["hidden_chips"]:
+        if chip_id in obj["chips"] or chip_id in obj.get("hidden_chips", []):
             items.append(generate_object(chips, object_id, obj, True))
     return SECTION_MIXED_LIST.format(items="\n".join(items))
 
