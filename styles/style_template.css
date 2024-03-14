@@ -161,19 +161,44 @@ img.monochrome {
 }
 
 /* Header elements */
-.header_logo {
+.header_image {
     clip-path: circle();
-    max-width: min(170px, 100%);
     aspect-ratio: 1/1;
 }
-.header_name {
-    margin-top: 8px;
-    font-size: 2.4em;
-}
 .header_nickname {
-    margin-top: 4px;
-    font-size: 1.2em;
-    font-weight: 400;
+    font-weight: 300;
+}
+@media (min-width: 800px) {
+    .header_image {
+        max-width: min(170px, 100%);
+    }
+    .header_name {
+        margin-top: 8px;
+        font-size: 2.4em;
+    }
+    .header_nickname {
+        margin-top: 4px;
+        font-size: 1.2em;
+    }
+}
+@media not (min-width: 800px) {
+    .header_image_name_nickname {
+        display: flex;
+        align-items: center;
+    }
+    .header_image {
+        float: left;
+        max-width: 64px;
+        margin-right: 12px;
+    }
+    .header_name {
+        margin-top: max(0, calc(5px + 1lh - 100%));
+        font-size: 1.7em;
+    }
+    .header_nickname {
+        margin-top: 2px;
+        font-size: 1.0em;
+    }
 }
 .header_links {
     margin-top: 24px;
