@@ -46,8 +46,8 @@ CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
 HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
     <div class="toolbar">
         <a class="toolbar_back_button" href="#"></a>
-        <p class="toolbar_title">{title}</p>
         {image}
+        <p class="toolbar_title">{title}</p>
     </div>
     {content}
 </div>"""
@@ -101,9 +101,9 @@ def generate_img(klass, image_args_str):
     style = "" if scale is None else f"""style="scale: {scale};" """
     return f"""<img class="{klass}{monochrome}" src="images/{src}" {style}/>"""
 
-def generate_img_opt(klass, image_args_str):
+def generate_img_opt(klass, image_args_str, alt=""):
     if image_args_str is None:
-        return ""
+        return alt
     return generate_img(klass, image_args_str)
 
 def generate_chips_style(chips):
@@ -183,7 +183,8 @@ def generate_home_page_target_pages(chips, objects):
         results.append(HOME_PAGE_TARGET_PAGE.format(
             id=chip_id,
             title=chip["title"],
-            image=generate_img_opt("toolbar_image", chip.get("image")),
+            image=generate_img_opt("toolbar_image", chip.get("image"),
+                alt="""<div class="toolbar_image"></div>"""),
             content=generate_chip_page_content(chips, objects, chip_id)
         ))
     return "\n".join(results)

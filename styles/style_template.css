@@ -317,19 +317,16 @@ img.monochrome {
 
 /* Toolbar */
 .toolbar {
-    display: flex;
-    position: relative;
+    min-height: 48px;
 }
 .toolbar_back_button {
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
+    float: left;
     background-color: var(--secondary);
     width: 32px;
     height: 32px;
     border-radius: var(--margin-medium);
     padding: 8px;
+    margin-right: 12px;
 }
 .toolbar_back_button:hover {
     background-color: var(--secondary-hover);
@@ -344,29 +341,20 @@ img.monochrome {
     content: "";
     position: absolute;
 }
-.toolbar_title {
-    font-size: xx-large;
-}
 .toolbar_image {
-    position: absolute;
-    right: 0;
-    top: 0;
+    float: right;
     width: 48px;
     height: 48px;
+    margin-left: 12px;
 }
-@media (min-width: 525px) {
-    .toolbar_title {
-        margin-top: calc(24px - 0.5lh);
-        margin-left: 64px;
-        margin-right: 64px;
-    }
+.toolbar_title {
+    font-size: xx-large;
+    padding-top: calc(24px - 0.5lh);
 }
-@media not (min-width: 525px) {
-    /* On smaller screens put the title on a separate line */
+@media not (min-width: 900px) {
+    /* On smaller screens center the title so that it looks better */
     .toolbar_title {
         text-align: center;
-        width: 100%;
-        margin-top: 64px;
     }
 }
 
