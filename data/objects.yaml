@@ -38,3 +38,4 @@ olympiad-exercises:
   title: olympiad-exercises
   description: The competitive programming code I've produced to train for the Olympiad in Informatics
   chips: [cpp, cp]
+  link: https://github.com/Stypox/olympiad-exercises

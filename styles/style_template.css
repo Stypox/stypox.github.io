@@ -260,6 +260,17 @@ img.monochrome {
     font-size: large;
     font-weight: bolder;
 }
+.project_box_title::before {
+    background-image: url("../images/project.svg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    filter: var(--monochrome-filter);
+    width: 16px;
+    height: 100%;
+    content: "";
+    padding-right: 20px;
+}
 .project_box_description {
     font-size: small;
     margin-top: 4px;
