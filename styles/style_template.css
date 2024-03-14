@@ -276,7 +276,7 @@ img.monochrome {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 0;
+    z-index: 1;
     border-radius: var(--margin-medium);
 }
 .project_box_title {
@@ -315,6 +315,7 @@ img.monochrome {
     top: 12px;
     width: 64px;
     height: 64px;
+    z-index: 0;
 }
 
 /* Toolbar */
