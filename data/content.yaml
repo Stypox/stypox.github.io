@@ -1,4 +1,4 @@
 projects:
   type: projects
   title: Projects
-  items: [dicio, newpipe, tridenta, curriculust]
+  items: [dicio, newpipe, tridenta, curriculust, olympiad-exercises]

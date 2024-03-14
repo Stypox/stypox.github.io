@@ -33,3 +33,8 @@ curriculust:
   hidden_chips: [foss, linux]
   link: https://github.com/Stypox/curriculust
 
+olympiad-exercises:
+  type: project
+  title: olympiad-exercises
+  description: The competitive programming code I've produced to train for the Olympiad in Informatics
+  chips: [cpp, cp]
