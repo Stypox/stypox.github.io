@@ -65,8 +65,8 @@
         --margin-big: 16px;
         --margin-medium: 12px;
     }
-    .home_page_content {
-        margin-top: var(--margin-big);
+    .home_page_header {
+        margin-bottom: var(--margin-big);
     }
 }
 .home_page_header {
