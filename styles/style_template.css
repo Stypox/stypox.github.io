@@ -95,6 +95,12 @@
 .target_page:target {
     display: block;
 }
+@media not (min-width: 800px) {
+    /* Do not show header on mobile when targeting another page */
+    .home_page_header:has(~ :target) {
+        display: none;
+    }
+}
 
 /* Remove useless margins and paddings */
 body {
