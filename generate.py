@@ -203,7 +203,7 @@ def main():
         home_page_content=generate_sections(chips, objects, content),
     ))
 
-    format_file("styles/style_template.css", "styles/style.css", lambda template: (
+    format_file("data/template.css", "styles/style.css", lambda template: (
         template + generate_chips_style(chips)))
 
 if __name__ == "__main__":
