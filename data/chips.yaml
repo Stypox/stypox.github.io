@@ -102,3 +102,8 @@ graphics:
   short: Graphics
   title: Graphics libraries (OpenGL and SFML)
   image: opengl.svg monochrome 1.1
+
+embedded:
+  short: Embedded
+  title: Embedded software/hardware (e.g. Arduino, STM, ESP, ...)
+  image: embedded.svg monochrome 1.1
