@@ -96,7 +96,6 @@ e-assistant:
 dicio-numbers:
   type: project
   title: dicio-numbers
-  description: A multilanguage library for parsing numbers, dates and durations
+  description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
   chips: [nlp, java]
-  link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
-  image: e_assistant.png
+  link: https://github.com/Stypox/dicio-numbers
