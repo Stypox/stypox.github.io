@@ -81,10 +81,12 @@ foss:
 cybersecurity:
   short: Cybersecurity
   title: Cybersecurity
+  image: cybersecurity.svg monochrome
 
-cp:
-  short: Competitive Programming
-  title: Competitive Programming
+asd:
+  short: Algorithms & DS
+  title: Algorithms and Data Structures
+  image: asd.svg monochrome
 
 nlp:
   short: NLP

@@ -1,7 +1,7 @@
 dicio:
   type: project
   title: Dicio assistant
-  description: A libre voice assistant for Android, available on F-Droid and Play Store
+  description: A libre multilanguage voice assistant for Android, which works completely on-device
   chips: [kotlin, android, app_stores, foss, nlp]
   hidden_chips: [java]
   link: https://github.com/Stypox/dicio-android
@@ -37,7 +37,7 @@ olympiad-exercises:
   type: project
   title: olympiad-exercises
   description: The competitive programming code I've produced to train for the Olympiad in Informatics
-  chips: [cpp, cp]
+  chips: [cpp, asd]
   link: https://github.com/Stypox/olympiad-exercises
 
 arg-parser:
@@ -99,3 +99,10 @@ dicio-numbers:
   description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
   chips: [nlp, java]
   link: https://github.com/Stypox/dicio-numbers
+
+dicio-sentences-compiler:
+  type: project
+  title: dicio-sentences-compiler
+  description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
+  chips: [asd, nlp, java]
+  link: https://github.com/Stypox/dicio-sentences-compiler
