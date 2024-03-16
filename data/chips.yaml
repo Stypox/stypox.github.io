@@ -93,3 +93,8 @@ nlp:
 llm:
   short: LLM
   title: Large Language Model
+
+graphics:
+  short: Graphics
+  title: Graphics libraries (OpenGL and SFML)
+  image: opengl.svg monochrome 1.1

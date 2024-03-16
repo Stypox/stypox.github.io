@@ -39,3 +39,64 @@ olympiad-exercises:
   description: The competitive programming code I've produced to train for the Olympiad in Informatics
   chips: [cpp, cp]
   link: https://github.com/Stypox/olympiad-exercises
+
+arg-parser:
+  type: project
+  title: arg-parser
+  description: An optimized argument parser for modern C++
+  chips: [cpp]
+  link: https://github.com/Stypox/arg-parser
+
+into-space-remake:
+  type: project
+  title: Into Space! remake
+  description: A remake of the Into Space! game written in C++17 and OpenGL
+  chips: [cpp, graphics]
+  link: https://github.com/Stypox/into-space-remake
+  image: into_space.png
+
+1010-ai:
+  type: project
+  title: Autosolver for 1010!
+  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver
+  chips: [cpp, graphics]
+  link: https://github.com/Stypox/1010-ai
+  image: 1010.png
+
+mp3-player:
+  type: project
+  title: Song player
+  description: Plays songs and playlists given in a configuration, saves progress, and exposes TUI controls
+  chips: [python, linux]
+  link: https://github.com/Stypox/mp3-player
+
+song-downloader:
+  type: project
+  title: Song downloader
+  description: Uses yt-dlp to download songs and playlists, keep them updated on disk, and extract artist metadata
+  chips: [python]
+  link: https://github.com/Stypox/song-downloader
+
+covid-ita:
+  type: project
+  title: covid-ita
+  description: A script to plot graphs with various statistics about the impact of Covid in Italy
+  chips: [python]
+  link: https://github.com/Stypox/covid-ita
+
+e-assistant:
+  type: project
+  title: /e/ Assistant
+  description: An LLM-powered assistant for /e/OS, built during an internship at /e/
+  chips: [llm, nlp, ml, android]
+  hidden_chips: [kotlin, compose]
+  link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
+  image: e_assistant.png
+
+dicio-numbers:
+  type: project
+  title: dicio-numbers
+  description: A multilanguage library for parsing numbers, dates and durations
+  chips: [nlp, java]
+  link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
+  image: e_assistant.png

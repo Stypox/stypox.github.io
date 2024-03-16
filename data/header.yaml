@@ -6,7 +6,7 @@ languages:
 technologies:
   type: chips
   title: Technologies
-  items: [android, compose, flutter, app_stores, ml, linux, git, docker]
+  items: [android, compose, flutter, app_stores, ml, graphics, linux, git, docker]
 
 interests:
   type: chips
