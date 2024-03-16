@@ -120,6 +120,10 @@ td {
     row-gap: 6px;
     column-gap: 6px;
 }
+.chip_list_single_line {
+    overflow: hidden;
+    height: 27px;
+}
 .chip {
     background-color: var(--secondary);
     color: var(--on-secondary);
@@ -299,8 +303,6 @@ img.monochrome {
 }
 .project_box_chip_list {
     margin-top: auto;
-    overflow: hidden;
-    height: 28px;
 }
 .project_box_image_wrapper {
     min-height: 64px;
