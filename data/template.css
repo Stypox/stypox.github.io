@@ -126,6 +126,7 @@ td {
     border-radius: 8px;
     padding: 4px;
     text-decoration: none;
+    position: relative;
 }
 a.chip {
     /* Always on top, to allow nested links */
@@ -298,6 +299,8 @@ img.monochrome {
 }
 .project_box_chip_list {
     margin-top: auto;
+    overflow: hidden;
+    height: 28px;
 }
 .project_box_image_wrapper {
     min-height: 64px;
