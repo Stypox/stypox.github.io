@@ -58,7 +58,7 @@ into-space-remake:
 1010-ai:
   type: project
   title: Autosolver for 1010!
-  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver
+  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver that scored 161814
   chips: [cpp, graphics]
   link: https://github.com/Stypox/1010-ai
   image: 1010.png
