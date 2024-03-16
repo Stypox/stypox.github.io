@@ -64,7 +64,7 @@ linux:
   image: linux.svg
 
 git:
-  short: Git
+  short: Collaboration
   title: Git and collaboration tools
   image: git.svg monochrome
 

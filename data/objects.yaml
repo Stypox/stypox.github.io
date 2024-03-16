@@ -11,7 +11,7 @@ newpipe:
   type: project
   title: NewPipe
   description: A libre streaming app for Android, supporting YouTube and more services
-  chips: [java, android, app_stores, foss]
+  chips: [java, android, app_stores, foss, git]
   hidden_chips: [kotlin]
   link: https://newpipe.net
   image: newpipe.svg
