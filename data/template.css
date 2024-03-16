@@ -50,7 +50,8 @@
         column-gap: var(--margin-big);
     }
     .home_page_header {
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         height: fit-content;
         max-width: 300px;
         display: flex;
