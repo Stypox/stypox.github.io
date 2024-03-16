@@ -89,10 +89,12 @@ cp:
 nlp:
   short: NLP
   title: Natural Language Processing
+  image: nlp.svg monochrome
 
 llm:
   short: LLM
   title: Large Language Model
+  image: llm.svg monochrome
 
 graphics:
   short: Graphics
