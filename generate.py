@@ -180,6 +180,12 @@ def generate_chip_page_content(chips, objects, chip_id):
             items.append(generate_object(chips, object_id, obj, True))
     return SECTION_MIXED_LIST.format(items="\n".join(items))
 
+def generate_all_page_content(chips, objects):
+    items = []
+    for (object_id, obj) in objects.items():
+        items.append(generate_object(chips, object_id, obj, False))
+    return SECTION_MIXED_LIST.format(items="\n".join(items))
+
 def generate_home_page_target_pages(chips, objects):
     results = []
     for (chip_id, chip) in chips.items():
@@ -188,8 +194,14 @@ def generate_home_page_target_pages(chips, objects):
             title=chip["title"],
             image=generate_img_opt("toolbar_image", chip.get("image"),
                 alt="""<div class="toolbar_image"></div>"""),
-            content=generate_chip_page_content(chips, objects, chip_id)
+            content=generate_chip_page_content(chips, objects, chip_id),
         ))
+    results.append(HOME_PAGE_TARGET_PAGE.format(
+        id="all",
+        title="All projects",
+        image="""<div class="toolbar_image"></div>""",
+        content=generate_all_page_content(chips, objects),
+    ))
     return "\n".join(results)
 
 def main():
