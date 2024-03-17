@@ -6,9 +6,9 @@ languages:
 technologies:
   type: chips
   title: Technologies
-  items: [android, compose, flutter, app_stores, ml, graphics, linux, embedded, git, docker]
+  items: [android, compose, flutter, app_stores, ml, graphics, linux, git, docker]
 
 interests:
   type: chips
   title: Interests
-  items: [foss, cybersecurity, asd, ai, llm, nlp, mindshub]
+  items: [foss, cybersecurity, asd, ai, llm, nlp, embedded, mindshub]

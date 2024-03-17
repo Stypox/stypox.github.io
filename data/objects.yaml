@@ -10,7 +10,7 @@ dicio:
 newpipe:
   type: project-contributed
   title: NewPipe
-  description: A libre streaming app for Android, supporting YouTube and more services
+  description: A privacy-first libre streaming app for Android, supporting YouTube and more services
   chips: [java, android, app_stores, foss, git]
   hidden_chips: [kotlin]
   link: https://newpipe.net
@@ -35,7 +35,7 @@ curriculust:
 
 olympiad-exercises:
   type: project
-  title: olympiad-exercises
+  title: Olympiad exercises
   description: The competitive programming code I've produced to train for the Olympiad in Informatics
   chips: [cpp, asd]
   link: https://github.com/Stypox/olympiad-exercises
