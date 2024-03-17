@@ -106,3 +106,25 @@ dicio-sentences-compiler:
   description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
   chips: [asd, nlp, java]
   link: https://github.com/Stypox/dicio-sentences-compiler
+
+cyberorto:
+  type: project
+  title: Cyberorto
+  description: An autonomous robotic arm that grows a vegetable garden by watering, plowing monitoring, etc.
+  chips: [embedded, mindshub, rust, python]
+  link: https://mindshub.it/progetto-cyberorto/
+  image: cyberorto.png
+
+plotter:
+  type: project
+  title: Plotter
+  description: Draws images, text or gcode files by maneuvering a plotter (a pen that moves along two xy axes)
+  chips: [embedded, cpp, python]
+  link: https://github.com/Stypox/plotter
+
+webradio-arduino:
+  type: project
+  title: Webradio module
+  description: A small and cheap embedded device that connects to WiFi and plays a web audio stream
+  chips: [embedded, mindshub, cpp]
+  link: https://github.com/MindsHub/webradio-arduino
