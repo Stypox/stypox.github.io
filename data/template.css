@@ -132,6 +132,7 @@ td {
     color: var(--on-secondary);
     border-radius: 8px;
     padding: 4px;
+    font-style: normal;
     text-decoration: none;
     position: relative;
 }
@@ -370,7 +371,7 @@ img.monochrome {
     color: var(--on-surface-hover);
 }
 .category_box_placeholder {
-    /* an invisible project box to make sure all project boxes have
+    /* an invisible category box to make sure all category boxes have
     the same size (otherwise with flex-grow: 1 items on the last row
     may get more stretched if the row is not filled) */
     width: 160px;

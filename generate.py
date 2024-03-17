@@ -46,7 +46,7 @@ CATEGORY_BOX = """<div class="category_box category_box_normal">
     <p class="category_box_title">{title}</p>
 </div>"""
 
-OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='cpp')}</div>"""
+OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='rust')}</div>"""
 
 HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
     <div class="toolbar">
