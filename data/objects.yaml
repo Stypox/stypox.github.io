@@ -8,7 +8,7 @@ dicio:
   image: dicio.png
 
 newpipe:
-  type: project
+  type: project-contributed
   title: NewPipe
   description: A libre streaming app for Android, supporting YouTube and more services
   chips: [java, android, app_stores, foss, git]
@@ -85,7 +85,7 @@ covid-ita:
   link: https://github.com/Stypox/covid-ita
 
 e-assistant:
-  type: project
+  type: project-work
   title: /e/ Assistant
   description: An LLM-powered assistant for /e/OS, built during an internship at /e/
   chips: [llm, nlp, ml, android]
@@ -108,7 +108,7 @@ dicio-sentences-compiler:
   link: https://github.com/Stypox/dicio-sentences-compiler
 
 cyberorto:
-  type: project
+  type: project-contributed
   title: Cyberorto
   description: An autonomous robotic arm that grows a vegetable garden by watering, plowing monitoring, etc.
   chips: [embedded, mindshub, rust, cpp, python]
@@ -131,7 +131,7 @@ webradio-arduino:
   link: https://github.com/MindsHub/webradio-arduino
 
 insigno:
-  type: project
+  type: project-contributed
   title: Insigno
   description: An Android & iOS app with a Rust backend that gamifies reporting and collecting abandoned trash
   chips: [flutter, mindshub, dart, rust, app_stores]

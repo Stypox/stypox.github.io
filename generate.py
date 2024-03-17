@@ -20,7 +20,7 @@ SECTION_PROJECT_LIST = ("""<div class="section">
 
 PROJECT_BOX = """<div class="project_box">
     {link}
-    <p class="project_box_title">{title}</p>
+    <p class="project_box_title {title_class}">{title}</p>
     <p class="project_box_description">{description}</p>
     <div class="chip_list {additional_chip_list_tag} project_box_chip_list">
         {chips}
@@ -31,7 +31,7 @@ PROJECT_BOX_WITH_IMAGE = """<div class="project_box">
     {link}
     <div class="project_box_image_wrapper">
         {image}
-        <p class="project_box_title">{title}</p>
+        <p class="project_box_title {title_class}">{title}</p>
         <p class="project_box_description">{description}</p>
     </div>
     <div class="chip_list {additional_chip_list_tag} project_box_chip_list">
@@ -128,7 +128,7 @@ def generate_chips(chips, chip_ids):
             print("Unknown chip id", chip_id)
     return "\n".join(results)
 
-def generate_project_box(chips, project, include_hidden_chips):
+def generate_project_box(chips, project, include_hidden_chips, title_class):
     link = PROJECT_BOX_LINK.format(link=project["link"]) if "link" in project else ""
     chips_to_show = project["chips"] + project.get("hidden_chips", []) if include_hidden_chips else project["chips"]
     additional_chip_list_tag = "" if include_hidden_chips else " chip_list_single_line"
@@ -137,17 +137,22 @@ def generate_project_box(chips, project, include_hidden_chips):
         return PROJECT_BOX_WITH_IMAGE.format(link=link,
             image=generate_img("project_box_image", project["image"]), title=project["title"],
             description=project["description"], chips=generate_chips(chips, chips_to_show),
-            additional_chip_list_tag=additional_chip_list_tag)
+            additional_chip_list_tag=additional_chip_list_tag, title_class=title_class)
     else:
         return PROJECT_BOX.format(link=link, title=project["title"],
             description=project["description"], chips=generate_chips(chips, chips_to_show),
-            additional_chip_list_tag=additional_chip_list_tag)
+            additional_chip_list_tag=additional_chip_list_tag, title_class=title_class)
 
 def generate_object(chips, object_id, obj, include_hidden_chips):
     if obj["type"] == "project":
-        return generate_project_box(chips, obj, include_hidden_chips)
+        return generate_project_box(chips, obj, include_hidden_chips, "project_box_normal_title")
+    if obj["type"] == "project-contributed":
+        return generate_project_box(chips, obj, include_hidden_chips, "project_box_contributed_title")
+    if obj["type"] == "project-work":
+        return generate_project_box(chips, obj, include_hidden_chips, "project_box_work_title")
     else:
         print("Unknown object type", obj["type"], "for object", object_id)
+        return ""
 
 def generate_chips_section(chips, section):
     return SECTION_CHIP_LIST.format(title=section["title"],
