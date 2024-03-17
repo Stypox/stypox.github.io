@@ -170,7 +170,7 @@ neural-network:
 
 website:
   type: project
-  title: My website
-  description: Uses pure HTML+CSS (without JS), is generated based on YAML data files, fits everything in one document for faster access
+  title: The stypox.org website
+  description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages
   chips: []
   link: https://github.com/Stypox/stypox.github.io
