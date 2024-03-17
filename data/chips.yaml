@@ -112,3 +112,8 @@ mindshub:
   short: MindsHub
   title: MindsHub association
   image: mindshub.svg monochrome 1.1
+
+ai:
+  short: AI
+  title: Artificial Intelligence
+  image: ai.svg monochrome
