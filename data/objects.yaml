@@ -154,6 +154,7 @@ crop-detection:
   description: A keras model trained to detect crops and vegetation in images of vegetable-gardens taken perpendicular to the terrain
   chips: [ml, ai, mindshub, python]
   link: https://github.com/MindsHub/crop-detection
+  image: crop_detection.png 1.2
 
 seguistrada:
   type: project
