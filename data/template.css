@@ -325,7 +325,7 @@ img.monochrome {
 .toolbar {
     min-height: 48px;
 }
-.toolbar_back_button {
+.toolbar_home_button {
     float: left;
     background-color: var(--secondary);
     width: 32px;
@@ -334,11 +334,11 @@ img.monochrome {
     padding: 8px;
     margin-right: 12px;
 }
-.toolbar_back_button:hover {
+.toolbar_home_button:hover {
     background-color: var(--secondary-hover);
 }
-.toolbar_back_button::before {
-    background-image: url("../images/back.svg");
+.toolbar_home_button::before {
+    background-image: url("../images/home.svg");
     background-size: 32px 32px;
     background-repeat: no-repeat;
     filter: var(--monochrome-filter);

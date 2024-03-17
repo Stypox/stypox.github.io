@@ -45,7 +45,7 @@ CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
 
 HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
     <div class="toolbar">
-        <a class="toolbar_back_button" href="#"></a>
+        <a class="toolbar_home_button" href="#"></a>
         {image}
         <p class="toolbar_title">{title}</p>
     </div>
