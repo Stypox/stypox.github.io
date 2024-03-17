@@ -133,9 +133,9 @@ webradio-arduino:
 insigno:
   type: project
   title: Insigno
-  description: An Android & iOS app that gamifies reporting and collecting abandoned trash on the streets
-  chips: [flutter, mindshub, dart, app_stores]
-  hidden_chips: [git, android, rust]
+  description: An Android & iOS app with a Rust backend that gamifies reporting and collecting abandoned trash
+  chips: [flutter, mindshub, dart, rust, app_stores]
+  hidden_chips: [git, android]
   link: https://github.com/MindsHub/insigno_frontend
   image: insigno.png
 
