@@ -107,3 +107,8 @@ embedded:
   short: Embedded
   title: Embedded software/hardware (e.g. Arduino, STM, ESP, ...)
   image: embedded.svg monochrome 1.1
+
+mindshub:
+  short: MindsHub
+  title: MindsHub association
+  image: mindshub.svg monochrome 1.1
