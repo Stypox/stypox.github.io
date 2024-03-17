@@ -58,7 +58,7 @@ into-space-remake:
 1010-ai:
   type: project
   title: Autosolver for 1010!
-  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver that scored 161814
+  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver
   chips: [cpp, graphics]
   link: https://github.com/Stypox/1010-ai
   image: 1010.png
@@ -111,9 +111,10 @@ cyberorto:
   type: project
   title: Cyberorto
   description: An autonomous robotic arm that grows a vegetable garden by watering, plowing monitoring, etc.
-  chips: [embedded, mindshub, rust, python]
+  chips: [embedded, mindshub, rust, cpp, python]
+  hidden_chips: [git]
   link: https://mindshub.it/progetto-cyberorto/
-  image: cyberorto.png
+  image: cyberorto.png 0.85
 
 plotter:
   type: project
@@ -128,3 +129,48 @@ webradio-arduino:
   description: A small and cheap embedded device that connects to WiFi and plays a web audio stream
   chips: [embedded, mindshub, cpp]
   link: https://github.com/MindsHub/webradio-arduino
+
+insigno:
+  type: project
+  title: Insigno
+  description: An Android & iOS app that gamifies reporting and collecting abandoned trash on the streets
+  chips: [flutter, mindshub, dart, app_stores]
+  hidden_chips: [git, android, rust]
+  link: https://github.com/MindsHub/insigno_frontend
+  image: insigno.png
+
+quadermas:
+  type: project
+  title: Quadermas
+  description: An Android app to fetch and view data from the Mastercom workbooks used in some italian schools
+  chips: [android, app_stores]
+  link: https://github.com/Stypox/quadermas
+  image: quadermas.png
+
+crop-detection:
+  type: project
+  title: Crop segmentation AI
+  description: A keras model trained to detect crops and vegetation in images of vegetable-gardens taken perpendicular to the terrain
+  chips: [ml, mindshub, python]
+  link: https://github.com/MindsHub/crop-detection
+
+seguistrada:
+  type: project
+  title: Road radius detector
+  description: An implementation of RALPH to detect the radius of a road on an image, for autonomous driving
+  chips: [ml, mindshub]
+  link: https://github.com/MindsHub/seguistrada
+
+neural-network:
+  type: project
+  title: Neural Network implementation
+  description: A C++ implementation of a fully-connected neural network with various optimizers, achieving >97% accuracy on MNIST
+  chips: [ml, cpp, asd]
+  link: https://github.com/Stypox/neural-network
+
+website:
+  type: project
+  title: My website
+  description: Uses pure HTML+CSS (without JS), is generated based on YAML data files, fits everything in one document for faster access
+  chips: []
+  link: https://github.com/Stypox/stypox.github.io
