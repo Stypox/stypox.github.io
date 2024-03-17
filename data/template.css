@@ -365,6 +365,27 @@ img.monochrome {
     }
 }
 
+/* Footer */
+.footer {
+    font-size: small;
+    margin-top: var(--margin-big);
+    text-align: center;
+}
+.footer_legend_item {
+    margin-left: 8px;
+    display: inline-block;
+}
+.footer_legend_item::before {
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    filter: var(--monochrome-filter);
+    width: 16px;
+    height: 100%;
+    content: "";
+    padding-right: 20px;
+}
+
 /* Fonts, obtained with https://gwfh.mranftl.com */
 /* roboto-300 - latin */
 @font-face {

@@ -171,6 +171,6 @@ neural-network:
 website:
   type: project
   title: The stypox.org website
-  description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages
+  description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages, mobile friendly
   chips: []
   link: https://github.com/Stypox/stypox.github.io
