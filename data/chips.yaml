@@ -33,9 +33,9 @@ c_sharp:
   title: C#
   image: c_sharp.svg
 
-android:
-  short: Android
-  title: Android and mobile
+app:
+  short: App
+  title: Android, mobile, web apps
   image: android.svg 0.95
 
 compose:

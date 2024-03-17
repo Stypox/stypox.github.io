@@ -5,5 +5,5 @@ significant-projects:
 
 other-projects:
   type: categories
-  title: Other project categories
-  items: [ai, foss, android, mindshub, all, or_click_on_chips]
+  title: All projects by category
+  items: [app, ai, foss, mindshub, all, or_click_on_chips]

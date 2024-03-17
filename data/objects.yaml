@@ -2,16 +2,16 @@ dicio:
   type: project
   title: Dicio assistant
   description: A libre multilanguage voice assistant for Android, which works completely on-device
-  chips: [kotlin, android, app_stores, foss, nlp]
+  chips: [kotlin, app, app_stores, foss, nlp]
   hidden_chips: [ai, java]
-  link: https://github.com/Stypox/dicio-android
+  link: https://github.com/Stypox/dicio-app
   image: dicio.png
 
 newpipe:
   type: project-contributed
   title: NewPipe
   description: A privacy-first libre streaming app for Android, supporting YouTube and more services
-  chips: [java, android, app_stores, foss, git]
+  chips: [java, app, app_stores, foss, git]
   hidden_chips: [kotlin]
   link: https://newpipe.net
   image: newpipe.svg
@@ -20,7 +20,7 @@ tridenta:
   type: project
   title: Tridenta
   description: Android app for Trentino public transport with stops, lines, trips and delays
-  chips: [kotlin, android, compose, app_stores]
+  chips: [kotlin, app, compose, app_stores]
   hidden_chips: [java, foss]
   link: https://github.com/Stypox/tridenta
   image: tridenta.png
@@ -89,7 +89,7 @@ e-assistant:
   type: project-work
   title: /e/ Assistant
   description: An LLM-powered assistant for /e/OS, built during an internship at /e/
-  chips: [llm, nlp, ml, ai, android]
+  chips: [llm, nlp, ml, ai, app]
   hidden_chips: [kotlin, compose]
   link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
   image: e_assistant.png
@@ -136,7 +136,7 @@ insigno:
   title: Insigno
   description: An Android & iOS app with a Rust backend that gamifies reporting and collecting abandoned trash
   chips: [flutter, mindshub, dart, rust, app_stores]
-  hidden_chips: [git, android]
+  hidden_chips: [git, app]
   link: https://github.com/MindsHub/insigno_frontend
   image: insigno.png
 
@@ -144,7 +144,7 @@ quadermas:
   type: project
   title: Quadermas
   description: An Android app to fetch and view data from the Mastercom workbooks used in some italian schools
-  chips: [android, app_stores]
+  chips: [app, app_stores]
   link: https://github.com/Stypox/quadermas
   image: quadermas.png
 
@@ -174,5 +174,5 @@ website:
   type: project
   title: The stypox.org website
   description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages, mobile friendly
-  chips: []
+  chips: [app]
   link: https://github.com/Stypox/stypox.github.io
