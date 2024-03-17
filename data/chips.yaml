@@ -35,8 +35,8 @@ c_sharp:
 
 android:
   short: Android
-  title: Android
-  image: android.svg
+  title: Android and mobile dev
+  image: android.svg 0.95
 
 compose:
   short: Compose

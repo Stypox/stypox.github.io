@@ -1,4 +1,9 @@
-projects:
+significant-projects:
   type: projects
-  title: Projects
+  title: Most significant projects
   items: [dicio, newpipe, tridenta, curriculust, olympiad-exercises]
+
+other-projects:
+  type: categories
+  title: Other project categories
+  items: [ai, foss, android, mindshub, all, or_click_on_chips]

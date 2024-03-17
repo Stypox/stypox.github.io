@@ -43,6 +43,7 @@
     :root {
         --margin-big: 24px;
         --margin-medium: 16px;
+        --margin-small: 12px;
     }
     .home_page {
         display: grid;
@@ -65,6 +66,7 @@
     :root {
         --margin-big: 16px;
         --margin-medium: 12px;
+        --margin-small: 8px;
     }
     .home_page_header {
         margin-bottom: var(--margin-big);
@@ -235,9 +237,23 @@ img.monochrome {
 }
 
 /* Content elements */
+.section {
+    margin-bottom: var(--margin-big);
+}
 .section_title {
     font-size: xx-large;
 }
+.box_overlaid_link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: inherit;
+}
+
+/* Project list */
 .section_project_list {
     margin-top: 16px;
     display: flex;
@@ -272,15 +288,6 @@ img.monochrome {
     flex-grow: 1;
     padding-left: var(--margin-medium);
     padding-right: var(--margin-medium);
-}
-.project_box_link {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    border-radius: var(--margin-medium);
 }
 .project_box_title {
     font-size: large;
@@ -320,6 +327,64 @@ img.monochrome {
     margin-bottom: 4px;
     margin-left: 4px;
     z-index: 0;
+}
+
+/* Category list */
+.section_category_list {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33%;
+    align-items: stretch;
+    column-gap: 8px;
+    /* not using row-gap because .project_box_placeholder should not count as a real row*/
+    margin-bottom: -12px;
+}
+.category_box {
+    width: 160px;
+    flex-grow: 1;
+    padding-left: var(--margin-small);
+    padding-right: var(--margin-small);
+    margin-bottom: 8px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.category_box_or_click_on_chips {
+    font-style: italic;
+    flex-direction: column;
+    row-gap: 4px;
+}
+.category_box_normal {
+    padding-top: var(--margin-medium);
+    padding-bottom: var(--margin-medium);
+    background: var(--surface);
+    color: var(--on-surface);
+    border-radius: var(--margin-medium);
+    text-decoration: none;
+}
+.category_box_normal:hover {
+    background: var(--surface-hover);
+    color: var(--on-surface-hover);
+}
+.category_box_placeholder {
+    /* an invisible project box to make sure all project boxes have
+    the same size (otherwise with flex-grow: 1 items on the last row
+    may get more stretched if the row is not filled) */
+    width: 160px;
+    flex-grow: 1;
+    padding-left: var(--margin-small);
+    padding-right: var(--margin-small);
+}
+.category_box_image {
+    height: 38px;
+    width: 38px;
+    margin-right: 8px;
+}
+.category_box_title {
+    flex-grow: 1;
 }
 
 /* Toolbar */

@@ -18,6 +18,14 @@ SECTION_PROJECT_LIST = ("""<div class="section">
     </div>
 </div>""")
 
+SECTION_CATEGORY_LIST = ("""<div class="section">
+    <p class="section_title" id="{id}">{title}</p>
+    <div class="section_category_list">
+        {items}""" + """
+        <div class="category_box_placeholder"></div>""" * 10 + """
+    </div>
+</div>""")
+
 PROJECT_BOX = """<div class="project_box">
     {link}
     <div>
@@ -30,9 +38,15 @@ PROJECT_BOX = """<div class="project_box">
     </div>
 </div>"""
 
-PROJECT_BOX_LINK = """<a class="project_box_link" href="{link}"></a>"""
-
 CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
+
+CATEGORY_BOX = """<div class="category_box category_box_normal">
+    {link}
+    {image}
+    <p class="category_box_title">{title}</p>
+</div>"""
+
+OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='cpp')}</div>"""
 
 HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
     <div class="toolbar">
@@ -97,6 +111,14 @@ def generate_img_opt(klass, image_args_str, alt=""):
         return alt
     return generate_img(klass, image_args_str)
 
+def generate_link(link):
+    return f"""<a class="box_overlaid_link" href="{link}"></a>"""
+
+def generate_link_opt(link, alt=""):
+    if link is None:
+        return alt
+    return generate_link(link)
+
 def generate_chips_style(chips):
     styles = []
     for (chip_id, chip) in chips.items():
@@ -120,11 +142,10 @@ def generate_chips(chips, chip_ids):
     return "\n".join(results)
 
 def generate_project_box(chips, project, include_hidden_chips, title_class):
-    link = PROJECT_BOX_LINK.format(link=project["link"]) if "link" in project else ""
     chips_to_show = project["chips"] + project.get("hidden_chips", []) if include_hidden_chips else project["chips"]
     additional_chip_list_tag = "" if include_hidden_chips else " chip_list_single_line"
 
-    return PROJECT_BOX.format(link=link,
+    return PROJECT_BOX.format(link=generate_link_opt(project.get("link")),
         image=generate_img_opt("project_box_image", project.get("image")), title=project["title"],
         description=project["description"], chips=generate_chips(chips, chips_to_show),
         additional_chip_list_tag=additional_chip_list_tag, title_class=title_class)
@@ -140,6 +161,18 @@ def generate_object(chips, object_id, obj, include_hidden_chips):
         print("Unknown object type", obj["type"], "for object", object_id)
         return ""
 
+def generate_category_box(chips, chip_id):
+    if chip_id == "all":
+        return CATEGORY_BOX.format(image=generate_img("category_box_image", "all.svg monochrome"),
+            link=generate_link("#all"),
+            title="<i>All projects</i>")
+    elif chip_id == "or_click_on_chips":
+        return OR_CLICK_ON_CHIPS_BOX
+    else:
+        return CATEGORY_BOX.format(image=generate_img_opt("category_box_image", chips[chip_id].get("image")),
+            link=generate_link(f"#{chip_id}"),
+            title=chips[chip_id]["title"])
+
 def generate_chips_section(chips, section):
     return SECTION_CHIP_LIST.format(title=section["title"],
         items=generate_chips(chips, section["items"]))
@@ -152,13 +185,22 @@ def generate_projects_section(chips, objects, section_id, section):
     return SECTION_PROJECT_LIST.format(id=section_id,
         title=section["title"], items="\n".join(items))
 
+def generate_categories_section(chips, section_id, section):
+    items = []
+    for chip_id in section["items"]:
+        items.append(generate_category_box(chips, chip_id))
+    return SECTION_CATEGORY_LIST.format(id=section_id,
+        title=section["title"], items="\n".join(items))
+
 def generate_sections(chips, objects, sections):
     results = []
     for (section_id, section) in sections.items():
-        if section["type"] == "projects":
-            results.append(generate_projects_section(chips, objects, section_id, section))
-        elif section["type"] == "chips":
+        if section["type"] == "chips":
             results.append(generate_chips_section(chips, section))
+        elif section["type"] == "projects":
+            results.append(generate_projects_section(chips, objects, section_id, section))
+        elif section["type"] == "categories":
+            results.append(generate_categories_section(chips, section_id, section))
         else:
             print("Unknown section type", section["type"], "for section", section_id)
 
@@ -200,8 +242,9 @@ def main():
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
+    used_keywords = ["all", "or_click_on_things"]
 
-    assert pairwise_disjoint(chips, objects, header, content)
+    assert pairwise_disjoint(chips, objects, header, content, used_keywords)
 
     format_file("data/template.html", "index.html", lambda template: template.format(
         home_page_target_pages=generate_home_page_target_pages(chips, objects),
