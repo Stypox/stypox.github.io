@@ -238,22 +238,27 @@ img.monochrome {
 }
 
 /* Content elements */
-.section {
-    margin-bottom: var(--margin-big);
+.section + .section .section_title {
+    margin-top: 36px;
 }
 .section_title {
-    font-size: xx-large;
+    font-size: x-large;
+    margin-bottom: 12px;
+}
+.section_subtitle {
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 8px;
 }
 .section_box_list {
     --box-horizontal-padding: var(--margin-medium);
     --box-vertical-padding: var(--margin-medium);
-    margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
     column-gap: var(--box-list-spacing);
     /* not using row-gap because .box_placeholder should not count as a real row */
-    margin-bottom: calc(- var(--box-list-spacing));
+    margin-bottom: calc(0px - var(--box-list-spacing));
 }
 .box {
     width: var(--box-item-width);

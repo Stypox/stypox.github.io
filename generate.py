@@ -29,7 +29,7 @@ HEADER_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 # row may get more stretched if the row is not filled), use a lot
 # to make sure this works well even on giant screens.
 SECTION_TITLE_LIST = ("""<div class="section">
-    <p class="section_title" id="{id}">{title}</p>
+    <p class="{title_class}" id="{id}">{title}</p>
     <div class="section_box_list {list_class}">
         {items}""" + """
         <div class="box_placeholder"></div>""" * 10 + """
@@ -267,30 +267,30 @@ def generate_chips_section(chips, section):
     return HEADER_CHIP_LIST.format(title=section["title"],
         items=generate_chips(chips, section["items"]))
 
-def generate_projects_section(chips, objects, section_id, section):
+def generate_projects_section(chips, objects, section, **format_kwargs):
     items = []
     for object_id in section["items"]:
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_project_list",
-        id=section_id, title=section["title"], items="\n".join(items))
+        items="\n".join(items), **format_kwargs)
 
-def generate_categories_section(chips, section_id, section):
+def generate_categories_section(chips, section, **format_kwargs):
     items = []
     for chip_id in section["items"]:
         items.append(generate_category_box(chips, chip_id))
     return SECTION_TITLE_LIST.format(list_class="section_category_list",
-        id=section_id, title=section["title"], items="\n".join(items))
+        items="\n".join(items), **format_kwargs)
 
-def generate_jobs_section(chips, objects, section_id, section):
+def generate_jobs_section(chips, objects, section, **format_kwargs):
     items = []
     for object_id in section["items"]:
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_job_list",
-        id=section_id, title=section["title"], items="\n".join(items))
+        items="\n".join(items), **format_kwargs)
 
-def generate_competitions_section(chips, objects, section_id, section):
+def generate_competitions_section(chips, objects, section, **format_kwargs):
     items = []
     for object_id in section["items"]:
         if object_id == "all-competitions-talks":
@@ -299,9 +299,9 @@ def generate_competitions_section(chips, objects, section_id, section):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_competition_list",
-        id=section_id, title=section["title"], items="\n".join(items))
+        items="\n".join(items), **format_kwargs)
 
-def generate_talks_section(chips, objects, section_id, section):
+def generate_talks_section(chips, objects, section, **format_kwargs):
     items = []
     for object_id in section["items"]:
         if object_id == "all-competitions-talks":
@@ -310,23 +310,30 @@ def generate_talks_section(chips, objects, section_id, section):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_talk_list",
-        id=section_id, title=section["title"], items="\n".join(items))
+        items="\n".join(items), **format_kwargs)
 
 def generate_sections(chips, objects, sections):
     results = []
     for (section_id, section) in sections.items():
         if section["type"] == "chips":
             results.append(generate_chips_section(chips, section))
-        elif section["type"] == "projects":
-            results.append(generate_projects_section(chips, objects, section_id, section))
+            continue
+
+        format_kwargs = {
+            "id": section_id,
+            "title_class": "section_subtitle" if section.get("subtitle", False) else "section_title",
+            "title": section["title"],
+        }
+        if section["type"] == "projects":
+            results.append(generate_projects_section(chips, objects, section, **format_kwargs))
         elif section["type"] == "categories":
-            results.append(generate_categories_section(chips, section_id, section))
+            results.append(generate_categories_section(chips, section, **format_kwargs))
         elif section["type"] == "jobs":
-            results.append(generate_jobs_section(chips, objects, section_id, section))
+            results.append(generate_jobs_section(chips, objects, section, **format_kwargs))
         elif section["type"] == "competitions":
-            results.append(generate_competitions_section(chips, objects, section_id, section))
+            results.append(generate_competitions_section(chips, objects, section, **format_kwargs))
         elif section["type"] == "talks":
-            results.append(generate_talks_section(chips, objects, section_id, section))
+            results.append(generate_talks_section(chips, objects, section, **format_kwargs))
         else:
             print("Unknown section type", section["type"], "for section", section_id)
 
