@@ -1,10 +1,28 @@
 import yaml
 import os
 
+
+HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
+    <div class="toolbar">
+        <a class="toolbar_home_button" href="#"></a>
+        {image}
+        <p class="toolbar_title">{title}</p>
+    </div>
+    {content}
+</div>"""
+
+
+CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
+
+CHIP_LIST = """<div class="chip_list {additional_tags}">
+    {chips}
+</div>"""
+
 HEADER_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 <div class="chip_list header_chip_list">
     {items}
 </div>"""
+
 
 # Some invisible project boxes to make sure all project boxes have
 # the same size (otherwise with `flex-grow: 1` items on the last
@@ -12,18 +30,19 @@ HEADER_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 # to make sure this works well even on giant screens.
 SECTION_TITLE_LIST = ("""<div class="section">
     <p class="section_title" id="{id}">{title}</p>
-    <div class="{list_class}">
+    <div class="section_box_list {list_class}">
         {items}""" + """
-        <div class="{placeholder_class}"></div>""" * 10 + """
+        <div class="box_placeholder"></div>""" * 10 + """
     </div>
 </div>""")
 
-SECTION_MIXED_LIST = """<div class="section_project_list">
+SECTION_MIXED_LIST = """<div class="section_box_list mixed_box_list">
     {items}""" + """
-    <div class="project_box_placeholder"></div>""" * 10 + """
+    <div class="box_placeholder"></div>""" * 10 + """
 </div>"""
 
-PROJECT_BOX = """<div class="project_box">
+
+PROJECT_BOX = """<div class="box project_box">
     {link}
     <div>
         {image}
@@ -33,7 +52,14 @@ PROJECT_BOX = """<div class="project_box">
     {chips}
 </div>"""
 
-JOB_BOX = """<div class="job_box">
+CATEGORY_BOX = """<div class="box category_box category_box_normal">
+    {link}
+    {image}
+    <p class="category_box_title">{title}</p>
+</div>"""
+OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='rust')}</div>"""
+
+JOB_BOX = """<div class="box">
     {link}
     <div>
         <span class="box_title job_box_title">{title}</span>
@@ -45,42 +71,20 @@ JOB_BOX = """<div class="job_box">
     {chips}
 </div>"""
 
-COMPETITION_BOX = """<div class="competition_box">
+COMPETITION_BOX = """<div class="box competition_box">
     {link}
     <p class="box_title competition_box_title">{title}</p>
     <p class="competition_box_description">{description}</p>
     {chips}
 </div>"""
 
-TALK_BOX = """<div class="talk_box">
+TALK_BOX = """<div class="box talk_box">
     {link}
     <p class="box_title talk_box_title">{title}</p>
     <p class="talk_box_description">{description}</p>
     {chips}
 </div>"""
 
-CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
-
-CHIP_LIST = """<div class="chip_list {additional_tags}">
-    {chips}
-</div>"""
-
-CATEGORY_BOX = """<div class="category_box category_box_normal">
-    {link}
-    {image}
-    <p class="category_box_title">{title}</p>
-</div>"""
-
-OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='rust')}</div>"""
-
-HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
-    <div class="toolbar">
-        <a class="toolbar_home_button" href="#"></a>
-        {image}
-        <p class="toolbar_title">{title}</p>
-    </div>
-    {content}
-</div>"""
 
 def read_yaml_file(filename):
     with open(filename, encoding="utf-8") as f:
@@ -258,16 +262,14 @@ def generate_projects_section(chips, objects, section_id, section):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_project_list",
-        placeholder_class="project_box_placeholder", id=section_id,
-        title=section["title"], items="\n".join(items))
+        id=section_id, title=section["title"], items="\n".join(items))
 
 def generate_categories_section(chips, section_id, section):
     items = []
     for chip_id in section["items"]:
         items.append(generate_category_box(chips, chip_id))
     return SECTION_TITLE_LIST.format(list_class="section_category_list",
-        placeholder_class="category_box_placeholder", id=section_id,
-        title=section["title"], items="\n".join(items))
+        id=section_id, title=section["title"], items="\n".join(items))
 
 def generate_jobs_section(chips, objects, section_id, section):
     items = []
@@ -275,8 +277,7 @@ def generate_jobs_section(chips, objects, section_id, section):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_job_list",
-        placeholder_class="job_box_placeholder", id=section_id,
-        title=section["title"], items="\n".join(items))
+        id=section_id, title=section["title"], items="\n".join(items))
 
 def generate_competitions_section(chips, objects, section_id, section):
     items = []
@@ -284,8 +285,7 @@ def generate_competitions_section(chips, objects, section_id, section):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_competition_list",
-        placeholder_class="competition_box_placeholder", id=section_id,
-        title=section["title"], items="\n".join(items))
+        id=section_id, title=section["title"], items="\n".join(items))
 
 def generate_talks_section(chips, objects, section_id, section):
     items = []
@@ -293,8 +293,7 @@ def generate_talks_section(chips, objects, section_id, section):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_talk_list",
-        placeholder_class="talk_box_placeholder", id=section_id,
-        title=section["title"], items="\n".join(items))
+        id=section_id, title=section["title"], items="\n".join(items))
 
 def generate_sections(chips, objects, sections):
     results = []

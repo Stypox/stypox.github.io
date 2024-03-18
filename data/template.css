@@ -244,6 +244,35 @@ img.monochrome {
 .section_title {
     font-size: xx-large;
 }
+.section_box_list {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    column-gap: var(--box-list-spacing);
+    /* not using row-gap because .box_placeholder should not count as a real row */
+    margin-bottom: calc(- var(--box-list-spacing));
+}
+.box {
+    width: var(--box-item-width);
+    flex-grow: 1;
+    background: var(--surface);
+    color: var(--on-surface);
+    border-radius: var(--margin-medium);
+    padding: var(--margin-medium);
+    margin-bottom: var(--box-list-spacing);
+    /* needed for .box_overlaid_link to work correctly */
+    position: relative;
+}
+.box_placeholder {
+    /* an invisible project box to make sure all boxes have
+    the same size (otherwise with flex-grow: 1 items on the last row
+    may get more stretched if the row is not filled) */
+    width: var(--box-item-width);
+    flex-grow: 1;
+    padding-left: var(--margin-medium);
+    padding-right: var(--margin-medium);
+}
 .box_overlaid_link {
     position: absolute;
     top: 0;
@@ -252,6 +281,10 @@ img.monochrome {
     right: 0;
     z-index: 1;
     border-radius: inherit;
+}
+.box:has(.box_overlaid_link):hover {
+    background: var(--surface-hover);
+    color: var(--on-surface-hover);
 }
 .box_title {
     font-size: large;
@@ -267,41 +300,19 @@ img.monochrome {
     content: "";
     padding-right: 20px;
 }
+.mixed_box_list {
+    --box-item-width: 320px;
+    --box-list-spacing: 12px;
+}
 
 /* Project list */
 .section_project_list {
-    margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    column-gap: 12px;
-    /* not using row-gap because .project_box_placeholder should not count as a real row */
-    margin-bottom: -12px;
+    --box-item-width: 320px;
+    --box-list-spacing: 12px;
 }
 .project_box {
-    width: 320px;
-    flex-grow: 1;
-    background: var(--surface);
-    color: var(--on-surface);
-    margin-bottom: 12px;
-    border-radius: var(--margin-medium);
-    padding: var(--margin-medium);
-    position: relative;
     display: flex;
     flex-direction: column;
-}
-.project_box:hover {
-    background: var(--surface-hover);
-    color: var(--on-surface-hover);
-}
-.project_box_placeholder {
-    /* an invisible project box to make sure all project boxes have
-    the same size (otherwise with flex-grow: 1 items on the last row
-    may get more stretched if the row is not filled) */
-    width: 320px;
-    flex-grow: 1;
-    padding-left: var(--margin-medium);
-    padding-right: var(--margin-medium);
 }
 .project_box_normal_title::before {
     background-image: url("../images/project.svg");
@@ -331,51 +342,26 @@ img.monochrome {
 
 /* Category list */
 .section_category_list {
-    margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    column-gap: 8px;
-    /* not using row-gap because .project_box_placeholder should not count as a real row */
-    margin-bottom: -12px;
+    --box-item-width: 160px;
+    --box-list-spacing: 8px;
 }
 .category_box {
-    width: 160px;
-    flex-grow: 1;
-    padding-left: var(--margin-small);
-    padding-right: var(--margin-small);
-    margin-bottom: 8px;
-    position: relative;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.category_box_normal {
+    padding-left: var(--margin-small);
+    padding-right: var(--margin-small);
+}
 .category_box_or_click_on_chips {
+    padding-left: var(--margin-small);
+    padding-right: var(--margin-small);
+    margin-bottom: var(--box-list-spacing);
     font-style: italic;
     flex-direction: column;
     row-gap: 4px;
-}
-.category_box_normal {
-    padding-top: var(--margin-medium);
-    padding-bottom: var(--margin-medium);
-    background: var(--surface);
-    color: var(--on-surface);
-    border-radius: var(--margin-medium);
-    text-decoration: none;
-}
-.category_box_normal:hover {
-    background: var(--surface-hover);
-    color: var(--on-surface-hover);
-}
-.category_box_placeholder {
-    /* an invisible category box to make sure all category boxes have
-    the same size (otherwise with flex-grow: 1 items on the last row
-    may get more stretched if the row is not filled) */
-    width: 160px;
-    flex-grow: 1;
-    padding-left: var(--margin-small);
-    padding-right: var(--margin-small);
 }
 .category_box_image {
     height: 38px;
@@ -388,36 +374,8 @@ img.monochrome {
 
 /* Job list */
 .section_job_list {
-    margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    column-gap: 12px;
-    /* not using row-gap because .job_box_placeholder should not count as a real row */
-    margin-bottom: -12px;
-}
-.job_box {
-    width: 320px;
-    flex-grow: 1;
-    background: var(--surface);
-    color: var(--on-surface);
-    margin-bottom: 12px;
-    border-radius: var(--margin-medium);
-    padding: var(--margin-medium);
-    position: relative;
-}
-.job_box:hover {
-    background: var(--surface-hover);
-    color: var(--on-surface-hover);
-}
-.job_box_placeholder {
-    /* an invisible job box to make sure all job boxes have
-    the same size (otherwise with flex-grow: 1 items on the last row
-    may get more stretched if the row is not filled) */
-    width: 320px;
-    flex-grow: 1;
-    padding-left: var(--margin-medium);
-    padding-right: var(--margin-medium);
+    --box-item-width: 320px;
+    --box-list-spacing: 12px;
 }
 .job_box_title::before {
     background-image: url("../images/work.svg");
@@ -444,41 +402,13 @@ img.monochrome {
 /* Competition and talk list */
 .section_competition_list,
 .section_talk_list {
-    margin-top: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    column-gap: 12px;
-    /* not using row-gap because .competition_box_placeholder should not count as a real row */
-    margin-bottom: -12px;
+    --box-item-width: 200px;
+    --box-list-spacing: 10px;
 }
 .competition_box,
 .talk_box {
-    width: 200px;
-    flex-grow: 1;
-    background: var(--surface);
-    color: var(--on-surface);
-    margin-bottom: 12px;
-    border-radius: var(--margin-medium);
-    padding: var(--margin-medium);
-    position: relative;
     display: flex;
     flex-direction: column;
-}
-.competition_box:hover,
-.talk_box:hover {
-    background: var(--surface-hover);
-    color: var(--on-surface-hover);
-}
-.competition_box_placeholder,
-.talk_box_placeholder {
-    /* an invisible competition box to make sure all competition boxes have
-    the same size (otherwise with flex-grow: 1 items on the last row
-    may get more stretched if the row is not filled) */
-    width: 200px;
-    flex-grow: 1;
-    padding-left: var(--margin-medium);
-    padding-right: var(--margin-medium);
 }
 .competition_box_title,
 .talk_box_title {
