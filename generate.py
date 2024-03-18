@@ -30,12 +30,46 @@ PROJECT_BOX = """<div class="project_box">
         <p class="project_box_title {title_class}">{title}</p>
         <p class="project_box_description">{description}</p>
     </div>
-    <div class="chip_list {additional_chip_list_tag} project_box_chip_list">
-        {chips}
+    {chips}
+</div>"""
+
+JOB_BOX = """<div class="job_box">
+    {link}
+    <div>
+        <span class="job_box_title">{title}</span>
+        {company}
+        {when}
     </div>
+    {image}
+    <p class="job_box_description">{description}</p>
+    {chips}
+</div>"""
+
+COMPETITION_BOX = """<div class="competition_box">
+    {link}
+    <div>
+        {image}
+        <p class="competition_box_title">{title}</p>
+        <p class="competition_box_description">{description}</p>
+    </div>
+    {chips}
+</div>"""
+
+TALK_BOX = """<div class="talk_box">
+    {link}
+    <div>
+        {image}
+        <p class="talk_box_title">{title}</p>
+        <p class="talk_box_description">{description}</p>
+    </div>
+    {chips}
 </div>"""
 
 CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
+
+CHIP_LIST = """ <div class="chip_list {additional_tags}">
+    {chips}
+</div>"""
 
 CATEGORY_BOX = """<div class="category_box category_box_normal">
     {link}
@@ -133,22 +167,58 @@ def generate_chips(chips, chip_ids):
             print("Unknown chip id", chip_id)
     return "\n".join(results)
 
-def generate_project_box(chips, project, include_hidden_chips, title_class):
-    chips_to_show = project["chips"] + project.get("hidden_chips", []) if include_hidden_chips else project["chips"]
-    additional_chip_list_tag = "" if include_hidden_chips else " chip_list_single_line"
+def generate_chip_list_for_obj(chips, obj, include_hidden_chips, tag):
+    chips_to_show = obj["chips"] + obj.get("hidden_chips", []) if include_hidden_chips else obj["chips"]
+    additional_tag = "" if include_hidden_chips else " chip_list_single_line"
+    return CHIP_LIST.format(
+        chips=generate_chips(chips, chips_to_show),
+        additional_tags=additional_tag + " " + tag,
+    )
 
-    return PROJECT_BOX.format(link=generate_link_opt(project.get("link")),
-        image=generate_img_opt("project_box_image", project.get("image")), title=project["title"],
-        description=project["description"], chips=generate_chips(chips, chips_to_show),
-        additional_chip_list_tag=additional_chip_list_tag, title_class=title_class)
+def generate_project_box(chips, project, include_hidden_chips, title_class):
+    return PROJECT_BOX.format(
+        link=generate_link_opt(project.get("link")),
+        image=generate_img_opt("project_box_image", project.get("image")),
+        title_class=title_class,
+        title=project["title"],
+        description=project["description"],
+        chips=generate_chip_list_for_obj(chips, project, include_hidden_chips, "project_box_chip_list"),
+    )
+
+def generate_job_box(chips, job, include_hidden_chips):
+    return JOB_BOX.format(
+        link=generate_link_opt(job.get("link")),
+        image=generate_img_opt("job_box_image", job.get("image")),
+        title=job["title"],
+        company=f"""• <span class="job_box_company">{job['company']}</span>""" if "company" in job else "",
+        when=f"""• <span class="job_box_when">{job['when']}</span>""" if "when" in job else "",
+        description=job["description"],
+        chips=generate_chip_list_for_obj(chips, job, include_hidden_chips, "job_box_chip_list"),
+    )
+
+def generate_competition_box(chips, competition, include_hidden_chips):
+    return COMPETITION_BOX.format(link=generate_link_opt(competition.get("link")),
+        image=generate_img_opt("competition_box_image", competition.get("image")), title=competition["title"],
+        description=competition["description"], chips=generate_chip_list_for_obj(chips, competition, include_hidden_chips))
+
+def generate_talk_box(chips, talk, include_hidden_chips):
+    return TALK_BOX.format(link=generate_link_opt(talk.get("link")),
+        image=generate_img_opt("talk_box_image", talk.get("image")), title=talk["title"],
+        description=talk["description"], chips=generate_chip_list_for_obj(chips, talk, include_hidden_chips))
 
 def generate_object(chips, object_id, obj, include_hidden_chips):
     if obj["type"] == "project":
         return generate_project_box(chips, obj, include_hidden_chips, "project_box_normal_title")
-    if obj["type"] == "project-contributed":
+    elif obj["type"] == "project-contributed":
         return generate_project_box(chips, obj, include_hidden_chips, "project_box_contributed_title")
-    if obj["type"] == "project-work":
+    elif obj["type"] == "project-work":
         return generate_project_box(chips, obj, include_hidden_chips, "project_box_work_title")
+    elif obj["type"] == "job":
+        return generate_job_box(chips, obj, include_hidden_chips)
+    elif obj["type"] == "competition":
+        return generate_competition_box(chips, obj, include_hidden_chips)
+    elif obj["type"] == "talk":
+        return generate_talk_box(chips, obj, include_hidden_chips)
     else:
         print("Unknown object type", obj["type"], "for object", object_id)
         return ""
@@ -186,6 +256,33 @@ def generate_categories_section(chips, section_id, section):
         placeholder_class="category_box_placeholder", id=section_id,
         title=section["title"], items="\n".join(items))
 
+def generate_jobs_section(chips, objects, section_id, section):
+    items = []
+    for object_id in section["items"]:
+        obj = objects[object_id]
+        items.append(generate_object(chips, object_id, obj, False))
+    return SECTION_TITLE_LIST.format(list_class="section_job_list",
+        placeholder_class="job_box_placeholder", id=section_id,
+        title=section["title"], items="\n".join(items))
+
+def generate_competitions_section(chips, objects, section_id, section):
+    items = []
+    for object_id in section["items"]:
+        obj = objects[object_id]
+        items.append(generate_object(chips, object_id, obj, False))
+    return SECTION_TITLE_LIST.format(list_class="section_competition_list",
+        placeholder_class="competition_box_placeholder", id=section_id,
+        title=section["title"], items="\n".join(items))
+
+def generate_talks_section(chips, objects, section_id, section):
+    items = []
+    for object_id in section["items"]:
+        obj = objects[object_id]
+        items.append(generate_object(chips, object_id, obj, False))
+    return SECTION_TITLE_LIST.format(list_class="section_talk_list",
+        placeholder_class="talk_box_placeholder", id=section_id,
+        title=section["title"], items="\n".join(items))
+
 def generate_sections(chips, objects, sections):
     results = []
     for (section_id, section) in sections.items():
@@ -195,6 +292,12 @@ def generate_sections(chips, objects, sections):
             results.append(generate_projects_section(chips, objects, section_id, section))
         elif section["type"] == "categories":
             results.append(generate_categories_section(chips, section_id, section))
+        elif section["type"] == "jobs":
+            results.append(generate_jobs_section(chips, objects, section_id, section))
+        elif section["type"] == "competitions":
+            results.append(generate_competitions_section(chips, objects, section_id, section))
+        elif section["type"] == "talks":
+            results.append(generate_talks_section(chips, objects, section_id, section))
         else:
             print("Unknown section type", section["type"], "for section", section_id)
 

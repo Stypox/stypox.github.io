@@ -7,3 +7,18 @@ other-projects:
   type: categories
   title: All projects by category
   items: [app, ai, foss, mindshub, all, or_click_on_chips]
+
+work-experience:
+  type: jobs
+  title: Work experience
+  items: [murena, jetbrains, tutoring]
+
+competitions:
+  type: competitions
+  title: Competitions
+  items: []
+
+talks:
+  type: talks
+  title: Talks
+  items: []

@@ -259,10 +259,9 @@ img.monochrome {
     margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 33%;
     align-items: stretch;
     column-gap: 12px;
-    /* not using row-gap because .project_box_placeholder should not count as a real row*/
+    /* not using row-gap because .project_box_placeholder should not count as a real row */
     margin-bottom: -12px;
 }
 .project_box {
@@ -335,10 +334,9 @@ img.monochrome {
     margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 33%;
     align-items: stretch;
     column-gap: 8px;
-    /* not using row-gap because .project_box_placeholder should not count as a real row*/
+    /* not using row-gap because .project_box_placeholder should not count as a real row */
     margin-bottom: -12px;
 }
 .category_box {
@@ -386,6 +384,73 @@ img.monochrome {
 }
 .category_box_title {
     flex-grow: 1;
+}
+
+/* Job list */
+.section_job_list {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    column-gap: 12px;
+    /* not using row-gap because .job_box_placeholder should not count as a real row */
+    margin-bottom: -12px;
+}
+.job_box {
+    width: 320px;
+    flex-grow: 1;
+    background: var(--surface);
+    color: var(--on-surface);
+    margin-bottom: 12px;
+    border-radius: var(--margin-medium);
+    padding: var(--margin-medium);
+    position: relative;
+}
+.job_box:hover {
+    background: var(--surface-hover);
+    color: var(--on-surface-hover);
+}
+.job_box_placeholder {
+    /* an invisible job box to make sure all job boxes have
+    the same size (otherwise with flex-grow: 1 items on the last row
+    may get more stretched if the row is not filled) */
+    width: 320px;
+    flex-grow: 1;
+    padding-left: var(--margin-medium);
+    padding-right: var(--margin-medium);
+}
+.job_box_title {
+    font-size: large;
+    font-weight: bolder;
+}
+.job_box_title::before {
+    background-image: url("../images/work.svg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    filter: var(--monochrome-filter);
+    width: 16px;
+    height: 100%;
+    content: "";
+    padding-right: 20px;
+}
+.job_box_description {
+    font-size: small;
+    margin-top: 4px;
+    margin-bottom: 36px;
+}
+.job_box_chip_list {
+    position: absolute;
+    bottom: var(--margin-medium);
+    left: var(--margin-medium);
+}
+.job_box_image {
+    float: right;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    z-index: 0;
 }
 
 /* Toolbar */

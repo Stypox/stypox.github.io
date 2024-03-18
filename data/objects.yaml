@@ -87,8 +87,8 @@ covid-ita:
 
 e-assistant:
   type: project-work
-  title: /e/ Assistant
-  description: An LLM-powered assistant for /e/OS, built during an internship at /e/
+  title: /e/OS Assistant
+  description: An LLM-powered assistant for /e/OS, built during an internship at Murena
   chips: [llm, nlp, ml, ai, app]
   hidden_chips: [kotlin, compose]
   link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
@@ -176,3 +176,39 @@ website:
   description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages, mobile friendly
   chips: [app]
   link: https://github.com/Stypox/stypox.github.io
+
+murena:
+  type: job
+  title: AI research and software engineering intern
+  company: Murena s.a.s.
+  when: Jan-Feb 2024
+  description: |
+    Explored prompt engineering, fine-tuning and quantization of LLMs.
+    Found the best LLM for phones and built /e/OS Assistant app.
+  chips: [ai, llm, app]
+  image: murena.svg 1.21
+  link: https://murena.com/
+
+jetbrains:
+  type: job
+  title: Software engineering intern
+  company: JetBrains s.r.o.
+  when: Summer 2023
+  description: Built lexer and parser for Verse progamming language, to add support for it in Rider IDE with syntax highlighting and variable resolution.
+  chips: [asd, c_sharp]
+  image: jetbrains.svg 1.2
+  link: https://www.jetbrains.com/
+
+tutoring:
+  type: job
+  title: Competitive programming trainer, maths and physics tutor
+  description: Trained high school students for olympiads in informatics. Helped struggling students in STEM subjects.
+  chips: [asd]
+
+# cyberchallenge:
+#   type: competition
+#   chips: []
+
+# sfscon2023:
+#   type: talk
+#   chips: []
