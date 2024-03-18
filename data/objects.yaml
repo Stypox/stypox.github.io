@@ -213,6 +213,7 @@ swerc-2023:
   year: 2023
   description: team Greatest Competitive Dolphins
   chips: [asd]
+  link: https://swerc.eu/2023/theme/scoreboard/domjudge.lip6.fr/public.html
 
 cyberchallenge-2023-team:
   type: competition
@@ -221,6 +222,7 @@ cyberchallenge-2023-team:
   year: 2023
   description: team finals with UniTN
   chips: [cybersecurity]
+  link: https://cyberchallenge.it/halloffame/2023
 
 cyberchallenge-2023:
   type: competition
@@ -229,6 +231,7 @@ cyberchallenge-2023:
   year: 2023
   description: italian individual selection
   chips: [cybersecurity]
+  link: https://www.youtube.com/watch?v=ZYP54q2KMFc&t=1724
 
 # sfscon2023:
 #   type: talk
