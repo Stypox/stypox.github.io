@@ -1,7 +1,7 @@
 import yaml
 import os
 
-SECTION_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
+HEADER_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 <div class="chip_list header_chip_list">
     {items}
 </div>"""
@@ -10,21 +10,18 @@ SECTION_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 # the same size (otherwise with `flex-grow: 1` items on the last
 # row may get more stretched if the row is not filled), use a lot
 # to make sure this works well even on giant screens.
-SECTION_PROJECT_LIST = ("""<div class="section">
+SECTION_TITLE_LIST = ("""<div class="section">
     <p class="section_title" id="{id}">{title}</p>
-    <div class="section_project_list">
+    <div class="{list_class}">
         {items}""" + """
-        <div class="project_box_placeholder"></div>""" * 10 + """
+        <div class="{placeholder_class}"></div>""" * 10 + """
     </div>
 </div>""")
 
-SECTION_CATEGORY_LIST = ("""<div class="section">
-    <p class="section_title" id="{id}">{title}</p>
-    <div class="section_category_list">
-        {items}""" + """
-        <div class="category_box_placeholder"></div>""" * 10 + """
-    </div>
-</div>""")
+SECTION_MIXED_LIST = """<div class="section_project_list">
+    {items}""" + """
+    <div class="project_box_placeholder"></div>""" * 10 + """
+</div>"""
 
 PROJECT_BOX = """<div class="project_box">
     {link}
@@ -55,11 +52,6 @@ HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
         <p class="toolbar_title">{title}</p>
     </div>
     {content}
-</div>"""
-
-SECTION_MIXED_LIST = """<div class="section_project_list">
-    {items}""" + """
-    <div class="project_box_placeholder"></div>""" * 10 + """
 </div>"""
 
 def read_yaml_file(filename):
@@ -174,7 +166,7 @@ def generate_category_box(chips, chip_id):
             title=chips[chip_id]["title"])
 
 def generate_chips_section(chips, section):
-    return SECTION_CHIP_LIST.format(title=section["title"],
+    return HEADER_CHIP_LIST.format(title=section["title"],
         items=generate_chips(chips, section["items"]))
 
 def generate_projects_section(chips, objects, section_id, section):
@@ -182,14 +174,16 @@ def generate_projects_section(chips, objects, section_id, section):
     for object_id in section["items"]:
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
-    return SECTION_PROJECT_LIST.format(id=section_id,
+    return SECTION_TITLE_LIST.format(list_class="section_project_list",
+        placeholder_class="project_box_placeholder", id=section_id,
         title=section["title"], items="\n".join(items))
 
 def generate_categories_section(chips, section_id, section):
     items = []
     for chip_id in section["items"]:
         items.append(generate_category_box(chips, chip_id))
-    return SECTION_CATEGORY_LIST.format(id=section_id,
+    return SECTION_TITLE_LIST.format(list_class="section_category_list",
+        placeholder_class="category_box_placeholder", id=section_id,
         title=section["title"], items="\n".join(items))
 
 def generate_sections(chips, objects, sections):
