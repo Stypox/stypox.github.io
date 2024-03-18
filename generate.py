@@ -52,7 +52,7 @@ PROJECT_BOX = """<div class="box project_box">
     {chips}
 </div>"""
 
-CATEGORY_BOX = """<div class="box category_box category_box_normal">
+CATEGORY_BOX = """<div class="box category_box">
     {link}
     {image}
     <p class="{title_class}">{title}</p>
@@ -83,6 +83,11 @@ TALK_BOX = """<div class="box talk_box">
     <p class="box_title talk_box_title">{title}</p>
     <p class="talk_box_description">{description}</p>
     {chips}
+</div>"""
+
+ALL_COMPETITIONS_TALKS_BOX = """<div class="box_list_all_competitions_talks">
+    <a href="#all-competitions" class="box_all_competitions_talks">All competitions</a>
+    <a href="#all-talks" class="box_all_competitions_talks">All talks</a>
 </div>"""
 
 
@@ -288,6 +293,9 @@ def generate_jobs_section(chips, objects, section_id, section):
 def generate_competitions_section(chips, objects, section_id, section):
     items = []
     for object_id in section["items"]:
+        if object_id == "all-competitions-talks":
+            items.append(ALL_COMPETITIONS_TALKS_BOX)
+            continue
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_competition_list",
@@ -296,6 +304,9 @@ def generate_competitions_section(chips, objects, section_id, section):
 def generate_talks_section(chips, objects, section_id, section):
     items = []
     for object_id in section["items"]:
+        if object_id == "all-competitions-talks":
+            items.append(ALL_COMPETITIONS_TALKS_BOX)
+            continue
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_talk_list",
@@ -369,7 +380,7 @@ def main():
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
-    used_keywords = ["all-projects", "or_click_on_things"]
+    used_keywords = ["all-projects", "all-competitions-talks", "or-click-on-chips"]
 
     assert pairwise_disjoint(chips, objects, header, content, used_keywords)
 

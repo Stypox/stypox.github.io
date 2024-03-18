@@ -245,6 +245,8 @@ img.monochrome {
     font-size: xx-large;
 }
 .section_box_list {
+    --box-horizontal-padding: var(--margin-medium);
+    --box-vertical-padding: var(--margin-medium);
     margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -259,7 +261,10 @@ img.monochrome {
     background: var(--surface);
     color: var(--on-surface);
     border-radius: var(--margin-medium);
-    padding: var(--margin-medium);
+    padding-top: var(--box-vertical-padding);
+    padding-bottom: var(--box-vertical-padding);
+    padding-right: var(--box-horizontal-padding);
+    padding-left: var(--box-horizontal-padding);
     margin-bottom: var(--box-list-spacing);
     /* needed for .box_overlaid_link to work correctly */
     position: relative;
@@ -270,8 +275,8 @@ img.monochrome {
     may get more stretched if the row is not filled) */
     width: var(--box-item-width);
     flex-grow: 1;
-    padding-left: var(--margin-medium);
-    padding-right: var(--margin-medium);
+    padding-right: var(--box-horizontal-padding);
+    padding-left: var(--box-horizontal-padding);
 }
 .box_overlaid_link {
     position: absolute;
@@ -344,20 +349,19 @@ img.monochrome {
 .section_category_list {
     --box-item-width: 160px;
     --box-list-spacing: 8px;
+    --box-horizontal-padding: var(--margin-small);
 }
 .category_box {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.category_box_normal {
-    padding-left: var(--margin-small);
-    padding-right: var(--margin-small);
+    width: var(--box-item-width);
+    flex-grow: 1;
 }
 .category_box_or_click_on_chips {
-    padding-left: var(--margin-small);
-    padding-right: var(--margin-small);
+    padding-left: var(--box-horizontal-padding);
+    padding-right: var(--box-horizontal-padding);
     margin-bottom: var(--box-list-spacing);
     font-style: italic;
     flex-direction: column;
@@ -374,6 +378,7 @@ img.monochrome {
 .category_box_title_all_projects {
     font-style: italic;
     font-size: x-large;
+    text-decoration: underline;
 }
 
 /* Job list */
@@ -439,6 +444,25 @@ img.monochrome {
 .competition_box_chip_list,
 .talk_box_chip_list {
     margin-top: auto;
+}
+.box_list_all_competitions_talks {
+    width: calc(var(--box-item-width) + 2 * var(--margin-medium));
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-items: stretch;
+    justify-content: space-between;
+    text-align: center;
+    row-gap: 8px;
+    margin-bottom: var(--box-list-spacing);
+}
+.box_all_competitions_talks {
+    background: var(--surface);
+    color: var(--on-surface);
+    border-radius: var(--margin-small);
+    padding: var(--margin-small);
+    font-style: italic;
+    font-size: large;
 }
 
 /* Toolbar */
