@@ -28,7 +28,7 @@ python:
   title: Python
   image: python.svg 0.9
 
-c_sharp:
+c-sharp:
   short: C#
   title: C#
   image: c_sharp.svg

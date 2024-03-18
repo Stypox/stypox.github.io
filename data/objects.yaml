@@ -195,7 +195,7 @@ jetbrains:
   company: JetBrains s.r.o.
   when: Summer 2023
   description: Built lexer and parser for Verse progamming language, to add support for it in Rider IDE with syntax highlighting and variable resolution.
-  chips: [asd, c_sharp]
+  chips: [asd, c-sharp]
   image: jetbrains.svg 1.2
   link: https://www.jetbrains.com/
 

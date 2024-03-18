@@ -6,7 +6,7 @@ significant-projects:
 other-projects:
   type: categories
   title: All projects by category
-  items: [app, ai, foss, mindshub, all, or_click_on_chips]
+  items: [app, ai, foss, mindshub, all-projects, or-click-on-chips]
 
 work-experience:
   type: jobs

@@ -241,14 +241,14 @@ def generate_object(chips, object_id, obj, include_hidden_chips):
         return ""
 
 def generate_category_box(chips, chip_id):
-    if chip_id == "all":
+    if chip_id == "all-projects":
         return CATEGORY_BOX.format(
             image="",
             link=generate_link("#all-projects"),
             title_class="category_box_title_all_projects",
             title="All projects",
         )
-    elif chip_id == "or_click_on_chips":
+    elif chip_id == "or-click-on-chips":
         return OR_CLICK_ON_CHIPS_BOX
     else:
         return CATEGORY_BOX.format(
@@ -369,7 +369,7 @@ def main():
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
-    used_keywords = ["all-projects", "all-jobs", "all-competitions", "all-talks", "or_click_on_things"]
+    used_keywords = ["all-projects", "or_click_on_things"]
 
     assert pairwise_disjoint(chips, objects, header, content, used_keywords)
 

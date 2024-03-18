@@ -1,7 +1,7 @@
 languages:
   type: chips
   title: Languages
-  items: [rust, cpp, kotlin, java, python, dart, c_sharp]
+  items: [rust, cpp, kotlin, java, python, dart, c-sharp]
 
 technologies:
   type: chips
