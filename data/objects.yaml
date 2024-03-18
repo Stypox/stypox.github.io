@@ -202,8 +202,9 @@ jetbrains:
 tutoring:
   type: job
   title: Competitive programming trainer, maths and physics tutor
-  description: Trained high school students for olympiads in informatics. Helped struggling students in STEM subjects.
+  description: Trained high school students for the Olympiads in Informatics. Helped struggling students in STEM subjects.
   chips: [asd]
+  link: https://github.com/Stypox/palestra-di-algoritmi
 
 # cyberchallenge:
 #   type: competition
