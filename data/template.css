@@ -595,6 +595,12 @@ img.monochrome {
     content: "";
     padding-right: 20px;
 }
+.footer_legend_item_competition::before {
+    background-image: url("../images/competition.svg");
+}
+.footer_legend_item_talk::before {
+    background-image: url("../images/talk.svg");
+}
 
 /* Fonts, obtained with https://gwfh.mranftl.com */
 /* roboto-300 - latin */
