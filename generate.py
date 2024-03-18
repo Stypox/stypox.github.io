@@ -27,7 +27,7 @@ PROJECT_BOX = """<div class="project_box">
     {link}
     <div>
         {image}
-        <p class="project_box_title {title_class}">{title}</p>
+        <p class="box_title project_box_title {title_class}">{title}</p>
         <p class="project_box_description">{description}</p>
     </div>
     {chips}
@@ -36,7 +36,7 @@ PROJECT_BOX = """<div class="project_box">
 JOB_BOX = """<div class="job_box">
     {link}
     <div>
-        <span class="job_box_title">{title}</span>
+        <span class="box_title job_box_title">{title}</span>
         {company}
         {when}
     </div>
@@ -47,14 +47,14 @@ JOB_BOX = """<div class="job_box">
 
 COMPETITION_BOX = """<div class="competition_box">
     {link}
-    <p class="competition_box_title">{title}</p>
+    <p class="box_title competition_box_title">{title}</p>
     <p class="competition_box_description">{description}</p>
     {chips}
 </div>"""
 
 TALK_BOX = """<div class="talk_box">
     {link}
-    <p class="talk_box_title">{title}</p>
+    <p class="box_title talk_box_title">{title}</p>
     <p class="talk_box_description">{description}</p>
     {chips}
 </div>"""

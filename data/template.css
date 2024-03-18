@@ -253,6 +253,16 @@ img.monochrome {
     z-index: 1;
     border-radius: inherit;
 }
+.box_title::before {
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    filter: var(--monochrome-filter);
+    width: 16px;
+    height: 100%;
+    content: "";
+    padding-right: 20px;
+}
 
 /* Project list */
 .section_project_list {
@@ -292,16 +302,6 @@ img.monochrome {
 .project_box_title {
     font-size: large;
     font-weight: bolder;
-}
-.project_box_title::before {
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: 0 center;
-    filter: var(--monochrome-filter);
-    width: 16px;
-    height: 100%;
-    content: "";
-    padding-right: 20px;
 }
 .project_box_normal_title::before {
     background-image: url("../images/project.svg");
@@ -425,14 +425,6 @@ img.monochrome {
 }
 .job_box_title::before {
     background-image: url("../images/work.svg");
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: 0 center;
-    filter: var(--monochrome-filter);
-    width: 16px;
-    height: 100%;
-    content: "";
-    padding-right: 20px;
 }
 .job_box_description {
     font-size: small;
@@ -500,17 +492,6 @@ img.monochrome {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.competition_box_title::before,
-.talk_box_title::before {
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: 0 center;
-    filter: var(--monochrome-filter);
-    width: 16px;
-    height: 100%;
-    content: "";
-    padding-right: 20px;
 }
 .competition_box_title::before {
     background-image: url("../images/competition.svg");
