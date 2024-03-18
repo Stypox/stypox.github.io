@@ -453,8 +453,9 @@ img.monochrome {
     z-index: 0;
 }
 
-/* Competition list */
-.section_competition_list {
+/* Competition and talk list */
+.section_competition_list,
+.section_talk_list {
     margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -463,7 +464,8 @@ img.monochrome {
     /* not using row-gap because .competition_box_placeholder should not count as a real row */
     margin-bottom: -12px;
 }
-.competition_box {
+.competition_box,
+.talk_box {
     width: 200px;
     flex-grow: 1;
     background: var(--surface);
@@ -475,11 +477,13 @@ img.monochrome {
     display: flex;
     flex-direction: column;
 }
-.competition_box:hover {
+.competition_box:hover,
+.talk_box:hover {
     background: var(--surface-hover);
     color: var(--on-surface-hover);
 }
-.competition_box_placeholder {
+.competition_box_placeholder,
+.talk_box_placeholder {
     /* an invisible competition box to make sure all competition boxes have
     the same size (otherwise with flex-grow: 1 items on the last row
     may get more stretched if the row is not filled) */
@@ -488,7 +492,8 @@ img.monochrome {
     padding-left: var(--margin-medium);
     padding-right: var(--margin-medium);
 }
-.competition_box_title {
+.competition_box_title,
+.talk_box_title {
     font-size: large;
     font-weight: bolder;
     margin-bottom: 2px;
@@ -496,8 +501,8 @@ img.monochrome {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.competition_box_title::before {
-    background-image: url("../images/competition.svg");
+.competition_box_title::before,
+.talk_box_title::before {
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: 0 center;
@@ -507,7 +512,14 @@ img.monochrome {
     content: "";
     padding-right: 20px;
 }
-.competition_box_description {
+.competition_box_title::before {
+    background-image: url("../images/competition.svg");
+}
+.talk_box_title::before {
+    background-image: url("../images/talk.svg");
+}
+.competition_box_description,
+.talk_box_description {
     font-size: small;
     font-style: italic;
     margin-bottom: 3px;
@@ -515,7 +527,8 @@ img.monochrome {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.competition_box_chip_list {
+.competition_box_chip_list,
+.talk_box_chip_list {
     margin-top: auto;
 }
 

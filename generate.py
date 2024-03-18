@@ -54,11 +54,8 @@ COMPETITION_BOX = """<div class="competition_box">
 
 TALK_BOX = """<div class="talk_box">
     {link}
-    <div>
-        {image}
-        <p class="talk_box_title">{title}</p>
-        <p class="talk_box_description">{description}</p>
-    </div>
+    <p class="talk_box_title">{title}</p>
+    <p class="talk_box_description">{description}</p>
     {chips}
 </div>"""
 
@@ -210,14 +207,17 @@ def generate_competition_box(chips, competition, include_hidden_chips):
     return COMPETITION_BOX.format(
         link=generate_link_opt(competition.get("link")),
         title=join_opt(competition.get("place", ""), competition['title']),
-        description=join_opt(competition.get("year"), competition.get("description")),
+        description=join_opt(competition.get("date"), competition.get("description")),
         chips=generate_chip_list_for_obj(chips, competition, include_hidden_chips, "competition_box_chip_list"),
     )
 
 def generate_talk_box(chips, talk, include_hidden_chips):
-    return TALK_BOX.format(link=generate_link_opt(talk.get("link")),
-        image=generate_img_opt("talk_box_image", talk.get("image")), title=talk["title"],
-        description=talk["description"], chips=generate_chip_list_for_obj(chips, talk, include_hidden_chips))
+    return TALK_BOX.format(
+        link=generate_link_opt(talk.get("link")),
+        title=talk['title'],
+        description=join_opt(talk.get("date"), talk.get("description")),
+        chips=generate_chip_list_for_obj(chips, talk, include_hidden_chips, "talk_box_chip_list"),
+    )
 
 def generate_object(chips, object_id, obj, include_hidden_chips):
     if obj["type"] == "project":

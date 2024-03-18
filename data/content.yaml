@@ -21,4 +21,4 @@ competitions:
 talks:
   type: talks
   title: Talks
-  items: []
+  items: [sfscon-2023, speck-tech-2023, sfscon-2022]

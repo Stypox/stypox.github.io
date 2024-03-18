@@ -210,7 +210,7 @@ swerc-2023:
   type: competition
   title: SWERC
   place: 25th
-  year: 2023
+  date: 2023
   description: team Greatest Competitive Dolphins
   chips: [asd]
   link: https://swerc.eu/2023/theme/scoreboard/domjudge.lip6.fr/public.html
@@ -219,7 +219,7 @@ cyberchallenge-2023-team:
   type: competition
   title: CyberChallenge.IT
   place: 2nd
-  year: 2023
+  date: 2023
   description: team finals with UniTN
   chips: [cybersecurity]
   link: https://cyberchallenge.it/halloffame/2023
@@ -228,11 +228,30 @@ cyberchallenge-2023:
   type: competition
   title: CyberChallenge.IT
   place: 1st
-  year: 2023
+  date: 2023
   description: italian individual selection
   chips: [cybersecurity]
   link: https://www.youtube.com/watch?v=ZYP54q2KMFc&t=1724
 
-# sfscon2023:
-#   type: talk
-#   chips: []
+sfscon-2023:
+  type: talk
+  title: MindsHub no-profit
+  date: 10/11/2023
+  description: SFSCon
+  chips: [foss, mindshub]
+  link: https://www.sfscon.it/talks/mindshub-no-profit/
+
+speck-tech-2023:
+  type: talk
+  title: Jetpack Compose workshop
+  date: 07/10/2023
+  description: Speck & Tech retreat
+  chips: [compose, app]
+
+sfscon-2022:
+  type: talk
+  title: NewPipe and beyond
+  date: 11/11/2022
+  description: SFSCon
+  chips: [foss, app]
+  link: https://www.sfscon.it/talks/newpipe-and-beyond/
