@@ -310,9 +310,10 @@ img.monochrome {
     content: "";
     padding-right: 20px;
 }
-.mixed_box_list {
-    --box-item-width: 320px;
-    --box-list-spacing: 12px;
+.ellipsize {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Project list */
@@ -427,9 +428,6 @@ img.monochrome {
 .competition_box_title,
 .talk_box_title {
     margin-bottom: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .competition_box_title::before {
     background-image: url("../images/competition.svg");
@@ -442,9 +440,6 @@ img.monochrome {
     font-size: small;
     font-style: italic;
     margin-bottom: 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .competition_box_chip_list,
 .talk_box_chip_list {
@@ -477,6 +472,7 @@ img.monochrome {
 /* Toolbar */
 .toolbar {
     min-height: 48px;
+    margin-bottom: var(--margin-medium)
 }
 .toolbar_home_button {
     float: left;

@@ -14,7 +14,7 @@ HOME_PAGE_TARGET_PAGE = """<div class="home_page_content target_page" id="{id}">
 
 CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
 
-CHIP_LIST = """<div class="chip_list {additional_tags}">
+CHIP_LIST = """<div class="chip_list {additional_classes}">
     {chips}
 </div>"""
 
@@ -36,7 +36,7 @@ SECTION_TITLE_LIST = ("""<div class="section">
     </div>
 </div>""")
 
-SECTION_MIXED_LIST = """<div class="section_box_list mixed_box_list">
+SECTION_MIXED_LIST = """<div class="section_box_list {list_class}">
     {items}""" + """
     <div class="box_placeholder"></div>""" * 10 + """
 </div>"""
@@ -73,15 +73,15 @@ JOB_BOX = """<div class="box">
 
 COMPETITION_BOX = """<div class="box competition_box">
     {link}
-    <p class="box_title competition_box_title">{title}</p>
-    <p class="competition_box_description">{description}</p>
+    <p class="box_title competition_box_title {ellipsize_class}">{title}</p>
+    <p class="competition_box_description {ellipsize_class}">{description}</p>
     {chips}
 </div>"""
 
 TALK_BOX = """<div class="box talk_box">
     {link}
-    <p class="box_title talk_box_title">{title}</p>
-    <p class="talk_box_description">{description}</p>
+    <p class="box_title talk_box_title {ellipsize_class}">{title}</p>
+    <p class="talk_box_description {ellipsize_class}">{description}</p>
     {chips}
 </div>"""
 
@@ -183,25 +183,25 @@ def generate_chips(chips, chip_ids):
             print("Unknown chip id", chip_id)
     return "\n".join(results)
 
-def generate_chip_list_for_obj(chips, obj, include_hidden_chips, tag):
-    chips_to_show = obj["chips"] + obj.get("hidden_chips", []) if include_hidden_chips else obj["chips"]
-    additional_tag = "" if include_hidden_chips else " chip_list_single_line"
+def generate_chip_list_for_obj(chips, obj, expanded_form, list_class):
+    chips_to_show = obj["chips"] + obj.get("hidden_chips", []) if expanded_form else obj["chips"]
+    additional_class = "" if expanded_form else "chip_list_single_line"
     return CHIP_LIST.format(
         chips=generate_chips(chips, chips_to_show),
-        additional_tags=additional_tag + " " + tag,
+        additional_classes=additional_class + " " + list_class,
     )
 
-def generate_project_box(chips, project, include_hidden_chips, title_class):
+def generate_project_box(chips, project, expanded_form, title_class):
     return PROJECT_BOX.format(
         link=generate_link_opt(project.get("link")),
         image=generate_img_opt("project_box_image", project.get("image")),
         title_class=title_class,
         title=project["title"],
         description=project["description"],
-        chips=generate_chip_list_for_obj(chips, project, include_hidden_chips, "project_box_chip_list"),
+        chips=generate_chip_list_for_obj(chips, project, expanded_form, "project_box_chip_list"),
     )
 
-def generate_job_box(chips, job, include_hidden_chips):
+def generate_job_box(chips, job, expanded_form):
     return JOB_BOX.format(
         link=generate_link_opt(job.get("link")),
         image=generate_img_opt("job_box_image", job.get("image")),
@@ -209,38 +209,40 @@ def generate_job_box(chips, job, include_hidden_chips):
         company=f"""• <span class="job_box_company">{job['company']}</span>""" if "company" in job else "",
         when=f"""• <span class="job_box_when">{job['when']}</span>""" if "when" in job else "",
         description=job["description"],
-        chips=generate_chip_list_for_obj(chips, job, include_hidden_chips, "job_box_chip_list"),
+        chips=generate_chip_list_for_obj(chips, job, expanded_form, "job_box_chip_list"),
     )
 
-def generate_competition_box(chips, competition, include_hidden_chips):
+def generate_competition_box(chips, competition, expanded_form):
     return COMPETITION_BOX.format(
         link=generate_link_opt(competition.get("link")),
         title=join_opt(competition.get("place", ""), competition['title']),
         description=join_opt(competition.get("date"), competition.get("description")),
-        chips=generate_chip_list_for_obj(chips, competition, include_hidden_chips, "competition_box_chip_list"),
+        ellipsize_class="" if expanded_form else "ellipsize",
+        chips=generate_chip_list_for_obj(chips, competition, expanded_form, "competition_box_chip_list"),
     )
 
-def generate_talk_box(chips, talk, include_hidden_chips):
+def generate_talk_box(chips, talk, expanded_form):
     return TALK_BOX.format(
         link=generate_link_opt(talk.get("link")),
         title=talk['title'],
         description=join_opt(talk.get("date"), talk.get("description")),
-        chips=generate_chip_list_for_obj(chips, talk, include_hidden_chips, "talk_box_chip_list"),
+        ellipsize_class="" if expanded_form else "ellipsize",
+        chips=generate_chip_list_for_obj(chips, talk, expanded_form, "talk_box_chip_list"),
     )
 
-def generate_object(chips, object_id, obj, include_hidden_chips):
+def generate_object(chips, object_id, obj, expanded_form):
     if obj["type"] == "project":
-        return generate_project_box(chips, obj, include_hidden_chips, "project_box_normal_title")
+        return generate_project_box(chips, obj, expanded_form, "project_box_normal_title")
     elif obj["type"] == "project-contributed":
-        return generate_project_box(chips, obj, include_hidden_chips, "project_box_contributed_title")
+        return generate_project_box(chips, obj, expanded_form, "project_box_contributed_title")
     elif obj["type"] == "project-work":
-        return generate_project_box(chips, obj, include_hidden_chips, "project_box_work_title")
+        return generate_project_box(chips, obj, expanded_form, "project_box_work_title")
     elif obj["type"] == "job":
-        return generate_job_box(chips, obj, include_hidden_chips)
+        return generate_job_box(chips, obj, expanded_form)
     elif obj["type"] == "competition":
-        return generate_competition_box(chips, obj, include_hidden_chips)
+        return generate_competition_box(chips, obj, expanded_form)
     elif obj["type"] == "talk":
-        return generate_talk_box(chips, obj, include_hidden_chips)
+        return generate_talk_box(chips, obj, expanded_form)
     else:
         print("Unknown object type", obj["type"], "for object", object_id)
         return ""
@@ -344,14 +346,14 @@ def generate_chip_page_content(chips, objects, chip_id):
     for (object_id, obj) in objects.items():
         if chip_id in obj["chips"] or chip_id in obj.get("hidden_chips", []):
             items.append(generate_object(chips, object_id, obj, True))
-    return SECTION_MIXED_LIST.format(items="\n".join(items))
+    return SECTION_MIXED_LIST.format(list_class="section_project_list", items="\n".join(items))
 
-def generate_all_page_content(chips, objects, types):
+def generate_all_page_content(chips, objects, list_class, types):
     items = []
     for (object_id, obj) in objects.items():
         if obj["type"] in types:
-            items.append(generate_object(chips, object_id, obj, False))
-    return SECTION_MIXED_LIST.format(items="\n".join(items))
+            items.append(generate_object(chips, object_id, obj, True))
+    return SECTION_MIXED_LIST.format(list_class=list_class, items="\n".join(items))
 
 def generate_home_page_target_pages(chips, objects):
     results = []
@@ -367,17 +369,17 @@ def generate_home_page_target_pages(chips, objects):
         ))
 
     # a target page for each object type
-    for (page_id, title, types) in (
-        ("all-projects", "All projects", ("project", "project-contributed", "project-work")),
-        ("all-jobs", "All jobs", ("job")),
-        ("all-competitions", "All competitions", ("competition")),
-        ("all-talks", "All talks", ("talk")),
+    for (page_id, title, list_class, types) in (
+        ("all-projects", "All projects", "section_project_list", ("project", "project-contributed", "project-work")),
+        ("all-jobs", "All jobs", "section_job_list", ("job")),
+        ("all-competitions", "All competitions", "section_competition_list", ("competition")),
+        ("all-talks", "All talks", "section_talk_list", ("talk")),
     ):
         results.append(HOME_PAGE_TARGET_PAGE.format(
             id=page_id,
             title=title,
             image="""<div class="toolbar_image"></div>""",
-            content=generate_all_page_content(chips, objects, types),
+            content=generate_all_page_content(chips, objects, list_class, types),
         ))
 
     return "\n".join(results)
