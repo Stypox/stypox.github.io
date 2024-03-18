@@ -209,7 +209,7 @@ def generate_job_box(chips, job, include_hidden_chips):
 def generate_competition_box(chips, competition, include_hidden_chips):
     return COMPETITION_BOX.format(
         link=generate_link_opt(competition.get("link")),
-        title=join_opt(competition['title'], competition.get("place", "")),
+        title=join_opt(competition.get("place", ""), competition['title']),
         description=join_opt(competition.get("year"), competition.get("description")),
         chips=generate_chip_list_for_obj(chips, competition, include_hidden_chips, "competition_box_chip_list"),
     )

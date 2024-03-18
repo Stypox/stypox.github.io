@@ -464,7 +464,7 @@ img.monochrome {
     margin-bottom: -12px;
 }
 .competition_box {
-    width: 240px;
+    width: 200px;
     flex-grow: 1;
     background: var(--surface);
     color: var(--on-surface);
@@ -483,7 +483,7 @@ img.monochrome {
     /* an invisible competition box to make sure all competition boxes have
     the same size (otherwise with flex-grow: 1 items on the last row
     may get more stretched if the row is not filled) */
-    width: 240px;
+    width: 200px;
     flex-grow: 1;
     padding-left: var(--margin-medium);
     padding-right: var(--margin-medium);
@@ -492,6 +492,9 @@ img.monochrome {
     font-size: large;
     font-weight: bolder;
     margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .competition_box_title::before {
     background-image: url("../images/competition.svg");
@@ -507,7 +510,7 @@ img.monochrome {
 .competition_box_description {
     font-size: small;
     font-style: italic;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
