@@ -244,7 +244,7 @@ def generate_category_box(chips, chip_id):
     if chip_id == "all":
         return CATEGORY_BOX.format(
             image="",
-            link=generate_link("#all_projects"),
+            link=generate_link("#all-projects"),
             title_class="category_box_title_all_projects",
             title="All projects",
         )
@@ -328,14 +328,17 @@ def generate_chip_page_content(chips, objects, chip_id):
             items.append(generate_object(chips, object_id, obj, True))
     return SECTION_MIXED_LIST.format(items="\n".join(items))
 
-def generate_all_page_content(chips, objects):
+def generate_all_page_content(chips, objects, types):
     items = []
     for (object_id, obj) in objects.items():
-        items.append(generate_object(chips, object_id, obj, False))
+        if obj["type"] in types:
+            items.append(generate_object(chips, object_id, obj, False))
     return SECTION_MIXED_LIST.format(items="\n".join(items))
 
 def generate_home_page_target_pages(chips, objects):
     results = []
+
+    # a target page for each chip
     for (chip_id, chip) in chips.items():
         results.append(HOME_PAGE_TARGET_PAGE.format(
             id=chip_id,
@@ -344,12 +347,21 @@ def generate_home_page_target_pages(chips, objects):
                 alt="""<div class="toolbar_image"></div>"""),
             content=generate_chip_page_content(chips, objects, chip_id),
         ))
-    results.append(HOME_PAGE_TARGET_PAGE.format(
-        id="all_projects",
-        title="All projects",
-        image="""<div class="toolbar_image"></div>""",
-        content=generate_all_page_content(chips, objects),
-    ))
+
+    # a target page for each object type
+    for (page_id, title, types) in (
+        ("all-projects", "All projects", ("project", "project-contributed", "project-work")),
+        ("all-jobs", "All jobs", ("job")),
+        ("all-competitions", "All competitions", ("competition")),
+        ("all-talks", "All talks", ("talk")),
+    ):
+        results.append(HOME_PAGE_TARGET_PAGE.format(
+            id=page_id,
+            title=title,
+            image="""<div class="toolbar_image"></div>""",
+            content=generate_all_page_content(chips, objects, types),
+        ))
+
     return "\n".join(results)
 
 def main():
@@ -357,7 +369,7 @@ def main():
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
-    used_keywords = ["all_projects", "or_click_on_things"]
+    used_keywords = ["all-projects", "all-jobs", "all-competitions", "all-talks", "or_click_on_things"]
 
     assert pairwise_disjoint(chips, objects, header, content, used_keywords)
 
