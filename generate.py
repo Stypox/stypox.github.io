@@ -27,7 +27,7 @@ PROJECT_BOX = """<div class="project_box">
     {link}
     <div>
         {image}
-        <p class="box_title project_box_title {title_class}">{title}</p>
+        <p class="box_title {title_class}">{title}</p>
         <p class="project_box_description">{description}</p>
     </div>
     {chips}

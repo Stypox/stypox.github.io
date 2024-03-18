@@ -253,6 +253,10 @@ img.monochrome {
     z-index: 1;
     border-radius: inherit;
 }
+.box_title {
+    font-size: large;
+    font-weight: bolder;
+}
 .box_title::before {
     background-size: 16px 16px;
     background-repeat: no-repeat;
@@ -298,10 +302,6 @@ img.monochrome {
     flex-grow: 1;
     padding-left: var(--margin-medium);
     padding-right: var(--margin-medium);
-}
-.project_box_title {
-    font-size: large;
-    font-weight: bolder;
 }
 .project_box_normal_title::before {
     background-image: url("../images/project.svg");
@@ -419,10 +419,6 @@ img.monochrome {
     padding-left: var(--margin-medium);
     padding-right: var(--margin-medium);
 }
-.job_box_title {
-    font-size: large;
-    font-weight: bolder;
-}
 .job_box_title::before {
     background-image: url("../images/work.svg");
 }
@@ -486,8 +482,6 @@ img.monochrome {
 }
 .competition_box_title,
 .talk_box_title {
-    font-size: large;
-    font-weight: bolder;
     margin-bottom: 2px;
     white-space: nowrap;
     overflow: hidden;
