@@ -206,11 +206,11 @@ tutoring:
   chips: [asd]
   link: https://github.com/Stypox/palestra-di-algoritmi
 
-swerc-2023:
+swerc-2024:
   type: competition
   title: SWERC
   place: 25th
-  date: 2023
+  date: 2024
   description: team Greatest Competitive Dolphins
   chips: [asd]
   link: https://swerc.eu/2023/theme/scoreboard/domjudge.lip6.fr/public.html
@@ -232,6 +232,94 @@ cyberchallenge-2023:
   description: italian individual selection
   chips: [cybersecurity]
   link: https://www.youtube.com/watch?v=ZYP54q2KMFc&t=1724
+
+swerc-2023:
+  type: competition
+  title: SWERC
+  place: 48th
+  date: 2023
+  description: team MindsHub
+  chips: [asd]
+  link: https://swerc.eu/2022/theme/scoreboard/public/
+
+swerc-2022:
+  type: competition
+  title: SWERC
+  place: 41th
+  date: 2022
+  description: team MindsHub
+  chips: [asd]
+  link: https://swerc.eu/2021/theme/scoreboard/public/
+
+olifis:
+  type: competition
+  title: Italian Physics Olympiad
+  place: Bronze
+  date: 2021
+  description: individuals
+  chips: []
+
+olimat-2021:
+  type: competition
+  title: Italian Math Olympiad
+  place: 82nd
+  date: 2021
+  description: team Rosmini, Rovereto
+  chips: []
+  link: http://olimpiadi.dm.unibo.it/2021/05/28/finale-nazionale-della-gara-individuale-tabellone-2021/
+
+olimat-2021-team:
+  type: competition
+  title: Italian Math Olympiad
+  place: 20th
+  date: 2021
+  description: individuals
+  chips: []
+  link: http://olimpiadi.dm.unibo.it/wp-content/uploads/2021/06/fase_finale_gare_a_squadre_21.pdf
+
+oii-2020:
+  type: competition
+  title: Italian Informatics Olympiad
+  place: 9th
+  date: 2020
+  description: individuals, then accepted in Probable Olympians
+  chips: [asd]
+  link: https://stats.olinfo.it/contestant/dccdabc9b3b4661392e2e945c13be89d/
+
+ceoi:
+  type: competition
+  title: CEOI
+  place: 37th
+  date: 2020
+  description: Central Europe individuals
+  chips: [asd]
+  link: http://ceoi2020.inf.elte.hu/2020/08/28/final-ranking-of-ceoi-2020/
+
+oii-2020-team:
+  type: competition
+  title: Italian Informatics Olympiad
+  place: 25th
+  date: 2020
+  description: team Code Lives Matter
+  chips: [asd]
+  link: https://squadre.olinfo.it/edition/12/team/tre05
+
+fuoriclasse:
+  type: competition
+  title: I Fuoriclasse della Scuola
+  date: 2019
+  description: scholarship
+  chips: []
+  link: https://fuoriclassedellascuola.it/vincitori/
+
+oii-2019:
+  type: competition
+  title: Italian Informatics Olympiad
+  place: 7th
+  date: 2019
+  description: individuals, then accepted in Probable Olympians
+  chips: [asd]
+  link: https://stats.olinfo.it/contestant/dccdabc9b3b4661392e2e945c13be89d/
 
 sfscon-2023:
   type: talk
