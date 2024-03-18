@@ -371,6 +371,10 @@ img.monochrome {
 .category_box_title {
     flex-grow: 1;
 }
+.category_box_title_all_projects {
+    font-style: italic;
+    font-size: x-large;
+}
 
 /* Job list */
 .section_job_list {

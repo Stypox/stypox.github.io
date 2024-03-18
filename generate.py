@@ -55,7 +55,7 @@ PROJECT_BOX = """<div class="box project_box">
 CATEGORY_BOX = """<div class="box category_box category_box_normal">
     {link}
     {image}
-    <p class="category_box_title">{title}</p>
+    <p class="{title_class}">{title}</p>
 </div>"""
 OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='rust')}</div>"""
 
@@ -242,15 +242,21 @@ def generate_object(chips, object_id, obj, include_hidden_chips):
 
 def generate_category_box(chips, chip_id):
     if chip_id == "all":
-        return CATEGORY_BOX.format(image=generate_img("category_box_image", "all.svg monochrome"),
-            link=generate_link("#all"),
-            title="<i>All projects</i>")
+        return CATEGORY_BOX.format(
+            image="",
+            link=generate_link("#all_projects"),
+            title_class="category_box_title_all_projects",
+            title="All projects",
+        )
     elif chip_id == "or_click_on_chips":
         return OR_CLICK_ON_CHIPS_BOX
     else:
-        return CATEGORY_BOX.format(image=generate_img_opt("category_box_image", chips[chip_id].get("image")),
+        return CATEGORY_BOX.format(
+            image=generate_img_opt("category_box_image", chips[chip_id].get("image")),
             link=generate_link(f"#{chip_id}"),
-            title=chips[chip_id]["title"])
+            title_class="category_box_title",
+            title=chips[chip_id]["title"],
+        )
 
 def generate_chips_section(chips, section):
     return HEADER_CHIP_LIST.format(title=section["title"],
@@ -339,7 +345,7 @@ def generate_home_page_target_pages(chips, objects):
             content=generate_chip_page_content(chips, objects, chip_id),
         ))
     results.append(HOME_PAGE_TARGET_PAGE.format(
-        id="all",
+        id="all_projects",
         title="All projects",
         image="""<div class="toolbar_image"></div>""",
         content=generate_all_page_content(chips, objects),
@@ -351,7 +357,7 @@ def main():
     objects = read_yaml_file("data/objects.yaml")
     header = read_yaml_file("data/header.yaml")
     content = read_yaml_file("data/content.yaml")
-    used_keywords = ["all", "or_click_on_things"]
+    used_keywords = ["all_projects", "or_click_on_things"]
 
     assert pairwise_disjoint(chips, objects, header, content, used_keywords)
 
