@@ -47,11 +47,8 @@ JOB_BOX = """<div class="job_box">
 
 COMPETITION_BOX = """<div class="competition_box">
     {link}
-    <div>
-        {image}
-        <p class="competition_box_title">{title}</p>
-        <p class="competition_box_description">{description}</p>
-    </div>
+    <p class="competition_box_title">{title}</p>
+    <p class="competition_box_description">{description}</p>
     {chips}
 </div>"""
 
@@ -67,7 +64,7 @@ TALK_BOX = """<div class="talk_box">
 
 CHIP = """<a class="chip chip_{chip_id}" href="#{chip_id}"></a>"""
 
-CHIP_LIST = """ <div class="chip_list {additional_tags}">
+CHIP_LIST = """<div class="chip_list {additional_tags}">
     {chips}
 </div>"""
 
@@ -125,6 +122,19 @@ def extract_image_args(image_args_str):
             print("Invalid scale in image arguments:", image_args_str)
 
     return src, monochrome, scale
+
+def format_opt(format_string, format_arg, alt=""):
+    if format_arg is None:
+        return alt
+    return format_string % format_arg
+
+def join_opt(*items, sep=" • "):
+    items = [
+        str(item)
+        for item in items
+        if item is not None and not len(str(item)) == 0
+    ]
+    return sep.join(items)
 
 def generate_img(klass, image_args_str):
     src, monochrome, scale = extract_image_args(image_args_str)
@@ -197,9 +207,12 @@ def generate_job_box(chips, job, include_hidden_chips):
     )
 
 def generate_competition_box(chips, competition, include_hidden_chips):
-    return COMPETITION_BOX.format(link=generate_link_opt(competition.get("link")),
-        image=generate_img_opt("competition_box_image", competition.get("image")), title=competition["title"],
-        description=competition["description"], chips=generate_chip_list_for_obj(chips, competition, include_hidden_chips))
+    return COMPETITION_BOX.format(
+        link=generate_link_opt(competition.get("link")),
+        title=join_opt(competition['title'], competition.get("place", "")),
+        description=join_opt(competition.get("year"), competition.get("description")),
+        chips=generate_chip_list_for_obj(chips, competition, include_hidden_chips, "competition_box_chip_list"),
+    )
 
 def generate_talk_box(chips, talk, include_hidden_chips):
     return TALK_BOX.format(link=generate_link_opt(talk.get("link")),

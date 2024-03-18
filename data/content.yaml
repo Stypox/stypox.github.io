@@ -16,7 +16,7 @@ work-experience:
 competitions:
   type: competitions
   title: Competitions
-  items: []
+  items: [swerc-2023, cyberchallenge-2023-team, cyberchallenge-2023]
 
 talks:
   type: talks

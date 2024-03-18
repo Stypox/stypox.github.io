@@ -206,9 +206,29 @@ tutoring:
   chips: [asd]
   link: https://github.com/Stypox/palestra-di-algoritmi
 
-# cyberchallenge:
-#   type: competition
-#   chips: []
+swerc-2023:
+  type: competition
+  title: SWERC
+  place: 25th
+  year: 2023
+  description: team Greatest Competitive Dolphins
+  chips: [asd]
+
+cyberchallenge-2023-team:
+  type: competition
+  title: CyberChallenge.IT
+  place: 2nd
+  year: 2023
+  description: team finals with UniTN
+  chips: [cybersecurity]
+
+cyberchallenge-2023:
+  type: competition
+  title: CyberChallenge.IT
+  place: 1st
+  year: 2023
+  description: italian individual selection
+  chips: [cybersecurity]
 
 # sfscon2023:
 #   type: talk

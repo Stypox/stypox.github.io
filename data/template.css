@@ -453,6 +453,69 @@ img.monochrome {
     z-index: 0;
 }
 
+/* Competition list */
+.section_competition_list {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    column-gap: 12px;
+    /* not using row-gap because .competition_box_placeholder should not count as a real row */
+    margin-bottom: -12px;
+}
+.competition_box {
+    width: 240px;
+    flex-grow: 1;
+    background: var(--surface);
+    color: var(--on-surface);
+    margin-bottom: 12px;
+    border-radius: var(--margin-medium);
+    padding: var(--margin-medium);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.competition_box:hover {
+    background: var(--surface-hover);
+    color: var(--on-surface-hover);
+}
+.competition_box_placeholder {
+    /* an invisible competition box to make sure all competition boxes have
+    the same size (otherwise with flex-grow: 1 items on the last row
+    may get more stretched if the row is not filled) */
+    width: 240px;
+    flex-grow: 1;
+    padding-left: var(--margin-medium);
+    padding-right: var(--margin-medium);
+}
+.competition_box_title {
+    font-size: large;
+    font-weight: bolder;
+    margin-bottom: 2px;
+}
+.competition_box_title::before {
+    background-image: url("../images/competition.svg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    filter: var(--monochrome-filter);
+    width: 16px;
+    height: 100%;
+    content: "";
+    padding-right: 20px;
+}
+.competition_box_description {
+    font-size: small;
+    font-style: italic;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.competition_box_chip_list {
+    margin-top: auto;
+}
+
 /* Toolbar */
 .toolbar {
     min-height: 48px;
