@@ -464,6 +464,10 @@ img.monochrome {
     font-style: italic;
     font-size: large;
 }
+.box_all_competitions_talks:hover {
+    background: var(--surface-hover);
+    color: var(--on-surface-hover);
+}
 
 /* Toolbar */
 .toolbar {
