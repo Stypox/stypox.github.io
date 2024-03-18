@@ -13,12 +13,7 @@ work-experience:
   title: Work experience
   items: [murena, jetbrains, tutoring]
 
-competitions:
+competitions_talks:
   type: competitions
-  title: Competitions
-  items: [swerc-2023, cyberchallenge-2023-team, cyberchallenge-2023]
-
-talks:
-  type: talks
-  title: Talks
-  items: [sfscon-2023, speck-tech-2023, sfscon-2022]
+  title: Competitions, talks, workshops
+  items: [swerc-2023, sfscon-2023, speck-tech-2023, cyberchallenge-2023-team, cyberchallenge-2023, sfscon-2022]
