@@ -1,6 +1,6 @@
 significant-projects:
   type: projects
-  title: Most significant projects
+  title: Projects
   items: [dicio, newpipe, curriculust, cyberorto, crop-detection, neural-network]
 
 other-projects:

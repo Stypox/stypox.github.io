@@ -370,14 +370,14 @@ def generate_home_page_target_pages(chips, objects):
 
     # a target page for each object type
     for (page_id, title, list_class, types) in (
-        ("all-projects", "All projects", "section_project_list", ("project", "project-contributed", "project-work")),
-        ("all-jobs", "All jobs", "section_job_list", ("job")),
-        ("all-competitions", "All competitions", "section_competition_list", ("competition")),
-        ("all-talks", "All talks", "section_talk_list", ("talk")),
+        ("all-projects", "projects", "section_project_list", ("project", "project-contributed", "project-work")),
+        ("all-jobs", "jobs", "section_job_list", ("job")),
+        ("all-competitions", "competitions", "section_competition_list", ("competition")),
+        ("all-talks", "talks", "section_talk_list", ("talk")),
     ):
         results.append(HOME_PAGE_TARGET_PAGE.format(
             id=page_id,
-            title=title,
+            title=f"All {title}, sorted chronologically",
             image="""<div class="toolbar_image"></div>""",
             content=generate_all_page_content(chips, objects, list_class, types),
         ))
