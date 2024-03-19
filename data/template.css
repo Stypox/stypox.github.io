@@ -529,7 +529,8 @@ img.monochrome {
     text-align: center;
 }
 .footer_legend_item {
-    margin-left: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
     display: inline-block;
 }
 .footer_legend_item::before {
@@ -540,7 +541,7 @@ img.monochrome {
     width: 16px;
     height: 100%;
     content: "";
-    padding-right: 20px;
+    padding-right: 19px;
 }
 .footer_legend_item_competition::before {
     background-image: url("../images/competition.svg");
