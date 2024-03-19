@@ -15,6 +15,7 @@ try:
     classes.remove("")
 except KeyError:
     pass
+print(f"Found {len(classes)} unique class names")
 classes = sorted(classes, reverse=True)
 classes = {name: gen_name(i) for (i, name) in enumerate(classes)}
 
