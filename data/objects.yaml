@@ -7,6 +7,44 @@ dicio:
   link: https://github.com/Stypox/dicio-app
   image: dicio.png
 
+dicio-numbers:
+  type: project
+  title: dicio-numbers
+  description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
+  chips: [nlp, java, foss]
+  link: https://github.com/Stypox/dicio-numbers
+
+dicio-sentences-compiler:
+  type: project
+  title: dicio-sentences-compiler
+  description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
+  chips: [asd, nlp, java, foss]
+  link: https://github.com/Stypox/dicio-sentences-compiler
+
+e-assistant:
+  type: project-work
+  title: /e/OS Assistant
+  description: An LLM-powered assistant for /e/OS, built during an internship at Murena
+  chips: [llm, nlp, ml, ai, app]
+  hidden_chips: [kotlin, compose, foss]
+  link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
+  image: e_assistant.png
+
+website:
+  type: project
+  title: The stypox.org website
+  description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages, mobile friendly
+  chips: [app]
+  link: https://github.com/Stypox/stypox.github.io
+
+curriculust:
+  type: project
+  title: Curriculust
+  description: A program that allows writing a CV in YAML and turning that into LaTeX and PDF
+  chips: [rust]
+  hidden_chips: [foss, linux]
+  link: https://github.com/Stypox/curriculust
+
 newpipe:
   type: project-contributed
   title: NewPipe
@@ -25,89 +63,6 @@ tridenta:
   link: https://github.com/Stypox/tridenta
   image: tridenta.png
 
-curriculust:
-  type: project
-  title: Curriculust
-  description: A program that allows writing a CV in YAML and turning that into LaTeX and PDF
-  chips: [rust]
-  hidden_chips: [foss, linux]
-  link: https://github.com/Stypox/curriculust
-
-olympiad-exercises:
-  type: project
-  title: Olympiad exercises
-  description: The competitive programming code I've produced to train for the Olympiad in Informatics
-  chips: [cpp, asd]
-  link: https://github.com/Stypox/olympiad-exercises
-
-arg-parser:
-  type: project
-  title: arg-parser
-  description: An optimized argument parser for modern C++
-  chips: [cpp, foss]
-  link: https://github.com/Stypox/arg-parser
-
-into-space-remake:
-  type: project
-  title: Into Space! remake
-  description: A remake of the Into Space! game written in C++17 and OpenGL
-  chips: [cpp, graphics]
-  link: https://github.com/Stypox/into-space-remake
-  image: into_space.png
-
-1010-ai:
-  type: project
-  title: Autosolver for 1010!
-  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver
-  chips: [cpp, graphics]
-  hidden_chips: [ai]
-  link: https://github.com/Stypox/1010-ai
-  image: 1010.png
-
-mp3-player:
-  type: project
-  title: Song player
-  description: Plays songs and playlists given in a configuration, saves progress, and exposes TUI controls
-  chips: [python, linux]
-  link: https://github.com/Stypox/mp3-player
-
-song-downloader:
-  type: project
-  title: Song downloader
-  description: Uses yt-dlp to download songs and playlists, keep them updated on disk, and extract artist metadata
-  chips: [python]
-  link: https://github.com/Stypox/song-downloader
-
-covid-ita:
-  type: project
-  title: covid-ita
-  description: A script to plot graphs with various statistics about the impact of Covid in Italy
-  chips: [python]
-  link: https://github.com/Stypox/covid-ita
-
-e-assistant:
-  type: project-work
-  title: /e/OS Assistant
-  description: An LLM-powered assistant for /e/OS, built during an internship at Murena
-  chips: [llm, nlp, ml, ai, app]
-  hidden_chips: [kotlin, compose, foss]
-  link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
-  image: e_assistant.png
-
-dicio-numbers:
-  type: project
-  title: dicio-numbers
-  description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
-  chips: [nlp, java, foss]
-  link: https://github.com/Stypox/dicio-numbers
-
-dicio-sentences-compiler:
-  type: project
-  title: dicio-sentences-compiler
-  description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
-  chips: [asd, nlp, java, foss]
-  link: https://github.com/Stypox/dicio-sentences-compiler
-
 cyberorto:
   type: project-contributed
   title: Cyberorto
@@ -117,13 +72,12 @@ cyberorto:
   link: https://mindshub.it/progetto-cyberorto/
   image: cyberorto.png 0.85
 
-plotter:
+olympiad-exercises:
   type: project
-  title: Plotter
-  description: Draws images, text or gcode files by maneuvering a plotter (a pen that moves along two xy axes)
-  chips: [embedded, cpp, python]
-  hidden_chips: [foss]
-  link: https://github.com/Stypox/plotter
+  title: Olympiad exercises
+  description: The competitive programming code I've produced to train for the Olympiad in Informatics
+  chips: [cpp, asd]
+  link: https://github.com/Stypox/olympiad-exercises
 
 webradio-arduino:
   type: project
@@ -141,14 +95,6 @@ insigno:
   link: https://github.com/MindsHub/insigno_frontend
   image: insigno.png
 
-quadermas:
-  type: project
-  title: Quadermas
-  description: An Android app to fetch and view data from the Mastercom workbooks used in some italian schools
-  chips: [app, app_stores, foss]
-  link: https://github.com/Stypox/quadermas
-  image: quadermas.png
-
 crop-detection:
   type: project
   title: Crop segmentation AI
@@ -158,12 +104,51 @@ crop-detection:
   link: https://github.com/MindsHub/crop-detection
   image: crop_detection.png 1.2
 
+1010-ai:
+  type: project
+  title: Autosolver for 1010!
+  description: A remake of the 1010! game in C++17 and SFML, along with a brute-force autosolver
+  chips: [cpp, graphics]
+  hidden_chips: [ai]
+  link: https://github.com/Stypox/1010-ai
+  image: 1010.png
+
 seguistrada:
   type: project
   title: Road radius detector
   description: An implementation of RALPH to detect the radius of a road on an image, for autonomous driving
   chips: [ai, mindshub]
   link: https://github.com/MindsHub/seguistrada
+
+covid-ita:
+  type: project
+  title: covid-ita
+  description: A script to plot graphs with various statistics about the impact of Covid in Italy
+  chips: [python]
+  link: https://github.com/Stypox/covid-ita
+
+plotter:
+  type: project
+  title: Plotter
+  description: Draws images, text or gcode files by maneuvering a plotter (a pen that moves along two xy axes)
+  chips: [embedded, cpp, python]
+  hidden_chips: [foss]
+  link: https://github.com/Stypox/plotter
+
+into-space-remake:
+  type: project
+  title: Into Space! remake
+  description: A remake of the Into Space! game written in C++17 and OpenGL
+  chips: [cpp, graphics]
+  link: https://github.com/Stypox/into-space-remake
+  image: into_space.png
+
+arg-parser:
+  type: project
+  title: arg-parser
+  description: An optimized argument parser for modern C++
+  chips: [cpp, foss]
+  link: https://github.com/Stypox/arg-parser
 
 neural-network:
   type: project
@@ -172,12 +157,27 @@ neural-network:
   chips: [ai, cpp, asd]
   link: https://github.com/Stypox/neural-network
 
-website:
+quadermas:
   type: project
-  title: The stypox.org website
-  description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages, mobile friendly
-  chips: [app]
-  link: https://github.com/Stypox/stypox.github.io
+  title: Quadermas
+  description: An Android app to fetch and view data from the Mastercom workbooks used in some italian schools
+  chips: [app, app_stores, foss]
+  link: https://github.com/Stypox/quadermas
+  image: quadermas.png
+
+mp3-player:
+  type: project
+  title: Song player
+  description: Plays songs and playlists given in a configuration, saves progress, and exposes TUI controls
+  chips: [python, linux]
+  link: https://github.com/Stypox/mp3-player
+
+song-downloader:
+  type: project
+  title: Song downloader
+  description: Uses yt-dlp to download songs and playlists, keep them updated on disk, and extract artist metadata
+  chips: [python]
+  link: https://github.com/Stypox/song-downloader
 
 murena:
   type: job
