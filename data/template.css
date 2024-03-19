@@ -209,27 +209,34 @@ img.monochrome {
     .header_nickname {
         font-size: 1.0em;
     }
+    .header_link_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
-.header_links {
+.header_link_list {
     margin-top: 24px;
     margin-bottom: 8px;
-    border-collapse: separate;
-    border-spacing: 0px 0px;
 }
-.header_link_image_td {
-    text-align: end;
+.header_link img {
     width: 1.5em;
-}
-.header_link_image {
-    width: 100%;
     aspect-ratio: 1/1;
     filter: var(--monochrome-filter);
+    margin-right: 8px;
 }
-.header_link_text_td {
+.header_link {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
     text-align: start;
-    padding-left: 8px;
     font-size: 0.9em;
-    padding-bottom: 0.2em;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+.header_link a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .header_chip_list_title {
     margin-top: 12px;
