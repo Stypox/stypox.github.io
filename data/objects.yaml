@@ -1,26 +1,3 @@
-dicio:
-  type: project
-  title: Dicio assistant
-  description: A libre multilanguage voice assistant for Android, which works completely on-device
-  chips: [kotlin, app, app_stores, foss, nlp]
-  hidden_chips: [ai, java]
-  link: https://github.com/Stypox/dicio-app
-  image: dicio.png
-
-dicio-numbers:
-  type: project
-  title: dicio-numbers
-  description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
-  chips: [nlp, java, foss]
-  link: https://github.com/Stypox/dicio-numbers
-
-dicio-sentences-compiler:
-  type: project
-  title: dicio-sentences-compiler
-  description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
-  chips: [asd, nlp, java, foss]
-  link: https://github.com/Stypox/dicio-sentences-compiler
-
 e-assistant:
   type: project-work
   title: /e/OS Assistant
@@ -71,6 +48,29 @@ cyberorto:
   hidden_chips: [git]
   link: https://mindshub.it/progetto-cyberorto/
   image: cyberorto.png 0.85
+
+dicio:
+  type: project
+  title: Dicio assistant
+  description: A libre multilanguage voice assistant for Android, which works completely on-device
+  chips: [kotlin, app, app_stores, foss, nlp]
+  hidden_chips: [ai, java]
+  link: https://github.com/Stypox/dicio-app
+  image: dicio.png
+
+dicio-numbers:
+  type: project
+  title: dicio-numbers
+  description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
+  chips: [nlp, java, foss]
+  link: https://github.com/Stypox/dicio-numbers
+
+dicio-sentences-compiler:
+  type: project
+  title: dicio-sentences-compiler
+  description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
+  chips: [asd, nlp, java, foss]
+  link: https://github.com/Stypox/dicio-sentences-compiler
 
 olympiad-exercises:
   type: project
