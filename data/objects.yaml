@@ -44,7 +44,7 @@ arg-parser:
   type: project
   title: arg-parser
   description: An optimized argument parser for modern C++
-  chips: [cpp]
+  chips: [cpp, foss]
   link: https://github.com/Stypox/arg-parser
 
 into-space-remake:
@@ -90,7 +90,7 @@ e-assistant:
   title: /e/OS Assistant
   description: An LLM-powered assistant for /e/OS, built during an internship at Murena
   chips: [llm, nlp, ml, ai, app]
-  hidden_chips: [kotlin, compose]
+  hidden_chips: [kotlin, compose, foss]
   link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
   image: e_assistant.png
 
@@ -98,14 +98,14 @@ dicio-numbers:
   type: project
   title: dicio-numbers
   description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
-  chips: [nlp, java]
+  chips: [nlp, java, foss]
   link: https://github.com/Stypox/dicio-numbers
 
 dicio-sentences-compiler:
   type: project
   title: dicio-sentences-compiler
   description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
-  chips: [asd, nlp, java]
+  chips: [asd, nlp, java, foss]
   link: https://github.com/Stypox/dicio-sentences-compiler
 
 cyberorto:
@@ -122,6 +122,7 @@ plotter:
   title: Plotter
   description: Draws images, text or gcode files by maneuvering a plotter (a pen that moves along two xy axes)
   chips: [embedded, cpp, python]
+  hidden_chips: [foss]
   link: https://github.com/Stypox/plotter
 
 webradio-arduino:
@@ -136,7 +137,7 @@ insigno:
   title: Insigno
   description: An Android & iOS app with a Rust backend that gamifies reporting and collecting abandoned trash
   chips: [flutter, mindshub, dart, rust, app_stores]
-  hidden_chips: [git, app]
+  hidden_chips: [git, app, foss]
   link: https://github.com/MindsHub/insigno_frontend
   image: insigno.png
 
@@ -144,7 +145,7 @@ quadermas:
   type: project
   title: Quadermas
   description: An Android app to fetch and view data from the Mastercom workbooks used in some italian schools
-  chips: [app, app_stores]
+  chips: [app, app_stores, foss]
   link: https://github.com/Stypox/quadermas
   image: quadermas.png
 
@@ -153,6 +154,7 @@ crop-detection:
   title: Crop segmentation AI
   description: A keras model trained to detect crops and vegetation in images of vegetable-gardens taken perpendicular to the terrain
   chips: [ml, ai, mindshub, python]
+  hidden_chips: [foss]
   link: https://github.com/MindsHub/crop-detection
   image: crop_detection.png 1.2
 
@@ -185,7 +187,7 @@ murena:
   description: |
     Explored prompt engineering, fine-tuning and quantization of LLMs.
     Found the best LLM for phones and built /e/OS Assistant app.
-  chips: [ai, llm, app]
+  chips: [ai, llm, app, foss]
   image: murena.svg 1.21
   link: https://murena.com/
 
