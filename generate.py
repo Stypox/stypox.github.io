@@ -57,6 +57,7 @@ CATEGORY_BOX = """<div class="box category_box">
     {image}
     <p class="{title_class}">{title}</p>
 </div>"""
+ALL_PROJECTS_BOX = """<a href="#all-projects" class="box category_box category_box_all_projects">All projects</a>"""
 OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='rust')}</div>"""
 
 JOB_BOX = """<div class="box">
@@ -249,12 +250,7 @@ def generate_object(chips, object_id, obj, expanded_form):
 
 def generate_category_box(chips, chip_id):
     if chip_id == "all-projects":
-        return CATEGORY_BOX.format(
-            image="",
-            link=generate_link("#all-projects"),
-            title_class="category_box_title_all_projects",
-            title="All projects",
-        )
+        return ALL_PROJECTS_BOX
     elif chip_id == "or-click-on-chips":
         return OR_CLICK_ON_CHIPS_BOX
     else:

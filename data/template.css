@@ -358,12 +358,12 @@ img.monochrome {
     --box-horizontal-padding: var(--margin-small);
 }
 .category_box {
+    width: var(--box-item-width);
+    flex-grow: 1;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: var(--box-item-width);
-    flex-grow: 1;
 }
 .category_box_or_click_on_chips {
     padding-left: var(--box-horizontal-padding);
@@ -373,6 +373,16 @@ img.monochrome {
     flex-direction: column;
     row-gap: 4px;
 }
+.category_box_all_projects {
+    background: var(--secondary);
+    color: var(--on-secondary);
+    font-size: x-large;
+    text-decoration: none;
+}
+.category_box_all_projects:hover {
+    background: var(--secondary-hover);
+    color: var(--on-secondary-hover);
+}
 .category_box_image {
     height: 38px;
     width: 38px;
@@ -380,11 +390,6 @@ img.monochrome {
 }
 .category_box_title {
     flex-grow: 1;
-}
-.category_box_title_all_projects {
-    font-style: italic;
-    font-size: x-large;
-    text-decoration: underline;
 }
 
 /* Job list */
@@ -457,16 +462,16 @@ img.monochrome {
     margin-bottom: var(--box-list-spacing);
 }
 .box_all_competitions_talks {
-    background: var(--surface);
-    color: var(--on-surface);
+    background: var(--secondary);
+    color: var(--on-secondary);
     border-radius: var(--margin-small);
     padding: var(--margin-small);
-    font-style: italic;
     font-size: large;
+    text-decoration: none;
 }
 .box_all_competitions_talks:hover {
-    background: var(--surface-hover);
-    color: var(--on-surface-hover);
+    background: var(--secondary-hover);
+    color: var(--on-secondary-hover);
 }
 
 /* Toolbar */
