@@ -516,7 +516,7 @@ img.monochrome {
 /* Footer */
 .footer {
     font-size: small;
-    margin-top: var(--margin-big);
+    margin-top: 48px;
     text-align: center;
 }
 .footer_legend_item {
