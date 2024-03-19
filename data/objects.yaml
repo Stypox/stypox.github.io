@@ -117,7 +117,7 @@ seguistrada:
   type: project
   title: Road radius detector
   description: An implementation of RALPH to detect the radius of a road on an image, for autonomous driving
-  chips: [ai, mindshub]
+  chips: [ai, cpp, python, graphics, mindshub]
   link: https://github.com/MindsHub/seguistrada
 
 covid-ita:
