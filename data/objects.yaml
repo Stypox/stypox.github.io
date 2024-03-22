@@ -55,7 +55,7 @@ dicio:
   description: A libre multilanguage voice assistant for Android, which works completely on-device
   chips: [kotlin, app, app_stores, foss, nlp]
   hidden_chips: [ai, java]
-  link: https://github.com/Stypox/dicio-app
+  link: https://github.com/Stypox/dicio-android
   image: dicio.png
 
 dicio-numbers:
