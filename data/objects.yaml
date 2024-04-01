@@ -43,7 +43,7 @@ tridenta:
 cyberorto:
   type: project-contributed
   title: Cyberorto
-  description: An autonomous robotic arm that grows a vegetable garden by watering, plowing monitoring, etc.
+  description: An autonomous robotic arm that grows a vegetable garden by watering, plowing, monitoring, etc.
   chips: [embedded, mindshub, rust, cpp, python]
   hidden_chips: [git]
   link: https://mindshub.it/progetto-cyberorto/
