@@ -14,13 +14,13 @@ website:
   chips: [app]
   link: https://github.com/Stypox/stypox.github.io
 
-curriculust:
+curricust:
   type: project
-  title: Curriculust
+  title: Curricust
   description: A program that allows writing a CV in YAML and turning that into LaTeX and PDF
   chips: [rust]
   hidden_chips: [foss, linux]
-  link: https://github.com/Stypox/curriculust
+  link: https://github.com/Stypox/curricust
 
 newpipe:
   type: project-contributed
