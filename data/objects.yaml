@@ -4,7 +4,7 @@ e-assistant:
   description: An LLM-powered assistant for /e/OS, built during an internship at Murena
   chips: [llm, nlp, ml, ai, app]
   hidden_chips: [kotlin, compose, foss]
-  link: https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
+  link: https://gitlab.e.foundation/e/os/open-source-llm-assistant # https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
   image: e_assistant.png
 
 website:
