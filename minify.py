@@ -30,6 +30,8 @@ def replace_classes(capt):
 html = re.sub(r'class=(?:([^ >"]+)|"([^"]+)")', replace_classes, html)
 
 css = minify_html.minify(f"<style>{css}</style>", minify_css=True)[7:-8]
+css_paths_from_root = css.replace("../", "./")
+html = html.replace('<link rel="stylesheet" href="styles/style.css">', f"<style>{css_paths_from_root}</style>")
 html = minify_html.minify(html,  minify_css=True, do_not_minify_doctype=True)
 
 with open("styles/style.css", "w", encoding="utf-8") as f:
