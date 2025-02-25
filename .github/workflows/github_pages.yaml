@@ -44,6 +44,7 @@ jobs:
       - name: Move files to correct folder
         run: |
           mkdir _site
+          mv pages/* _site/
           mv favicon.ico index.html fonts/ images/ _site/
           mkdir _site/styles
           mv styles/style.css _site/styles/
