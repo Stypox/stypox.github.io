@@ -1,6 +1,6 @@
 # My personal website
 
-A JavaScript-less, mobile friendly, single-document, static website. It displays a portfolio of my projects and work experiences with filters and categories.
+A JavaScript-less, mobile friendly, single-document, static website. It displays a portfolio of my projects and work experiences with filters and categories. Access it here: https://stypox.org.
 
 ## License
 
