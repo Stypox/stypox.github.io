@@ -4,4 +4,4 @@ A JavaScript-less, mobile friendly, single-document, static website. It displays
 
 ## License
 
-The code (HTML, CSS, Python, Shell scripts, and so on) are licensed under GPLv3. For everything else (i.e. my personal data) all rights are reserved.
+The code (HTML, CSS, Python, Shell scripts, and so on) is licensed under GPLv3. For everything else (i.e. my personal data) all rights are reserved.
