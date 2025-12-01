@@ -174,9 +174,12 @@ img.monochrome {
 }
 
 /* Header elements */
-.header_image {
+.header_image, .header_subimage {
     clip-path: circle();
     aspect-ratio: 1/1;
+}
+.header_subimage {
+
 }
 .header_nickname {
     font-weight: 300;
@@ -184,6 +187,10 @@ img.monochrome {
 @media (min-width: 650px) {
     .header_image {
         max-width: min(170px, 100%);
+    }
+    .header_subimage {
+        max-width: min(56.1px, 33%);
+        margin-left: max(-56.1px, -33%);
     }
     .header_name {
         margin-top: 8px;
@@ -202,6 +209,10 @@ img.monochrome {
     .header_image {
         max-width: 64px;
         margin-right: 12px;
+    }
+    .header_subimage {
+        max-width: 21.12px;
+        margin-left: -33.12px;
     }
     .header_name {
         font-size: 1.7em;
