@@ -208,6 +208,15 @@ tutoring:
   chips: [asd]
   link: https://github.com/Stypox/palestra-di-algoritmi
 
+scenna-2025:
+  type: competition
+  title: NOI Hackathon
+  place: Winner
+  date: 2025
+  description: contributed to c3nav mapping software, team c3narvali
+  chips: [docker, ai, foss]
+  link: https://hackathon.noi.bz.it/project/c3narvali
+
 swerc-2024:
   type: competition
   title: SWERC
@@ -322,6 +331,14 @@ oii-2019:
   description: individuals, then accepted in Probable Olympians
   chips: [asd]
   link: https://stats.olinfo.it/contestant/dccdabc9b3b4661392e2e945c13be89d/
+
+sfscon-2025:
+  type: talk
+  title: Dicio voice assistant
+  date: 07/11/2025
+  description: SFSCon
+  chips: [foss, app, nlp]
+  link: https://www.sfscon.it/talks/dicio-voice-assistant/
 
 sfscon-2023:
   type: talk
