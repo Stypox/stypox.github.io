@@ -444,7 +444,7 @@ img.monochrome {
 /* Competition and talk list */
 .section_competition_list,
 .section_talk_list {
-    --box-item-width: 200px;
+    --box-item-width: 190px;
     --box-list-spacing: 10px;
 }
 .competition_box,
