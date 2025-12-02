@@ -1,3 +1,11 @@
+miri:
+  type: project-contributed
+  title: Miri (Rust interpreter)
+  description: I added tracing calls to Miri, a part of rustc which looks for Undefined Behavior in unsafe Rust, during a Semester Project at ETH Zürich
+  chips: [rust, linux, git, foss, university]
+  link: https://github.com/search?q=org%3Arust-lang+author%3Astypox&type=pullrequests
+  sort: 105
+
 bachelor-thesis:
   type: project
   title: Bachelor's thesis on Dicio assistant
@@ -41,7 +49,7 @@ e-assistant:
   hidden_chips: [kotlin, compose, foss]
   link: https://gitlab.e.foundation/e/os/open-source-llm-assistant # https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
   image: e_assistant.png
-  sort: 107
+  sort: 109
 
 website:
   type: project
@@ -88,7 +96,7 @@ cyberorto:
   hidden_chips: [git]
   link: https://mindshub.it/progetto-cyberorto/
   image: cyberorto.png 0.85
-  sort: 104
+  sort: 107
 
 dicio:
   type: project
@@ -150,7 +158,7 @@ crop-detection:
   hidden_chips: [foss]
   link: https://github.com/MindsHub/crop-detection
   image: crop_detection.png 1.2
-  sort: 105
+  sort: 104
 
 1010-ai:
   type: project

@@ -1,7 +1,7 @@
 significant-projects:
   type: projects
   title: Projects
-  items: [dicio, newpipe, curricust, cyberorto, crop-detection, neural-network]
+  items: [dicio, newpipe, miri, cyberorto, crop-detection, neural-network]
 
 other-projects:
   type: categories
