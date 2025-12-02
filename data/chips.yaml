@@ -113,6 +113,11 @@ mindshub:
   title: MindsHub association
   image: mindshub.svg monochrome 1.1
 
+university:
+  short: University
+  title: University and school projects
+  image: university.svg monochrome 1.07
+
 ai:
   short: AI
   title: Artificial Intelligence

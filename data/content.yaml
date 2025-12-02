@@ -7,7 +7,7 @@ other-projects:
   type: categories
   title: All projects by category
   subtitle: true
-  items: [app, ai, foss, mindshub, all-projects]
+  items: [app, ai, foss, mindshub, university, all-projects]
 
 work-experience:
   type: jobs
