@@ -1,3 +1,36 @@
+# TODO sort these according to importance
+
+bachelor-thesis:
+  type: project
+  title: Bachelor's thesis on Dicio assistant
+  description: Natural Language Understanding and app architecture for the Dicio free software assistant, Bachelor's thesis at University of Trento
+  chips: [asd, kotlin, app, foss, nlp, compose, ai, university]
+  link: ./images/bachelor-thesis.pdf
+
+fondamenti-di-robotica:
+  type: project-contributed
+  title: UR5 robotics project
+  description: Object detection, localization and motion planning for a UR5 robotic arm; group project for Fundamentals of Robotics course at University of Trento
+  chips: [ml, ai, docker, cpp, python, university]
+  link: https://github.com/pietrocipriani/progetto-robotica
+  image: fondamenti-di-robotica.png
+
+embedded-software-for-iot:
+  type: project-contributed
+  title: Point cloud scanner car
+  description: Bluetooth car with Time of Flight sensor collecting aligned point clouds, group project for Embedded Software for IoT course at University of Trento
+  chips: [cpp, rust, embedded, university]
+  link: https://github.com/AlphaNightLight/BatBot
+  image: embedded-software-for-iot.png
+
+reti-logiche:
+  type: project-contributed
+  title: FPGA tetris-like game
+  description: A tetris-like game written in VHDL for an FPGA, with ADC joystick and VGA video, group project for Logic Circuits course at University of Trento
+  chips: [embedded, graphics, university]
+  link: ./images/reti-logiche.mp4
+  image: reti-logiche.png
+
 e-assistant:
   type: project-work
   title: /e/OS Assistant
@@ -27,7 +60,7 @@ newpipe:
   title: NewPipe
   description: A privacy-first libre streaming app for Android, supporting YouTube and more services
   chips: [java, app, app_stores, foss, git]
-  hidden_chips: [kotlin]
+  hidden_chips: [kotlin, compose]
   link: https://newpipe.net
   image: newpipe.svg
 
@@ -53,7 +86,7 @@ dicio:
   type: project
   title: Dicio assistant
   description: A libre multilanguage voice assistant for Android, which works completely on-device
-  chips: [kotlin, app, app_stores, foss, nlp]
+  chips: [kotlin, app, app_stores, foss, nlp, compose]
   hidden_chips: [ai, java]
   link: https://github.com/Stypox/dicio-android
   image: dicio.png
@@ -62,7 +95,7 @@ dicio-numbers:
   type: project
   title: dicio-numbers
   description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
-  chips: [nlp, java, foss]
+  chips: [nlp, java, kotlin, foss]
   link: https://github.com/Stypox/dicio-numbers
 
 dicio-sentences-compiler:
