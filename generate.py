@@ -29,7 +29,7 @@ HEADER_CHIP_LIST = """<p class="header_chip_list_title">{title}</p>
 # row may get more stretched if the row is not filled), use a lot
 # to make sure this works well even on giant screens.
 SECTION_TITLE_LIST = ("""<div class="section">
-    <p class="{title_class}" id="{id}">{title}</p>
+    <p id="{id}" class="{title_class}"><span>{title}</span>{additional_title}</p>
     <div class="section_box_list {list_class}">
         {items}""" + """
         <div class="box_placeholder"></div>""" * 10 + """
@@ -58,7 +58,7 @@ CATEGORY_BOX = """<div class="box category_box">
     <p class="{title_class}">{title}</p>
 </div>"""
 ALL_PROJECTS_BOX = """<a href="#all-projects" class="box category_box category_box_all_projects">All projects</a>"""
-OR_CLICK_ON_CHIPS_BOX = f"""<div class="category_box category_box_or_click_on_chips">Or click on chips, e.g. {CHIP.format(chip_id='rust')}</div>"""
+OR_CLICK_ON_CHIPS = f""" &nbsp;&nbsp;&nbsp; <span class="or_click_on_chips">(you can also filter all projects by clicking on chips, e.g. </span>{CHIP.format(chip_id='rust')})"""
 
 JOB_BOX = """<div class="box">
     {link}
@@ -251,8 +251,6 @@ def generate_object(chips, object_id, obj, expanded_form):
 def generate_category_box(chips, chip_id):
     if chip_id == "all-projects":
         return ALL_PROJECTS_BOX
-    elif chip_id == "or-click-on-chips":
-        return OR_CLICK_ON_CHIPS_BOX
     else:
         return CATEGORY_BOX.format(
             image=generate_img_opt("category_box_image", chips[chip_id].get("image")),
@@ -271,13 +269,14 @@ def generate_projects_section(chips, objects, section, **format_kwargs):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_project_list",
-        items="\n".join(items), **format_kwargs)
+        additional_title="", items="\n".join(items), **format_kwargs)
 
 def generate_categories_section(chips, section, **format_kwargs):
     items = []
     for chip_id in section["items"]:
         items.append(generate_category_box(chips, chip_id))
     return SECTION_TITLE_LIST.format(list_class="section_category_list",
+        additional_title=OR_CLICK_ON_CHIPS,
         items="\n".join(items), **format_kwargs)
 
 def generate_jobs_section(chips, objects, section, **format_kwargs):
@@ -286,7 +285,7 @@ def generate_jobs_section(chips, objects, section, **format_kwargs):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_job_list",
-        items="\n".join(items), **format_kwargs)
+        additional_title="", items="\n".join(items), **format_kwargs)
 
 def generate_competitions_section(chips, objects, section, **format_kwargs):
     items = []
@@ -297,7 +296,7 @@ def generate_competitions_section(chips, objects, section, **format_kwargs):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_competition_list",
-        items="\n".join(items), **format_kwargs)
+        additional_title="", items="\n".join(items), **format_kwargs)
 
 def generate_talks_section(chips, objects, section, **format_kwargs):
     items = []
@@ -308,7 +307,7 @@ def generate_talks_section(chips, objects, section, **format_kwargs):
         obj = objects[object_id]
         items.append(generate_object(chips, object_id, obj, False))
     return SECTION_TITLE_LIST.format(list_class="section_talk_list",
-        items="\n".join(items), **format_kwargs)
+        additional_title="", items="\n".join(items), **format_kwargs)
 
 def generate_sections(chips, objects, sections):
     results = []

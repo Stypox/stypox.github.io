@@ -178,9 +178,6 @@ img.monochrome {
     clip-path: circle();
     aspect-ratio: 1/1;
 }
-.header_subimage {
-
-}
 .header_nickname {
     font-weight: 300;
 }
@@ -379,6 +376,17 @@ img.monochrome {
     --box-list-spacing: 8px;
     --box-horizontal-padding: var(--margin-small);
 }
+.or_click_on_chips {
+    font-weight: normal;
+    font-style: italic;
+}
+.or_click_on_chips + a.chip {
+    /* hack to prevent the chip icon from being rendered badly (likely Firefox bug as
+    it only happens for this chip, the issue goes away after disabling/enabling any
+    CSS rule, and does not happen in Chromium */
+    position: unset !important;
+    font-weight: normal;
+}
 .category_box {
     width: var(--box-item-width);
     flex-grow: 1;
@@ -386,14 +394,6 @@ img.monochrome {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.category_box_or_click_on_chips {
-    padding-left: var(--box-horizontal-padding);
-    padding-right: var(--box-horizontal-padding);
-    margin-bottom: var(--box-list-spacing);
-    font-style: italic;
-    flex-direction: column;
-    row-gap: 4px;
 }
 .category_box_all_projects {
     background: var(--secondary);
