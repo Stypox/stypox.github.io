@@ -1,7 +1,7 @@
 miri:
   type: project-contributed
   title: Miri (Rust interpreter)
-  description: I added tracing calls to Miri, a part of rustc which looks for Undefined Behavior in unsafe Rust, during a Semester Project at ETH Zürich
+  description: I added tracing calls to Miri, an Undefined Behavior detection tool for unsafe Rust, during a Semester Project at ETH Zürich
   chips: [rust, linux, git, foss, university]
   link: https://github.com/search?q=org%3Arust-lang+author%3Astypox&type=pullrequests
   sort: 105
