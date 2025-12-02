@@ -3,6 +3,7 @@
     :root {
         --background: #1B1C18;
         --on-background: #E3E3DB;
+        --on-background-dimmed: #E3E3DBC0;
         --surface: #212617;
         --surface-hover: #2e3520;
         --on-surface: #E3E3DB;
@@ -22,6 +23,7 @@
     :root {
         --background: #FDFCF5;
         --on-background: #1B1C18;
+        --on-background-dimmed: #1B1C18C0;
         --surface: #F3F4E8;
         --surface-hover: #ecede1;
         --on-surface: #1B1C18;
@@ -263,11 +265,16 @@ img.monochrome {
 .section_title {
     font-size: x-large;
     margin-bottom: 12px;
+    text-decoration-line: underline;
+    text-decoration-color: var(--on-background-dimmed);
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
 }
 .section_subtitle {
     font-weight: bold;
-    margin-top: 14px;
-    margin-bottom: 8px;
+    margin-top: 16px;
+    margin-bottom: 12px;
 }
 .section_box_list {
     --box-horizontal-padding: var(--margin-medium);
