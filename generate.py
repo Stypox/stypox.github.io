@@ -364,15 +364,15 @@ def generate_home_page_target_pages(chips, objects):
         ))
 
     # a target page for each object type
-    for (page_id, title, list_class, types) in (
-        ("all-projects", "projects", "section_project_list", ("project", "project-contributed", "project-work")),
-        ("all-jobs", "jobs", "section_job_list", ("job")),
-        ("all-competitions", "competitions", "section_competition_list", ("competition")),
-        ("all-talks", "talks", "section_talk_list", ("talk")),
+    for (page_id, title, list_class, types, sorted_chronologically) in (
+        ("all-projects", "projects", "section_project_list", ("project", "project-contributed", "project-work"), False),
+        ("all-jobs", "jobs", "section_job_list", ("job"), True),
+        ("all-competitions", "competitions", "section_competition_list", ("competition"), True),
+        ("all-talks", "talks", "section_talk_list", ("talk"), True),
     ):
         results.append(HOME_PAGE_TARGET_PAGE.format(
             id=page_id,
-            title=f"All {title}, sorted chronologically",
+            title=f"All {title}" + (", sorted chronologically" if sorted_chronologically else ""),
             image="""<div class="toolbar_image"></div>""",
             content=generate_all_page_content(chips, objects, list_class, types),
         ))
@@ -387,6 +387,7 @@ def main():
     used_keywords = ["all-projects", "all-competitions-talks", "or-click-on-chips"]
 
     assert pairwise_disjoint(chips, objects, header, content, used_keywords)
+    objects = dict(sorted(objects.items(), key=lambda o: o[1].get("sort") or (1<<30)))
 
     format_file("data/template.html", "index.html", lambda template: template.format(
         home_page_target_pages=generate_home_page_target_pages(chips, objects),

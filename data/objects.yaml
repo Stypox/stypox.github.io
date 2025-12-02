@@ -1,11 +1,10 @@
-# TODO sort these according to importance
-
 bachelor-thesis:
   type: project
   title: Bachelor's thesis on Dicio assistant
   description: Natural Language Understanding and app architecture for the Dicio free software assistant, Bachelor's thesis at University of Trento
   chips: [asd, kotlin, app, foss, nlp, compose, ai, university]
   link: ./images/bachelor-thesis.pdf
+  sort: 200
 
 fondamenti-di-robotica:
   type: project-contributed
@@ -14,6 +13,7 @@ fondamenti-di-robotica:
   chips: [ml, ai, docker, cpp, python, university]
   link: https://github.com/pietrocipriani/progetto-robotica
   image: fondamenti-di-robotica.png
+  sort: 103
 
 embedded-software-for-iot:
   type: project-contributed
@@ -22,6 +22,7 @@ embedded-software-for-iot:
   chips: [cpp, rust, embedded, university]
   link: https://github.com/AlphaNightLight/BatBot
   image: embedded-software-for-iot.png
+  sort: 200
 
 reti-logiche:
   type: project-contributed
@@ -30,6 +31,7 @@ reti-logiche:
   chips: [embedded, graphics, university]
   link: ./images/reti-logiche.mp4
   image: reti-logiche.png
+  sort: 106
 
 e-assistant:
   type: project-work
@@ -39,6 +41,7 @@ e-assistant:
   hidden_chips: [kotlin, compose, foss]
   link: https://gitlab.e.foundation/e/os/open-source-llm-assistant # https://www.linkedin.com/posts/gaelduvalprofile_llm-privacy-ai-activity-7173365921279913984-4Kig
   image: e_assistant.png
+  sort: 107
 
 website:
   type: project
@@ -46,6 +49,7 @@ website:
   description: Pure HTML+CSS (no JS), generated based on YAML data files, everything is in a single HTML document, hosted on GitHub pages, mobile friendly
   chips: [app]
   link: https://github.com/Stypox/stypox.github.io
+  sort: 200
 
 curricust:
   type: project
@@ -54,6 +58,7 @@ curricust:
   chips: [rust]
   hidden_chips: [foss, linux]
   link: https://github.com/Stypox/curricust
+  sort: 109
 
 newpipe:
   type: project-contributed
@@ -63,6 +68,7 @@ newpipe:
   hidden_chips: [kotlin, compose]
   link: https://newpipe.net
   image: newpipe.svg
+  sort: 102
 
 tridenta:
   type: project
@@ -72,6 +78,7 @@ tridenta:
   hidden_chips: [java, foss]
   link: https://github.com/Stypox/tridenta
   image: tridenta.png
+  sort: 200
 
 cyberorto:
   type: project-contributed
@@ -81,6 +88,7 @@ cyberorto:
   hidden_chips: [git]
   link: https://mindshub.it/progetto-cyberorto/
   image: cyberorto.png 0.85
+  sort: 104
 
 dicio:
   type: project
@@ -90,6 +98,7 @@ dicio:
   hidden_chips: [ai, java]
   link: https://github.com/Stypox/dicio-android
   image: dicio.png
+  sort: 101
 
 dicio-numbers:
   type: project
@@ -97,6 +106,7 @@ dicio-numbers:
   description: A multilanguage library for parsing/formatting numbers, dates and durations from/to natural language
   chips: [nlp, java, kotlin, foss]
   link: https://github.com/Stypox/dicio-numbers
+  sort: 300
 
 dicio-sentences-compiler:
   type: project
@@ -104,6 +114,7 @@ dicio-sentences-compiler:
   description: A compiler for a regex-like language to generate lists of possible sentences for an assistant skill
   chips: [asd, nlp, java, foss]
   link: https://github.com/Stypox/dicio-sentences-compiler
+  sort: 300
 
 olympiad-exercises:
   type: project
@@ -111,6 +122,7 @@ olympiad-exercises:
   description: The competitive programming code I've produced to train for the Olympiad in Informatics
   chips: [cpp, asd]
   link: https://github.com/Stypox/olympiad-exercises
+  sort: 108
 
 webradio-arduino:
   type: project
@@ -118,6 +130,7 @@ webradio-arduino:
   description: A small and cheap embedded device that connects to WiFi and plays a web audio stream
   chips: [embedded, mindshub, cpp]
   link: https://github.com/MindsHub/webradio-arduino
+  sort: 200
 
 insigno:
   type: project-contributed
@@ -127,6 +140,7 @@ insigno:
   hidden_chips: [git, app, foss]
   link: https://github.com/MindsHub/insigno_frontend
   image: insigno.png
+  sort: 110
 
 crop-detection:
   type: project
@@ -136,6 +150,7 @@ crop-detection:
   hidden_chips: [foss]
   link: https://github.com/MindsHub/crop-detection
   image: crop_detection.png 1.2
+  sort: 105
 
 1010-ai:
   type: project
@@ -145,6 +160,7 @@ crop-detection:
   hidden_chips: [ai]
   link: https://github.com/Stypox/1010-ai
   image: 1010.png
+  sort: 300
 
 seguistrada:
   type: project
@@ -152,6 +168,7 @@ seguistrada:
   description: An implementation of RALPH to detect the radius of a road on an image, for autonomous driving
   chips: [ai, cpp, python, graphics, mindshub]
   link: https://github.com/MindsHub/seguistrada
+  sort: 300
 
 covid-ita:
   type: project
@@ -159,6 +176,7 @@ covid-ita:
   description: A script to plot graphs with various statistics about the impact of Covid in Italy
   chips: [python]
   link: https://github.com/Stypox/covid-ita
+  sort: 300
 
 plotter:
   type: project
@@ -167,6 +185,7 @@ plotter:
   chips: [embedded, cpp, python]
   hidden_chips: [foss]
   link: https://github.com/Stypox/plotter
+  sort: 111
 
 into-space-remake:
   type: project
@@ -175,6 +194,7 @@ into-space-remake:
   chips: [cpp, graphics]
   link: https://github.com/Stypox/into-space-remake
   image: into_space.png
+  sort: 200
 
 arg-parser:
   type: project
@@ -182,13 +202,15 @@ arg-parser:
   description: An optimized argument parser for modern C++
   chips: [cpp, foss]
   link: https://github.com/Stypox/arg-parser
+  sort: 200
 
 neural-network:
   type: project
   title: Neural Network implementation
-  description: A C++ implementation of a fully-connected neural network with various optimizers, achieving >97% accuracy on MNIST
+  description: A C++17 implementation of a fully-connected neural network with various optimizers, achieving >97% accuracy on MNIST
   chips: [ai, cpp, asd]
   link: https://github.com/Stypox/neural-network
+  sort: 112
 
 quadermas:
   type: project
@@ -197,6 +219,7 @@ quadermas:
   chips: [app, app_stores, foss]
   link: https://github.com/Stypox/quadermas
   image: quadermas.png
+  sort: 300
 
 mp3-player:
   type: project
@@ -204,6 +227,7 @@ mp3-player:
   description: Plays songs and playlists given in a configuration, saves progress, and exposes TUI controls
   chips: [python, linux]
   link: https://github.com/Stypox/mp3-player
+  sort: 300
 
 song-downloader:
   type: project
@@ -211,6 +235,7 @@ song-downloader:
   description: Uses yt-dlp to download songs and playlists, keep them updated on disk, and extract artist metadata
   chips: [python]
   link: https://github.com/Stypox/song-downloader
+  sort: 300
 
 murena:
   type: job
