@@ -153,7 +153,7 @@ insigno:
 crop-detection:
   type: project
   title: Crop segmentation AI
-  description: A keras model trained to detect crops and vegetation in images of vegetable-gardens taken perpendicular to the terrain
+  description: A keras model trained to detect crops and vegetation in bird's-eye view images of vegetable-gardens
   chips: [ml, ai, mindshub, python]
   hidden_chips: [foss]
   link: https://github.com/MindsHub/crop-detection
