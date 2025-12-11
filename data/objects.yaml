@@ -398,6 +398,14 @@ oii-2019:
   chips: [asd]
   link: https://stats.olinfo.it/contestant/dccdabc9b3b4661392e2e945c13be89d/
 
+dilemma-of-the-month:
+  type: talk
+  title: Standardization vs innovation debate
+  date: 11/12/2025
+  description: ETH Ethics Forum
+  chips: []
+  link: https://stypox.org/standardization-vs-innovation.pdf
+
 sfscon-2025:
   type: talk
   title: Dicio voice assistant
