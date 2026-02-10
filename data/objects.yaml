@@ -400,7 +400,8 @@ oii-2019:
 
 fosdem-2026:
   type: talk
-  title: NewPipe - porting an app to Sailfish OS
+  title: NewPipe & Sailfish OS
+  #title: NewPipe - porting an app to Sailfish OS
   date: 31/01/2026
   description: FOSDEM
   chips: [foss, app, linux]
