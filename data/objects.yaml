@@ -398,6 +398,14 @@ oii-2019:
   chips: [asd]
   link: https://stats.olinfo.it/contestant/dccdabc9b3b4661392e2e945c13be89d/
 
+fosdem-2026:
+  type: talk
+  title: NewPipe - porting an app to Sailfish OS
+  date: 31/01/2026
+  description: FOSDEM
+  chips: [foss, app, linux]
+  link: https://fosdem.org/2026/schedule/event/R7NR3U-newpipe-sailpipe/
+
 dilemma-of-the-month:
   type: talk
   title: Standardization vs innovation debate
@@ -428,6 +436,7 @@ speck-tech-2023:
   date: 07/10/2023
   description: Speck & Tech retreat
   chips: [compose, app]
+  link: https://stypox.org/workshop-compose.pdf
 
 sfscon-2022:
   type: talk
