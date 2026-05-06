@@ -11,7 +11,7 @@ bachelor-thesis:
   title: Bachelor's thesis on Dicio assistant
   description: Natural Language Understanding and app architecture for the Dicio free software assistant, Bachelor's thesis at University of Trento
   chips: [asd, kotlin, app, foss, nlp, compose, ai, university]
-  link: ./images/bachelor-thesis.pdf
+  link: ./bachelor-thesis.pdf
   sort: 200
 
 fondamenti-di-robotica:
